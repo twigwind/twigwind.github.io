@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twigwind Colors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Docs Styles -->
+  <link rel="stylesheet" href="docs.css">
+      <script>hljs.highlightAll();</script>
+    <style>
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+    .color-box {
+      height: 80px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    /* Text color for dark backgrounds */
+    .color-box.dark-text { color: #000; }
+    .color-box.light-text { color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Twigwind Docs</h2>
+    <nav>
+      <a href="docs.html">Getting Started</a>
+      <a href="docs2.html">Installation</a>
+      <a href="docs3.html" class="active">Colors</a>
+    </nav>
+  </aside>
+  <!-- Sidebar Toggle Button (visible on small screens) -->
+<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Colors</h1>
+    <p>twigwind supports lot's of predefined colors like</p>
+    <div class="color-grid">
+        <!-- Custom Colors -->
+        <div class="color-box dark-text" style="background:#f44336;">Red</div>
+        <div class="color-box dark-text" style="background:#e91e63;">Pink</div>
+        <div class="color-box light-text" style="background:#9c27b0;">Purple</div>
+        <div class="color-box light-text" style="background:#673ab7;">Deep Purple</div>
+        <div class="color-box light-text" style="background:#3f51b5;">Indigo</div>
+        <div class="color-box light-text" style="background:#2196f3;">Blue</div>
+        <div class="color-box light-text" style="background:#03a9f4;">Light Blue</div>
+        <div class="color-box dark-text" style="background:#00bcd4;">Cyan</div>
+        <div class="color-box dark-text" style="background:#00ffff;">Aqua</div>
+        <div class="color-box light-text" style="background:#009688;">Teal</div>
+        <div class="color-box dark-text" style="background:#4caf50;">Green</div>
+        <div class="color-box dark-text" style="background:#8bc34a;">Light Green</div>
+        <div class="color-box dark-text" style="background:#cddc39;">Lime</div>
+        <div class="color-box dark-text" style="background:#f4e1b0;">Sand</div>
+        <div class="color-box dark-text" style="background:#f0e68c;">Khaki</div>
+        <div class="color-box dark-text" style="background:#ffeb3b;">Yellow</div>
+        <div class="color-box dark-text" style="background:#ffc107;">Amber</div>
+        <div class="color-box dark-text" style="background:#ff9800;">Orange</div>
+        <div class="color-box dark-text" style="background:#ff5722;">Deep Orange</div>
+        <div class="color-box dark-text" style="background:#607d8b;">Blue Gray</div>
+        <div class="color-box dark-text" style="background:#795548;">Brown</div>
+        <div class="color-box light-text" style="background:#ffffff; color: #000;">White</div>
+        <div class="color-box dark-text" style="background:#d3d3d3;">Light Gray</div>
+        <div class="color-box dark-text" style="background:#808080;">Gray</div>
+        <div class="color-box light-text" style="background:#424242;">Dark Gray</div>
+        <div class="color-box light-text" style="background:#000000;">Black</div>
+        <div class="color-box dark-text" style="background:#ffcccc;">Pale Red</div>
+        <div class="color-box dark-text" style="background:#ffffcc;">Pale Yellow</div>
+        <div class="color-box dark-text" style="background:#ccffcc;">Pale Green</div>
+        <div class="color-box dark-text" style="background:#cce6ff;">Pale Blue</div>
+        <div class="color-box dark-text" style="background:aliceblue;">AliceBlue</div>
+        <div class="color-box dark-text" style="background:antiquewhite;">AntiqueWhite</div>
+        <div class="color-box dark-text" style="background:aqua;">Aqua</div>
+        <div class="color-box dark-text" style="background:aquamarine;">Aquamarine</div>
+        <div class="color-box dark-text" style="background:azure;">Azure</div>
+        <div class="color-box dark-text" style="background:beige;">Beige</div>
+        <div class="color-box dark-text" style="background:bisque;">Bisque</div>
+        <div class="color-box light-text" style="background:blue;">Blue</div>
+        <div class="color-box dark-text" style="background:blueviolet;">BlueViolet</div>
+        <div class="color-box dark-text" style="background:brown;">Brown</div>
+        <div class="color-box dark-text" style="background:burlywood;">BurlyWood</div>
+        <div class="color-box dark-text" style="background:cadetblue;">CadetBlue</div>
+        <div class="color-box dark-text" style="background:chartreuse;">Chartreuse</div>
+        <div class="color-box dark-text" style="background:chocolate;">Chocolate</div>
+        <div class="color-box dark-text" style="background:coral;">Coral</div>
+        <div class="color-box dark-text" style="background:cornflowerblue;">CornflowerBlue</div>
+        <div class="color-box dark-text" style="background:cornsilk;">Cornsilk</div>
+        <div class="color-box dark-text" style="background:crimson;">Crimson</div>
+        <div class="color-box dark-text" style="background:cyan;">Cyan</div>
+        <div class="color-box dark-text" style="background:darkblue; color: white;">DarkBlue</div>
+        <div class="color-box dark-text" style="background:darkcyan;">DarkCyan</div>
+        <div class="color-box dark-text" style="background:darkgoldenrod;">DarkGoldenRod</div>
+        <div class="color-box dark-text" style="background:darkgray;">DarkGray</div>
+        <div class="color-box dark-text" style="background:darkgreen;">DarkGreen</div>
+        <div class="color-box dark-text" style="background:darkkhaki;">DarkKhaki</div>
+        <div class="color-box dark-text" style="background:darkmagenta;">DarkMagenta</div>
+        <div class="color-box dark-text" style="background:darkolivegreen;">DarkOliveGreen</div>
+        <div class="color-box dark-text" style="background:darkorange;">DarkOrange</div>
+        <div class="color-box dark-text" style="background:darkorchid;">DarkOrchid</div>
+        <div class="color-box dark-text" style="background:darkred;">DarkRed</div>
+        <div class="color-box dark-text" style="background:darksalmon;">DarkSalmon</div>
+        <div class="color-box dark-text" style="background:darkseagreen;">DarkSeaGreen</div>
+        <div class="color-box dark-text" style="background:darkslateblue;">DarkSlateBlue</div>
+        <div class="color-box dark-text" style="background:darkslategray;">DarkSlateGray</div>
+        <div class="color-box dark-text" style="background:darkturquoise;">DarkTurquoise</div>
+        <div class="color-box dark-text" style="background:darkviolet;">DarkViolet</div>
+        <div class="color-box dark-text" style="background:deeppink;">DeepPink</div>
+        <div class="color-box dark-text" style="background:deepskyblue;">DeepSkyBlue</div>
+        <div class="color-box dark-text" style="background:dimgray;">DimGray</div>
+        <div class="color-box dark-text" style="background:dodgerblue;">DodgerBlue</div>
+    </div>
+    <p>to use these write the color name with the <code>color-</code> prefix</p>
+    <pre><code class="language-html">&lt;p class=&quot;color-red&quot;&gt;This is Red text.&lt;/p&gt;
+&lt;p class=&quot;color-pink&quot;&gt;This is Pink text.&lt;/p&gt;
+&lt;p class=&quot;color-purple&quot;&gt;This is Purple text.&lt;/p&gt;
+&lt;p class=&quot;color-blue&quot;&gt;This is Blue text.&lt;/p&gt;
+&lt;p class=&quot;color-green&quot;&gt;This is Green text.&lt;/p&gt;
+&lt;p class=&quot;color-yellow&quot;&gt;This is Yellow text.&lt;/p&gt;</code></pre>
+    <hr>
+    <p>These are the predefined color's but Twigwind support ✨Arbratary colors✨ like</p>
+    <pre><code class="language-html">&lt;p class="color-rgb(252, 24, 8)"&gt;this is red&lt;p&gt;
+&lt;p class="color-#ffffff"&gt;this is white&lt;p&gt;
+&lt;p class="color-rgba(252, 0, 130, 0.39)"&gt;this is transparent pink&lt;p&gt;</code></pre>
+  </main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
+
+</body>
+</html>

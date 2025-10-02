@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twigwind Installation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Docs Styles -->
+  <link rel="stylesheet" href="docs.css">
+      <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Twigwind Docs</h2>
+    <nav>
+       <a href="docs.html">Getting Started</a>
+      <a href="docs2.html" class="active">Installation</a>
+      <a href="docs3.html">Colors</a>
+    </nav>
+  </aside>
+  <!-- Sidebar Toggle Button (visible on small screens) -->
+<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Installation</h1>
+    <p>to install twigwind vist <a href="https://github.com/helloadhavan/twigwind" target="_blank">https://github.com/helloadhavan/twigwind</a> or run</p>
+    <pre><code class="language-bash">git clone https://github.com/helloadhavan/twigwind.git</code></pre>
+    <p>by running the command above you'll get the following files</p>
+    <ul>
+        <li><strong>version.txt</strong>: the version of twigwind</li>
+        <li><strong>css.js</strong>: the real js sources file</li>
+        <li><strong>css.css</strong>: the optional css file for icons, fonts, etc...</li>
+        <li><strong>hljs_styles</strong>: the css folder for hljs highlighting stylesheets</li>
+        <li><strong>README.md</strong>: the md file</li>
+        <li><strong>hljs.js</strong>: the js file for including the hljs extention</li>
+    </ul>
+    <hr>
+    <h2>Usage</h2>
+    <pre><code class="language-html">&lt;link href="/path/to/twigwind/css.js" rel="stylesheet"&gt;
+&lt;link href="/path/to/twigwind/css.css" rel="stylesheet"&gt;</code></pre>
+  <div class="alert warning">
+      ⚠️ Note: Twigwind is still in development. Expect frequent updates.
+    </div>      
+  </main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
+
+</body>
+</html>
