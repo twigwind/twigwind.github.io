@@ -1,1 +1,458 @@
-<h1>hh</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Twigwind — Utility CSS Framework</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0d0d10;
+      --panel:#141418;
+      --muted:#9aa3b2;
+      --accent-a:#7f5af0;
+      --accent-b:#2cb67d;
+      --glass: rgba(20,20,20,0.7);
+      --glass-2: rgba(255,255,255,0.03);
+      --card-border:#232329;
+      --max-width:1100px;
+    }
+
+    /* ====== Reset & base ====== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:"JetBrains Mono", "Fira Code", monospace;
+      background:linear-gradient(180deg,var(--bg) 0%, #060607 100%);
+      color:#e9eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    img{max-width:100%;height:auto;display:block}
+    h1,h2,h3{margin:0;line-height:1.05}
+    section{padding:72px 20px}
+
+    /* ====== Header ====== */
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1200;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:18px 36px;
+      background:var(--glass);
+      backdrop-filter: blur(8px) saturate(120%);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:9px;
+      background:linear-gradient(135deg,var(--accent-a),var(--accent-b));
+      box-shadow:0 6px 22px rgba(43,30,97,0.22), inset 0 -6px 20px rgba(255,255,255,0.02);
+      display:inline-grid;place-items:center;color:white;font-weight:700;font-size:18px;
+    }
+    header h1{font-size:1.1rem;background:linear-gradient(90deg,var(--accent-a),var(--accent-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    nav{display:flex;gap:20px;align-items:center}
+    nav a{font-size:0.95rem;color:var(--muted);padding:8px 10px;border-radius:8px;transition:all .22s}
+    nav a:hover{color:#fff;transform:translateY(-3px);background:rgba(255,255,255,0.02)}
+    .cta{
+      padding:8px 12px;border-radius:9px;font-weight:700;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));box-shadow:0 8px 30px rgba(127,90,240,0.12);color:white;text-decoration:none;
+    }
+
+    /* ====== HERO (integrated SVG) ====== */
+    .hero-outer{
+      display:grid;
+      grid-template-columns:1fr;
+      align-items:center;
+      min-height:calc(100vh - 76px);
+      padding-top:96px; /* header spacing */
+      position:relative;
+      z-index:1;
+      overflow:hidden;
+    }
+    .hero-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      width:100%;
+      display:flex;
+      gap:48px;
+      align-items:center;
+      justify-content:space-between;
+      padding:22px;
+      position:relative;
+      z-index:4;
+    }
+
+    .hero-left{
+      flex:1 1 480px;
+      color:#f8fbff;
+    }
+    .hero-left h1{
+      font-size:clamp(28px,5vw,48px);
+      margin-bottom:12px;
+      letter-spacing:-0.02em;
+    }
+    .hero-left p{color:var(--muted);font-size:1.05rem;margin-bottom:18px}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .btn:hover{transform:translateY(-4px)}
+    .btn-primary{background:linear-gradient(135deg,var(--accent-a),var(--accent-b));color:white;box-shadow:0 12px 30px rgba(44,182,125,0.06)}
+    .btn-light{background:rgba(255,255,255,0.04);color:#fff;border:1px solid rgba(255,255,255,0.04)}
+
+    /* hero svg container */
+    .hero-svg-wrap{
+      position:absolute;inset:0;z-index:1;pointer-events:none;
+    }
+    #hero-svg{width:100%;height:100%;display:block;will-change:transform,filter}
+
+    /* reveal helpers */
+    .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.2,.9,.2,1),transform .7s cubic-bezier(.2,.9,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* ====== Features ====== */
+    .features{
+      max-width:var(--max-width);margin:0 auto;text-align:left;display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
+    }
+    .feature-card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.012),rgba(0,0,0,0.02));
+      border:1px solid var(--card-border);
+      padding:20px;border-radius:12px;
+      box-shadow:0 6px 24px rgba(5,7,10,0.5);
+      transition:transform .18s, border-color .18s;
+    }
+    .feature-card:hover{transform:translateY(-6px);border-color:rgba(127,90,240,0.18)}
+    .feature-card h3{color:#fff;margin-bottom:8px}
+    .feature-card p{color:var(--muted);margin:0;font-size:0.98rem}
+
+    /* ====== Example code block ====== */
+    .example{
+      max-width:var(--max-width);margin:28px auto;padding:22px;border-radius:10px;background:var(--panel);border:1px solid var(--card-border);
+      overflow:auto;box-shadow:0 10px 30px rgba(2,6,12,0.6)
+    }
+    pre{margin:0;color:#e6eef8;background:transparent;font-family:"Fira Code",monospace;font-size:0.9rem;line-height:1.4;white-space:pre-wrap;word-break:break-word}
+
+    /* ====== Comparison table ====== */
+    .comparison{
+      max-width:var(--max-width);margin:36px auto;border-collapse:collapse;width:100%;
+      border-radius:10px;overflow:hidden;border:1px solid var(--card-border);
+    }
+    .comparison thead th{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.04));padding:14px 12px;text-align:left;color:#fff;font-weight:700}
+    .comparison td{padding:12px 14px;background:rgba(255,255,255,0.01);color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
+    .comparison tr:hover td{background:rgba(255,255,255,0.015);color:#fff}
+    .comparison td:first-child{color:var(--accent-a);font-weight:700}
+
+    /* ====== Footer ====== */
+    footer{padding:36px 20px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);margin-top:40px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero-inner{flex-direction:column;gap:18px;padding:8px}
+      .features{grid-template-columns:1fr}
+      section{padding:56px 18px}
+    }
+
+    /* small visual niceties */
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true"><img src="https://raw.githubusercontent.com/helloadhavan/twigwind/refs/heads/main/logo.png"></div>
+      <h1>Twigwind</h1>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#example">Example</a>
+      <a href="#comparison">Comparison</a>
+      <a class="cta" href="https://github.com/helloadhavan/twigwind" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </header>
+
+  <!-- HERO (SVG & content) -->
+  <main class="hero-outer" role="main" aria-labelledby="hero-title">
+
+    <!-- SVG hero background + parallax layers -->
+    <div class="hero-svg-wrap" aria-hidden="true">
+      <!-- Inline SVG (same as earlier - morphing blobs + particles + lines) -->
+      <svg id="hero-svg" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice"
+           xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true">
+        <defs>
+          <linearGradient id="grad1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#7f5af0"/>
+            <stop offset="100%" stop-color="#2cb67d"/>
+          </linearGradient>
+          <radialGradient id="blobGradA" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#7f5af0" stop-opacity="0.95"/>
+            <stop offset="70%" stop-color="#2cb67d" stop-opacity="0.65"/>
+            <stop offset="100%" stop-color="#2cb67d" stop-opacity="0.25"/>
+          </radialGradient>
+          <radialGradient id="blobGradB" cx="70%" cy="70%" r="70%">
+            <stop offset="0%" stop-color="#ff6b6b" stop-opacity="0.95"/>
+            <stop offset="50%" stop-color="#feca57" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#feca57" stop-opacity="0.18"/>
+          </radialGradient>
+          <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="24" result="b"/>
+            <feBlend in="SourceGraphic" in2="b" mode="normal"/>
+          </filter>
+          <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.03)"></circle>
+          </pattern>
+        </defs>
+
+        <rect width="100%" height="100%" fill="url(#grad1)" opacity="0.04"/>
+        <g class="parallax layer-slow" transform="translate(0,0)">
+          <path id="blobA" fill="url(#blobGradA)" filter="url(#softBlur)" opacity="0.95"
+                d="M300,120 C420,40 560,20 720,120 C900,240 960,420 840,540 C700,660 420,640 260,540 C120,440 180,240 300,120 Z">
+            <animate attributeName="d" dur="12s" repeatCount="indefinite"
+              values="
+                M300,120 C420,40 560,20 720,120 C900,240 960,420 840,540 C700,660 420,640 260,540 C120,440 180,240 300,120 Z;
+                M280,140 C420,40 580,40 740,160 C920,290 940,430 800,540 C660,660 420,620 240,540 C110,460 170,260 280,140 Z;
+                M320,100 C440,40 560,10 700,120 C880,250 980,420 860,520 C720,640 430,640 290,540 C150,440 210,240 320,100 Z;
+                M300,120 C420,40 560,20 720,120 C900,240 960,420 840,540 C700,660 420,640 260,540 C120,440 180,240 300,120 Z
+              " />
+          </path>
+        </g>
+
+        <g class="parallax layer-med" transform="translate(0,0)">
+          <path id="blobB" fill="url(#blobGradB)" filter="url(#softBlur)" opacity="0.92"
+                d="M1040,420 C1180,360 1260,300 1320,340 C1400,400 1380,520 1260,580 C1120,650 940,640 820,560 C700,480 880,480 1040,420 Z">
+            <animate attributeName="d" dur="14s" repeatCount="indefinite"
+              values="
+                M1040,420 C1180,360 1260,300 1320,340 C1400,400 1380,520 1260,580 C1120,650 940,640 820,560 C700,480 880,480 1040,420 Z;
+                M1020,400 C1160,340 1240,300 1300,360 C1380,420 1360,540 1240,600 C1100,670 940,640 820,560 C700,480 880,500 1020,400 Z;
+                M1060,430 C1200,370 1280,320 1336,360 C1410,410 1390,520 1264,578 C1116,648 948,642 826,558 C704,474 884,485 1060,430 Z;
+                M1040,420 C1180,360 1260,300 1320,340 C1400,400 1380,520 1260,580 C1120,650 940,640 820,560 C700,480 880,480 1040,420 Z
+              " />
+          </path>
+        </g>
+
+        <g class="parallax layer-fast" style="mix-blend-mode:screen">
+          <circle class="dot" cx="200" cy="90" r="3" fill="#fff" opacity="0.18"/>
+          <circle class="dot" cx="460" cy="180" r="2.5" fill="#fff" opacity="0.12"/>
+          <circle class="dot" cx="980" cy="120" r="2" fill="#fff" opacity="0.10"/>
+          <circle class="dot" cx="1240" cy="220" r="2.8" fill="#fff" opacity="0.12"/>
+          <circle class="dot" cx="880" cy="60" r="2.3" fill="#fff" opacity="0.09"/>
+          <circle class="dot" cx="520" cy="420" r="3.2" fill="#fff" opacity="0.08"/>
+        </g>
+
+        <g class="lines" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none" >
+          <path id="line1" d="M40 600 C220 520 480 520 680 600 C880 680 1160 640 1360 520" stroke-linecap="round" stroke-linejoin="round" />
+          <path id="line2" d="M0 420 C200 380 420 460 700 420 C980 380 1180 460 1400 420" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+        </g>
+
+        <rect width="100%" height="100%" fill="url(#dots)" opacity="0.02"></rect>
+      </svg>
+    </div>
+
+    <!-- Hero content -->
+    <div class="hero-inner" id="hero">
+      <div class="hero-left" aria-labelledby="hero-title">
+        <h1 id="hero-title">Rapidly build modern websites without ever leaving your HTML.</h1>
+        <p class="muted">Twigwind is a dark-first, utility CSS framework — tiny, JS-powered, and great for fast prototyping.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="https://github.com/helloadhavan/twigwind" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="btn btn-light" href="#example">See Example</a>
+        </div>
+      </div>
+
+      <!-- You can place an optional small preview card or screenshot on the right if desired -->
+      <div style="flex:0 0 360px;display:none" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <!-- Features -->
+  <section id="features" class="reveal" aria-labelledby="features-title">
+    <div style="max-width:var(--max-width);margin:0 auto">
+      <h2 id="features-title" style="font-size:1.6rem;margin-bottom:12px">Features</h2>
+      <div class="features" role="list">
+        <div class="feature-card" role="listitem">
+          <h3>⚡ Utility-first</h3>
+          <p>Compose interfaces quickly with atomic classes, without writing long CSS rules.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3>🛠️ Dynamic generators</h3>
+          <p>On-the-fly CSS generation via small JavaScript helpers — flexible and fast.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3>📱 Responsive & hover-friendly</h3>
+          <p>Built-in responsive prefixes and hover variants make UI work simple.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3>💡 Tiny & JS-first</h3>
+          <p>No heavy builds required; use simple scripts to power dynamic styling when you need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Usage -->
+  <section id="example" class="reveal" aria-labelledby="example-title">
+    <div style="max-width:var(--max-width);margin:0 auto">
+      <h2 id="example-title" style="font-size:1.6rem;margin-bottom:12px">Example Usage</h2>
+      <div class="example" role="region" aria-label="Example code">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Twigwind Test Page&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;link rel="stylesheet" href="css.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1 class="color-blue size-xl mb-20"&gt;Twigwind Test Page&lt;/h1&gt;
+
+  &lt;!-- Colors --&gt;
+  &lt;section&gt;
+    &lt;h2 class="color-purple size-lg mb-10"&gt;Colors&lt;/h2&gt;
+    &lt;div class="flex:row-left-center mb-10"&gt;
+      &lt;div class="bg-red size-md mr-10 p-10"&gt;Red&lt;/div&gt;
+      &lt;div class="bg-green size-md mr-10 p-10"&gt;Green&lt;/div&gt;
+      &lt;div class="bg-blue size-md p-10"&gt;Blue&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Twigwind JS --&gt;
+  &lt;script src="css.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section id="comparison" class="reveal" aria-labelledby="comparison-title">
+    <div style="max-width:var(--max-width);margin:0 auto">
+      <h2 id="comparison-title" style="font-size:1.6rem;margin-bottom:12px">Framework Comparison</h2>
+
+      <table class="comparison" role="table" aria-label="Comparison table">
+        <thead>
+          <tr>
+            <th>Feature / Framework</th>
+            <th>W3.CSS</th>
+            <th>Tailwind</th>
+            <th>Bootstrap</th>
+            <th>Twigwind</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ease of Learning</td><td>✔️</td><td>❌</td><td>⭐</td><td>✔️</td></tr>
+          <tr><td>Utility-First Approach</td><td>❌</td><td>⭐</td><td>❌</td><td>⭐</td></tr>
+          <tr><td>Customization / Flexibility</td><td>✔️</td><td>⭐</td><td>✔️</td><td>⭐</td></tr>
+          <tr><td>Responsive Design</td><td>✔️</td><td>⭐</td><td>⭐</td><td>⭐</td></tr>
+          <tr><td>Prebuilt Components</td><td>✔️</td><td>❌</td><td>⭐</td><td>❌</td></tr>
+          <tr><td>File Size / Lightweight</td><td>⭐</td><td>✔️</td><td>❌</td><td>⭐</td></tr>
+          <tr><td>Community / Ecosystem</td><td>✔️</td><td>⭐</td><td>⭐</td><td>❌</td></tr>
+          <tr><td>Ease of Integration</td><td>⭐</td><td>✔️</td><td>✔️</td><td>⭐</td></tr>
+          <tr><td>Dynamic/JS Integration</td><td>❌</td><td>✔️</td><td>✔️</td><td>⭐</td></tr>
+          <tr><td>Rapid Prototyping</td><td>✔️</td><td>⭐</td><td>⭐</td><td>⭐</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="reveal">
+    <div style="max-width:var(--max-width);margin:0 auto">
+      <p>© 2025 Twigwind Framework — <a href="https://github.com/helloadhavan/twigwind" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+  </footer>
+
+  <!-- ====== Scripts: Reveal + Parallax + small niceties ====== -->
+  <script>
+    // Reveal on scroll (IntersectionObserver)
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, {threshold:0.18});
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
+    // Parallax + subtle idle motion for the SVG hero
+    (function(){
+      const svg = document.getElementById('hero-svg');
+      if (!svg) return;
+      const slow = svg.querySelector('.layer-slow');
+      const med = svg.querySelector('.layer-med');
+      const fast = svg.querySelector('.layer-fast');
+      const wrapper = document.querySelector('.hero-outer');
+      // handler
+      function moveLayers(clientX, clientY) {
+        const w = wrapper.clientWidth, h = wrapper.clientHeight;
+        const nx = (clientX / w) - 0.5;
+        const ny = (clientY / h) - 0.5;
+        if (slow) slow.style.transform = `translate(${nx * 18}px, ${ny * 12}px)`;
+        if (med) med.style.transform = `translate(${nx * 36}px, ${ny * 24}px)`;
+        if (fast) fast.style.transform = `translate(${nx * 72}px, ${ny * 48}px)`;
+      }
+      window.addEventListener('mousemove', (e) => moveLayers(e.clientX, e.clientY), {passive:true});
+      window.addEventListener('touchmove', (ev) => {
+        const t = ev.touches && ev.touches[0];
+        if (t) moveLayers(t.clientX, t.clientY);
+      }, {passive:true});
+      // idle breathing
+      let t = 0;
+      function idle(){
+        t += 0.0065;
+        const sx = Math.cos(t) * 6, sy = Math.sin(t * 0.8) * 4;
+        if (slow) slow.style.transform = `translate(${sx}px, ${sy}px)`;
+        if (med) med.style.transform  = `translate(${sx*1.8}px, ${sy*1.6}px)`;
+        if (fast) fast.style.transform = `translate(${sx*3.2}px, ${sy*2.4}px)`;
+        requestAnimationFrame(idle);
+      }
+      idle();
+    })();
+
+    // Small: highlight nav when section in view
+    (function(){
+      const links = document.querySelectorAll('header nav a[href^="#"]');
+      if(!links.length) return;
+      const map = {};
+      links.forEach(a => { try { map[a.getAttribute('href')] = a } catch(e){} });
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            const id = '#' + (e.target.id || e.target.getAttribute('id'));
+            Object.values(map).forEach(a=> a.classList.remove('active'));
+            if(map[id]) map[id].classList.add('active');
+          }
+        });
+      }, {threshold:0.45});
+      document.querySelectorAll('main, section').forEach(s => {
+        if(s.id) obs.observe(s);
+      });
+    })();
+  </script>
+</body>
+</html>
