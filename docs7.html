@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twigwind hover and media</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Docs Styles -->
+  <link rel="stylesheet" href="docs.css">
+      <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Twigwind Docs</h2>
+    <nav>
+       <a href="docs.html">Getting Started</a>
+      <a href="docs2.html">Installation</a>
+      <a href="docs3.html">Colors</a>
+      <a href="docs4.html">Sizes</a>
+      <a href="docs5.html">Spacing</a>
+      <a href="docs6.html">Shadow</a>
+      <a href="docs7.html" class="active">Hover and Media</a>
+      <a href="docs8.html">Transition & Transform</a>
+    </nav>
+  </aside>
+  <!-- Sidebar Toggle Button (visible on small screens) -->
+<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>hover and media</h1>
+    <p>Twigwind provides utilities for hover states and media queries. Use the <code>hover:</code> prefix for hover changes</p>
+    <div class="alert info">
+      💡 Tip: Combine hover with other utilities for interactive effects.
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <pre><code class="language-html">&lt;div class="bg-purple p-10 hover:bg-pink"&gt;hover me&lt;/div&gt;
+        </code></pre>
+        <p>will be complied into</p>
+        <pre><code class="language-css">
+bg-purple { background-color: #7b2ff7; }            
+p-10 { padding: 10px; }
+bg-purple:hover { background-color: #ff49db; }</code></pre>
+    </div>
+    <h2>Media Queries</h2>
+    <p>Use the <code>sm:</code>, <code>md:</code>, <code>lg:</code>, and <code>xl:</code> prefixes to apply styles at different screen sizes.</p>
+    <div class="alert info">
+      💡 Tip: Combine media queries with other utilities for responsive designs.
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <pre><code class="language-html">&lt;div class="bg-blue p-10 sm:bg-green md:bg-yellow lg:bg-red xl:bg-purple"&gt;Resize the window&lt;/div&gt;
+        </code></pre>
+        <p>will be complied into</p>
+        <pre><code class="language-css">
+bg-blue { background-color: #1e90ff; }            
+p-10 { padding: 10px; }
+@media (min-width: 640px) { .sm\:bg-green { background-color: #32cd32; } }
+@media (min-width: 768px) { .md\:bg-yellow { background-color: #ffd700; } }
+@media (min-width: 1024px) { .lg\:bg-red { background-color: #ff4500; } }
+@media (min-width: 1280px) { .xl\:bg-purple { background-color: #7b2ff7; } }</code></pre>
+    </div>
+  </main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
+
+</body>
+</html>

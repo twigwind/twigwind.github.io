@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twigwind Transition & Transform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Docs Styles -->
+  <link rel="stylesheet" href="docs.css">
+      <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Twigwind Docs</h2>
+    <nav>
+       <a href="docs.html">Getting Started</a>
+      <a href="docs2.html">Installation</a>
+      <a href="docs3.html">Colors</a>
+      <a href="docs4.html">Sizes</a>
+      <a href="docs5.html">Spacing</a>
+      <a href="docs6.html">Shadow</a>
+      <a href="docs7.html">Hover and Media</a>
+      <a href="docs8.html"  class="active">Transition & Transform</a>
+    </nav>
+  </aside>
+  <!-- Sidebar Toggle Button (visible on small screens) -->
+<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Transition & Transform</h1>
+    <p>twigwind provides utilities for transitions and transforms.</p>
+    <h2>Transition</h2>
+    <p>Twigwind utilities to control the timing and easing of CSS transitions using the <code>transition: </code> prefix followed by <code>-</code> signs for spaces.</p>
+    <div class="alert info">
+      💡 Tip: You can add multiple transistion properties
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <pre><code class="language-html">
+&lt;div class="bg-purple p-10 transition:all-500-ease hover:bg-pink"&gt;
+        </code></pre>
+        <p>will be complied into</p>
+        <pre><code class="language-css">
+background-color: #7b2ff7;
+padding: 10px;
+transition: all 500ms ease;
+    </div>
+  </main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
+
+</body>
+</html>

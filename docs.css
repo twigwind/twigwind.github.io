@@ -84,7 +84,7 @@ body {
 .main h1 { font-size: 2.2rem; }
 .main h2 { font-size: 1.6rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
 .main h3 { font-size: 1.3rem; color: var(--accent-a); }
-.main h4 { font-size: 1.1rem; color: var(--accent-b); }
+.main h4 { font-size: 1.1rem;}
 .main p { margin: 1rem 0; color: var(--text-muted); }
 .main ul, .main ol { margin: 1rem 0 1rem 1rem; }
 .main a { 
@@ -95,6 +95,7 @@ body {
     color: white;
     text-decoration: none;
     }
+
 
 /* ====== Code Blocks ====== */
 pre, code {
@@ -164,6 +165,17 @@ table tr:hover td {
   background: rgba(255, 107, 107, 0.1);
   border-color: #ff6b6b;
   color: #ff6b6b;
+}
+
+.example {
+  background-color: #2b3a4d53;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.example h4 {
+  margin-top: 0;
 }
 
 /* Sidebar Toggle Button */
