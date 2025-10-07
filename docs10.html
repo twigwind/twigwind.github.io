@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twigwind Transition & Transform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Docs Styles -->
+  <link rel="stylesheet" href="docs.css">
+      <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Twigwind Docs</h2>
+    <nav>
+       <a href="docs.html">Getting Started</a>
+      <a href="docs2.html">Installation</a>
+      <a href="docs3.html">Colors</a>
+      <a href="docs4.html">Sizes</a>
+      <a href="docs5.html">Spacing</a>
+      <a href="docs6.html">Google Fonts & Icons</a>
+      <a href="docs7.html">Shadow</a>
+      <a href="docs8.html">Flex & Grid</a>
+      <a href="docs9.html">Hover and Media</a>
+      <a href="docs10.html"  class="active">Transition & Transform</a>
+      <a href="docs11.html">Position Utilities</a>
+      <a href="docs12.html">Animation Utilities</a>
+    </nav>
+  </aside>
+  <!-- Sidebar Toggle Button (visible on small screens) -->
+<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Transition & Transform</h1>
+    <p>twigwind provides utilities for transitions and transforms.</p>
+    <h2>Transition</h2>
+    <p>Twigwind utilities to control the timing and easing of CSS transitions using the <code>transition: </code> prefix followed by <code>-</code> signs for spaces.</p>
+    <div class="alert info">
+      💡 Tip: You can add multiple transistion properties
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <pre><code class="language-html">
+&lt;div class="bg-purple p-10 transition:all-500-ease hover:bg-pink"&gt;hover me&lt;/div&gt;
+        </code></pre>
+        <p>will be complied into</p>
+        <pre><code class="language-css">
+background-color: #7b2ff7;
+padding: 10px;
+transition: all 500ms ease;
+</code></pre>
+    </div>
+    <h2>Transform</h2>
+    <p>Twigwind provides utilities for CSS transforms including translation, rotation, scaling, and skewing. Use the following functions with the prefix <code>transform:</code></p><BR>
+    <ul>
+        <li><strong>translate-</strong> for moving elements along the X and Y axes</li>
+        <li><strong>rotate-</strong> for rotating elements</li>
+        <li><strong>scale-</strong> for scaling elements up or down</li>
+        <li><strong>skew-</strong> for skewing elements along the X and Y axes</li>
+    </ul>
+    <div class="alert warning">
+      💡 Note: use multiple transform functions for complex effects.
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <pre><code class="language-html">
+&lt;div class="bg-blue p-10 transform:translate-20px-10px transform:rotate-15 transform:scale-1.5 transform:skew-10px-5px"&gt;Transformed&lt;/div&gt;
+        </code></pre>
+        <p>will be complied into</p>
+        <pre><code class="language-css">
+bg-blue { background-color: #1e90ff; }
+p-10 { padding: 10px; }
+transform: translate(20px, 10px) rotate(15deg) scale(1.5) skew(10px, 5px);
+  </main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
+
+</body>
+</html>

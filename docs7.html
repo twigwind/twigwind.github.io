@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Twigwind hover and media</title>
+  <title>Twigwind shadow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -25,9 +25,13 @@
       <a href="docs3.html">Colors</a>
       <a href="docs4.html">Sizes</a>
       <a href="docs5.html">Spacing</a>
-      <a href="docs6.html">Shadow</a>
-      <a href="docs7.html" class="active">Hover and Media</a>
-      <a href="docs8.html">Transition & Transform</a>
+      <a href="docs6.html">Google Fonts & Icons</a>
+      <a href="docs7.html" class="active">Shadow</a>
+      <a href="docs8.html">Flex & Grid</a>
+      <a href="docs9.html">Hover and Media</a>
+      <a href="docs10.html">Transition & Transform</a>
+      <a href="docs11.html">Position Utilities</a>
+      <a href="docs12.html">Animation Utilities</a>
     </nav>
   </aside>
   <!-- Sidebar Toggle Button (visible on small screens) -->
@@ -36,38 +40,37 @@
 
   <!-- Main Content -->
   <main class="main">
-    <h1>hover and media</h1>
-    <p>Twigwind provides utilities for hover states and media queries. Use the <code>hover:</code> prefix for hover changes</p>
-    <div class="alert info">
-      💡 Tip: Combine hover with other utilities for interactive effects.
-    </div>
+    <h1>Shadow</h1>   
+    <p>Twigwind supports 3 types shadow utilities which are:</p>
+    <ol>
+        <li><strong>Predefined shadow</strong>- these are the default shadow utilities provided by Twigwind.</li><br>
+        <li><strong>Custom shadow</strong>- these allow you to create your own shadow utilities with specific values.</li><br>
+        <li><strong>text-shadow</strong>- these utilities allow you to add shadow effects to text elements.</li><br>
+    </ol>
+    <h2>Predefined shadow</h2>
+    <p>Twigwind provides several predefined shadow utilities that you can use to add depth and dimension to your elements. These utilities include:</p>
+    <ul>
+        <li><strong>shadow-sm</strong>: Applies a small shadow to the element.</li><br>
+        <li><strong>shadow-md</strong>: Applies a medium shadow to the element.</li><br>
+        <li><strong>shadow-lg</strong>: Applies a large shadow to the element.</li><br>
+        <li><strong>shadow-xl</strong>: Applies an extra-large shadow to the element.</li><br>
+        <li><strong>shadow-2xl</strong>: Applies a double extra-large shadow to the element.</li><br>
+        <li><strong>shadow-none</strong>: Removes any shadow from the element.</li><br>
+    </ul>
     <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">&lt;div class="bg-purple p-10 hover:bg-pink"&gt;hover me&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-bg-purple { background-color: #7b2ff7; }            
-p-10 { padding: 10px; }
-bg-purple:hover { background-color: #ff49db; }</code></pre>
+    <h4>Example</h4>
+    <pre><code class="language-html">&lt;div class="bg-white shadow-sm p-5 mb-5"&gt;Small Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-md p-5 mb-5"&gt;Medium Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-lg p-5 mb-5"&gt;Large Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-xl p-5 mb-5"&gt;Extra Large Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-2xl p-5 mb-5"&gt;2X Large Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-none p-5 mb-5"&gt;No Shadow&lt;/div&gt;</code></pre>
     </div>
-    <h2>Media Queries</h2>
-    <p>Use the <code>sm:</code>, <code>md:</code>, <code>lg:</code>, and <code>xl:</code> prefixes to apply styles at different screen sizes.</p>
-    <div class="alert info">
-      💡 Tip: Combine media queries with other utilities for responsive designs.
-    </div>
+    <h2>Custom shadow</h2>
+    <p>In addition to the predefined shadow utilities, Twigwind also allows you to create custom shadow utilities using arbitrary values.<br>You can specify your own shadow values by using the <code>shadow-[value]</code> syntax.</p>
     <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">&lt;div class="bg-blue p-10 sm:bg-green md:bg-yellow lg:bg-red xl:bg-purple"&gt;Resize the window&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-bg-blue { background-color: #1e90ff; }            
-p-10 { padding: 10px; }
-@media (min-width: 640px) { .sm\:bg-green { background-color: #32cd32; } }
-@media (min-width: 768px) { .md\:bg-yellow { background-color: #ffd700; } }
-@media (min-width: 1024px) { .lg\:bg-red { background-color: #ff4500; } }
-@media (min-width: 1280px) { .xl\:bg-purple { background-color: #7b2ff7; } }</code></pre>
+      <h4>Example</h4>
+      <pre><code class="language-html">&lt;div class="bg-white shadow-0_4px_6px_-1px_rgba(0,0,0,0.1) p-5 mb-5"&gt;Custom Shadow 1&lt;/div&gt;</code></pre>
     </div>
   </main>
 <script>

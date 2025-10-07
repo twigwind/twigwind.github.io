@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Twigwind Transition & Transform</title>
+  <title>Twigwind Flex & Grid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -20,14 +20,18 @@
   <aside class="sidebar">
     <h2>Twigwind Docs</h2>
     <nav>
-       <a href="docs.html">Getting Started</a>
+      <a href="docs.html">Getting Started</a>
       <a href="docs2.html">Installation</a>
       <a href="docs3.html">Colors</a>
       <a href="docs4.html">Sizes</a>
       <a href="docs5.html">Spacing</a>
-      <a href="docs6.html">Shadow</a>
-      <a href="docs7.html">Hover and Media</a>
-      <a href="docs8.html"  class="active">Transition & Transform</a>
+      <a href="docs6.html">Google Fonts & Icons</a>
+      <a href="docs7.html">Shadow</a>
+      <a href="docs8.html" class="active">Flex & Grid</a>
+      <a href="docs9.html">Hover and Media</a>
+      <a href="docs10.html">Transition & Transform</a>
+      <a href="docs11.html">Position Utilities</a>
+      <a href="docs12.html">Animation Utilities</a>
     </nav>
   </aside>
   <!-- Sidebar Toggle Button (visible on small screens) -->
@@ -36,46 +40,238 @@
 
   <!-- Main Content -->
   <main class="main">
-    <h1>Transition & Transform</h1>
-    <p>twigwind provides utilities for transitions and transforms.</p>
-    <h2>Transition</h2>
-    <p>Twigwind utilities to control the timing and easing of CSS transitions using the <code>transition: </code> prefix followed by <code>-</code> signs for spaces.</p>
+    <h1>Flex & Grid</h1>
+    <p>Twigwind provides powerful layout utilities for both Flexbox and CSS Grid, making it easy to create responsive and flexible layouts.</p>
+    
     <div class="alert info">
-      💡 Tip: You can add multiple transistion properties
+      💡 Tip: Twigwind's flex syntax is unique and intuitive - use <code>flex:direction-main-cross</code> for complete control!
     </div>
-    <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">
-&lt;div class="bg-purple p-10 transition:all-500-ease hover:bg-pink"&gt;hover me&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-background-color: #7b2ff7;
-padding: 10px;
-transition: all 500ms ease;
-</code></pre>
-    </div>
-    <h2>Transform</h2>
-    <p>Twigwind provides utilities for CSS transforms including translation, rotation, scaling, and skewing. Use the following functions with the prefix <code>transform:</code></p><BR>
+
+    <h2>Display Utilities</h2>
+    <p>Basic display utilities available in Twigwind:</p>
     <ul>
-        <li><strong>translate-</strong> for moving elements along the X and Y axes</li>
-        <li><strong>rotate-</strong> for rotating elements</li>
-        <li><strong>scale-</strong> for scaling elements up or down</li>
-        <li><strong>skew-</strong> for skewing elements along the X and Y axes</li>
+      <li><code>flex</code> - Sets display to flex</li>
+      <li><code>grid</code> - Sets display to grid</li>
+      <li><code>inline</code> - Sets display to inline</li>
+      <li><code>inline-block</code> - Sets display to inline-block</li>
+      <li><code>block</code> - Sets display to block</li>
+      <li><code>none</code> - Sets display to none (hides element)</li>
     </ul>
-    <div class="alert warning">
-      💡 Note: use multiple transform functions for complex effects.
-    </div>
+
     <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">
-&lt;div class="bg-blue p-10 transform:translate-20px-10px transform:rotate-15 transform:scale-1.5 transform:skew-10px-5px"&gt;Transformed&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-bg-blue { background-color: #1e90ff; }
-p-10 { padding: 10px; }
-transform: translate(20px, 10px) rotate(15deg) scale(1.5) skew(10px, 5px);
+      <h3>Basic Display Examples</h3>
+      <pre><code class="language-html">&lt;div class="flex"&gt;Flex container&lt;/div&gt;
+&lt;div class="grid"&gt;Grid container&lt;/div&gt;
+&lt;span class="block"&gt;Block-level span&lt;/span&gt;
+&lt;div class="inline"&gt;Inline div&lt;/div&gt;
+&lt;div class="none"&gt;Hidden element&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2>Flexbox Utilities</h2>
+    <p>Twigwind's flexbox system uses an intuitive syntax: <code>flex:direction-main-cross</code></p>
+
+    <h3>Flex Direction</h3>
+    <ul>
+      <li><code>flex:row</code> - Horizontal layout (default)</li>
+      <li><code>flex:col</code> - Vertical layout</li>
+    </ul>
+
+    <h3>Main Axis Alignment (justify-content)</h3>
+    <ul>
+      <li><code>left</code> - Align to start (flex-start)</li>
+      <li><code>center</code> - Center alignment</li>
+      <li><code>right</code> - Align to end (flex-end)</li>
+    </ul>
+
+    <h3>Cross Axis Alignment (align-items)</h3>
+    <ul>
+      <li><code>left</code> - Align to start (flex-start)</li>
+      <li><code>center</code> - Center alignment</li>
+      <li><code>right</code> - Align to end (flex-end)</li>
+    </ul>
+
+    <div class="example">
+      <h3>Flex Direction Examples</h3>
+      <pre><code class="language-html">&lt;!-- Row layouts --&gt;
+&lt;div class="flex:row"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+  &lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Column layouts --&gt;
+&lt;div class="flex:col"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+  &lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="example">
+      <h3>Flex Alignment Examples</h3>
+      <pre><code class="language-html">&lt;!-- Center everything --&gt;
+&lt;div class="flex:row-center-center"&gt;
+  &lt;div&gt;Perfectly centered&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Left-aligned, vertically centered --&gt;
+&lt;div class="flex:row-left-center"&gt;
+  &lt;div&gt;Left aligned&lt;/div&gt;
+  &lt;div&gt;Vertically centered&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Right-aligned, top aligned --&gt;
+&lt;div class="flex:row-right-left"&gt;
+  &lt;div&gt;Right aligned&lt;/div&gt;
+  &lt;div&gt;Top aligned&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Column with center alignment --&gt;
+&lt;div class="flex:col-center-center"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <h3>Common Flex Patterns</h3>
+    <div class="example">
+      <h4>Navigation Bar</h4>
+      <pre><code class="language-html">&lt;nav class="flex:row-left-center bg-blue p-10"&gt;
+  &lt;div class="font-bold color-white"&gt;Logo&lt;/div&gt;
+  &lt;div class="flex:row-right-center"&gt;
+    &lt;a href="#" class="color-white mr-10"&gt;Home&lt;/a&gt;
+    &lt;a href="#" class="color-white mr-10"&gt;About&lt;/a&gt;
+    &lt;a href="#" class="color-white"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+    </div>
+
+    <div class="example">
+      <h4>Card Layout</h4>
+      <pre><code class="language-html">&lt;div class="flex:row-left-center mb-10"&gt;
+  &lt;div class="bg-red size-md mr-10 p-10"&gt;Card 1&lt;/div&gt;
+  &lt;div class="bg-green size-md mr-10 p-10"&gt;Card 2&lt;/div&gt;
+  &lt;div class="bg-blue size-md p-10"&gt;Card 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2>CSS Grid Utilities</h2>
+    <p>Twigwind provides a powerful grid system with the syntax: <code>grid:columns,rows,gap</code></p>
+
+    <h3>Grid Syntax</h3>
+    <ul>
+      <li><strong>columns</strong> - Number of columns</li>
+      <li><strong>rows</strong> - Number of rows</li>
+      <li><strong>gap</strong> - Gap between grid items (optional)</li>
+    </ul>
+
+    <div class="example">
+      <h3>Basic Grid Examples</h3>
+      <pre><code class="language-html">&lt;!-- 3 columns, 2 rows, no gap --&gt;
+&lt;div class="grid:3,2"&gt;
+  &lt;div class="bg-red p-10"&gt;Item 1&lt;/div&gt;
+  &lt;div class="bg-blue p-10"&gt;Item 2&lt;/div&gt;
+  &lt;div class="bg-green p-10"&gt;Item 3&lt;/div&gt;
+  &lt;div class="bg-yellow p-10"&gt;Item 4&lt;/div&gt;
+  &lt;div class="bg-purple p-10"&gt;Item 5&lt;/div&gt;
+  &lt;div class="bg-orange p-10"&gt;Item 6&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 2 columns, 3 rows, 10px gap --&gt;
+&lt;div class="grid:2,3,10px"&gt;
+  &lt;div class="bg-cyan p-10"&gt;Item 1&lt;/div&gt;
+  &lt;div class="bg-pink p-10"&gt;Item 2&lt;/div&gt;
+  &lt;div class="bg-teal p-10"&gt;Item 3&lt;/div&gt;
+  &lt;div class="bg-amber p-10"&gt;Item 4&lt;/div&gt;
+  &lt;div class="bg-indigo p-10"&gt;Item 5&lt;/div&gt;
+  &lt;div class="bg-brown p-10"&gt;Item 6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <h3>Responsive Grid</h3>
+    <div class="example">
+      <h4>Responsive Card Grid</h4>
+      <pre><code class="language-html">&lt;!-- 1 column on mobile, 2 on tablet, 3 on desktop --&gt;
+&lt;div class="grid:1,auto,20px sm:grid:2,auto,20px lg:grid:3,auto,20px"&gt;
+  &lt;div class="bg-blue p-20 color-white"&gt;Card 1&lt;/div&gt;
+  &lt;div class="bg-green p-20 color-white"&gt;Card 2&lt;/div&gt;
+  &lt;div class="bg-red p-20 color-white"&gt;Card 3&lt;/div&gt;
+  &lt;div class="bg-purple p-20 color-white"&gt;Card 4&lt;/div&gt;
+  &lt;div class="bg-orange p-20 color-white"&gt;Card 5&lt;/div&gt;
+  &lt;div class="bg-teal p-20 color-white"&gt;Card 6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <h3>Grid with Different Gap Units</h3>
+    <div class="example">
+      <h4>Various Gap Examples</h4>
+      <pre><code class="language-html">&lt;!-- Pixel gap --&gt;
+&lt;div class="grid:2,2,15px"&gt;...&lt;/div&gt;
+
+&lt;!-- Percentage gap --&gt;
+&lt;div class="grid:3,2,5%"&gt;...&lt;/div&gt;
+
+&lt;!-- Rem gap --&gt;
+&lt;div class="grid:4,1,1rem"&gt;...&lt;/div&gt;
+
+&lt;!-- No gap --&gt;
+&lt;div class="grid:2,2"&gt;...&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2>Layout Combinations</h2>
+    <p>Combine flex and grid for complex layouts:</p>
+
+    <div class="example">
+      <h3>Flex + Grid Layout</h3>
+      <pre><code class="language-html">&lt;!-- Main layout with flex --&gt;
+&lt;div class="flex:col"&gt;
+  &lt;!-- Header --&gt;
+  &lt;header class="flex:row-left-center bg-blue p-10"&gt;
+    &lt;h1 class="color-white"&gt;My App&lt;/h1&gt;
+  &lt;/header&gt;
+  
+  &lt;!-- Main content with grid --&gt;
+  &lt;main class="grid:3,auto,20px p-20"&gt;
+    &lt;div class="bg-gray p-10"&gt;Sidebar&lt;/div&gt;
+    &lt;div class="bg-white p-10"&gt;Content&lt;/div&gt;
+    &lt;div class="bg-gray p-10"&gt;Aside&lt;/div&gt;
+  &lt;/main&gt;
+  
+  &lt;!-- Footer --&gt;
+  &lt;footer class="flex:row-center-center bg-gray p-10"&gt;
+    &lt;p&gt;© 2024 My App&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2>Responsive Layouts</h2>
+    <p>Use responsive prefixes with flex and grid:</p>
+
+    <div class="example">
+      <h3>Responsive Examples</h3>
+      <pre><code class="language-html">&lt;!-- Stack on mobile, row on desktop --&gt;
+&lt;div class="flex:col lg:flex:row-left-center"&gt;
+  &lt;div class="bg-blue p-10 mb-10 lg:mb-0 lg:mr-10"&gt;Sidebar&lt;/div&gt;
+  &lt;div class="bg-white p-10"&gt;Main Content&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Different grid layouts per breakpoint --&gt;
+&lt;div class="grid:1,auto,10px sm:grid:2,auto,15px lg:grid:4,auto,20px"&gt;
+  &lt;div class="bg-red p-10"&gt;Item 1&lt;/div&gt;
+  &lt;div class="bg-blue p-10"&gt;Item 2&lt;/div&gt;
+  &lt;div class="bg-green p-10"&gt;Item 3&lt;/div&gt;
+  &lt;div class="bg-yellow p-10"&gt;Item 4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="alert success">
+      ✅ Twigwind's flex and grid systems work seamlessly with all other utilities including colors, spacing, and responsive prefixes!
+    </div>
+
+    <div class="alert warning">
+      ⚠️ Note: Grid syntax uses commas, so avoid spaces around commas in class names: <code>grid:3,2,10px</code> not <code>grid:3, 2, 10px</code>
+    </div>
+
   </main>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');
