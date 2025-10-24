@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Twigwind Transition & Transform</title>
+  <title>Twigwind Position Utilities</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -20,18 +20,18 @@
   <aside class="sidebar">
     <h2>Twigwind Docs</h2>
     <nav>
-       <a href="docs.html">Getting Started</a>
+      <a href="docs.html">Getting Started</a>
       <a href="docs2.html">Installation</a>
       <a href="docs3.html">Colors</a>
       <a href="docs4.html">Sizes</a>
       <a href="docs5.html">Spacing</a>
-      <a href="docs6.html">Google Fonts & Icons</a>
-      <a href="docs7.html">Shadow</a>
-      <a href="docs8.html">Flex & Grid</a>
-      <a href="docs9.html">Hover and Media</a>
-      <a href="docs10.html"  class="active">Transition & Transform</a>
-      <a href="docs11.html">Position Utilities</a>
-      <a href="docs12.html">Animation Utilities</a>
+      <a href="docs6.html">Shadow</a>
+      <a href="docs7.html">Flex & Grid</a>
+      <a href="docs8.html">Hover and Media</a>
+      <a href="docs9.html">Transition & Transform</a>
+      <a href="docs10.html" class="active">Position Utilities</a>
+      <a href="docs11.html">Animation Utilities</a>
+      <a href="docs12.html">Gradients & Backgrounds</a>
     </nav>
   </aside>
   <!-- Sidebar Toggle Button (visible on small screens) -->
@@ -40,46 +40,121 @@
 
   <!-- Main Content -->
   <main class="main">
-    <h1>Transition & Transform</h1>
-    <p>twigwind provides utilities for transitions and transforms.</p>
-    <h2>Transition</h2>
-    <p>Twigwind utilities to control the timing and easing of CSS transitions using the <code>transition: </code> prefix followed by <code>-</code> signs for spaces.</p>
+    <h1>Position Utilities</h1>
+    <p>Twigwind provides comprehensive position utilities for controlling element positioning, including absolute, relative, fixed, sticky positioning, and z-index management.</p>
+    
     <div class="alert info">
-      💡 Tip: You can add multiple transistion properties
+      💡 Tip: Position utilities work seamlessly with hover states and transitions for smooth animations.
     </div>
-    <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">
-&lt;div class="bg-purple p-10 transition:all-500-ease hover:bg-pink"&gt;hover me&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-background-color: #7b2ff7;
-padding: 10px;
-transition: all 500ms ease;
-</code></pre>
-    </div>
-    <h2>Transform</h2>
-    <p>Twigwind provides utilities for CSS transforms including translation, rotation, scaling, and skewing. Use the following functions with the prefix <code>transform:</code></p><BR>
+
+    <h2>Position Types</h2>
+    <p>Control the positioning method of an element using these utilities:</p>
     <ul>
-        <li><strong>translate-</strong> for moving elements along the X and Y axes</li>
-        <li><strong>rotate-</strong> for rotating elements</li>
-        <li><strong>scale-</strong> for scaling elements up or down</li>
-        <li><strong>skew-</strong> for skewing elements along the X and Y axes</li>
+      <li><code>absolute</code> - Position absolutely relative to the nearest positioned ancestor</li>
+      <li><code>relative</code> - Position relative to its normal position</li>
+      <li><code>fixed</code> - Position relative to the viewport</li>
+      <li><code>sticky</code> - Position based on scroll position</li>
+      <li><code>static</code> - Default positioning (removes any positioning)</li>
     </ul>
-    <div class="alert warning">
-      💡 Note: use multiple transform functions for complex effects.
-    </div>
+
     <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">
-&lt;div class="bg-blue p-10 transform:translate-20px-10px transform:rotate-15 transform:scale-1.5 transform:skew-10px-5px"&gt;Transformed&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-bg-blue { background-color: #1e90ff; }
-p-10 { padding: 10px; }
-transform: translate(20px, 10px) rotate(15deg) scale(1.5) skew(10px, 5px);
+      <h3>Example</h3>
+      <pre><code class="language-html">&lt;div class="relative bg-blue p-20"&gt;
+  &lt;div class="absolute top-10 right-10 bg-red p-5"&gt;Absolutely positioned&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="fixed top-0 right-0 bg-green p-10"&gt;Fixed to viewport&lt;/div&gt;
+
+&lt;div class="sticky top-0 bg-purple p-10"&gt;Sticky header&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2>Position Values</h2>
+    <p>Control the exact position of absolutely, relatively, or fixed positioned elements:</p>
+    
+    <h3>Individual Sides</h3>
+    <ul>
+      <li><code>top-{value}</code> - Set top position (e.g., <code>top-10</code>, <code>top-0</code>)</li>
+      <li><code>bottom-{value}</code> - Set bottom position (e.g., <code>bottom-5</code>, <code>bottom-auto</code>)</li>
+      <li><code>left-{value}</code> - Set left position (e.g., <code>left-20</code>, <code>left-0</code>)</li>
+      <li><code>right-{value}</code> - Set right position (e.g., <code>right-10</code>, <code>right-auto</code>)</li>
+    </ul>
+
+    <div class="example">
+      <h3>Example</h3>
+      <pre><code class="language-html">&lt;div class="absolute top-10 left-20"&gt;10px from top, 20px from left&lt;/div&gt;
+&lt;div class="absolute bottom-0 right-0"&gt;Bottom right corner&lt;/div&gt;
+&lt;div class="absolute top-auto bottom-10"&gt;Auto top, 10px from bottom&lt;/div&gt;</code></pre>
+    </div>
+
+    <h3>Inset Utilities</h3>
+    <p>Set all four sides at once using inset utilities:</p>
+    <ul>
+      <li><code>inset-0</code> - Set all sides to 0 (fills container)</li>
+      <li><code>inset-{value}</code> - Set all sides to the same value (e.g., <code>inset-4</code>, <code>inset-20</code>)</li>
+    </ul>
+
+    <div class="example">
+      <h3>Example</h3>
+      <pre><code class="language-html">&lt;div class="relative bg-gray p-20"&gt;
+  &lt;div class="absolute inset-0 bg-blue"&gt;Fills entire container&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="relative bg-gray p-20"&gt;
+  &lt;div class="absolute inset-10 bg-red"&gt;10px from all sides&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2>Z-Index</h2>
+    <p>Control the stack order of positioned elements:</p>
+    <ul>
+      <li><code>z-0</code> - Set z-index to 0</li>
+      <li><code>z-10</code> - Set z-index to 10</li>
+      <li><code>z-20</code> - Set z-index to 20</li>
+      <li><code>z-50</code> - Set z-index to 50</li>
+      <li><code>z-auto</code> - Set z-index to auto</li>
+    </ul>
+
+    <div class="example">
+      <h3>Example</h3>
+      <pre><code class="language-html">&lt;div class="absolute top-20 left-20 bg-red p-10 z-10"&gt;Behind (z-10)&lt;/div&gt;
+&lt;div class="absolute top-30 left-30 bg-blue p-10 z-20"&gt;On top (z-20)&lt;/div&gt;
+&lt;div class="absolute top-40 left-40 bg-green p-10 z-0"&gt;Behind both (z-0)&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2>Hover Effects with Position</h2>
+    <p>Combine position utilities with hover states for interactive effects:</p>
+
+    <div class="example">
+      <h3>Example</h3>
+      <pre><code class="language-html">&lt;div class="absolute top-50 left-50 bg-purple p-10 
+           hover:top-20 hover:left-20 
+           transition:all-ease-300"&gt;
+  Hover to move position (with smooth transition)
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="alert success">
+      ✅ Position utilities work perfectly with Twigwind's existing transition system for smooth animations!
+    </div>
+
+    <h2>Responsive Position</h2>
+    <p>Use responsive prefixes to change positioning at different screen sizes:</p>
+
+    <div class="example">
+      <h3>Example</h3>
+      <pre><code class="language-html">&lt;div class="relative sm:absolute md:fixed lg:sticky"&gt;
+  Responsive positioning
+&lt;/div&gt;
+
+&lt;div class="top-10 sm:top-20 md:top-30 lg:top-40"&gt;
+  Responsive position values
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="alert warning">
+      ⚠️ Note: Remember that positioned elements are removed from the normal document flow (except relative and sticky).
+    </div>
+
   </main>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Twigwind Google Fonts & Icons</title>
+  <title>Twigwind shadow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -25,13 +25,13 @@
       <a href="docs3.html">Colors</a>
       <a href="docs4.html">Sizes</a>
       <a href="docs5.html">Spacing</a>
-      <a href="docs6.html" class="active">Google Fonts & Icons</a>
-      <a href="docs7.html">Shadow</a>
-      <a href="docs8.html">Flex & Grid</a>
-      <a href="docs9.html">Hover and Media</a>
-      <a href="docs10.html">Transition & Transform</a>
-      <a href="docs11.html">Position Utilities</a>
-      <a href="docs12.html">Animation Utilities</a>
+      <a href="docs6.html" class="active">Shadow</a>
+      <a href="docs7.html">Flex & Grid</a>
+      <a href="docs8.html">Hover and Media</a>
+      <a href="docs9.html">Transition & Transform</a>
+      <a href="docs10.html">Position Utilities</a>
+      <a href="docs11.html">Animation Utilities</a>
+      <a href="docs12.html">Gradients & Backgrounds</a>
     </nav>
   </aside>
   <!-- Sidebar Toggle Button (visible on small screens) -->
@@ -40,168 +40,38 @@
 
   <!-- Main Content -->
   <main class="main">
-    <h1>Google Fonts & Icons</h1>
-    <p>Twigwind comes with pre-configured Google Fonts and Material Symbols for beautiful typography and iconography.</p>
-    
-    <div class="alert info">
-      💡 Tip: All fonts and icons are automatically imported via <code>css.css</code> - no additional setup required!
-    </div>
-
-    <h2>Google Fonts</h2>
-    <p>Twigwind includes several carefully selected Google Fonts for different use cases:</p>
-
-    <h3>Available Font Families</h3>
+    <h1>Shadow</h1>   
+    <p>Twigwind supports 3 types shadow utilities which are:</p>
+    <ol>
+        <li><strong>Predefined shadow</strong>- these are the default shadow utilities provided by Twigwind.</li><br>
+        <li><strong>Custom shadow</strong>- these allow you to create your own shadow utilities with specific values.</li><br>
+        <li><strong>text-shadow</strong>- these utilities allow you to add shadow effects to text elements.</li><br>
+    </ol>
+    <h2>Predefined shadow</h2>
+    <p>Twigwind provides several predefined shadow utilities that you can use to add depth and dimension to your elements. These utilities include:</p>
     <ul>
-      <li><code>font-serif</code> - Classic serif fonts (Georgia, Times New Roman)</li>
-      <li><code>font-roboto</code> - Modern sans-serif (Roboto)</li>
-      <li><code>font-fira</code> - Monospace coding font (Fira Code)</li>
-      <li><code>font-jetbrains</code> - Developer-friendly monospace (JetBrains Mono)</li>
-      <li><code>font-roboto-mono</code> - Monospace variant of Roboto</li>
-      <li><code>font-sofia</code> - Elegant cursive font (Sofia)</li>
+        <li><strong>shadow-sm</strong>: Applies a small shadow to the element.</li><br>
+        <li><strong>shadow-md</strong>: Applies a medium shadow to the element.</li><br>
+        <li><strong>shadow-lg</strong>: Applies a large shadow to the element.</li><br>
+        <li><strong>shadow-xl</strong>: Applies an extra-large shadow to the element.</li><br>
+        <li><strong>shadow-2xl</strong>: Applies a double extra-large shadow to the element.</li><br>
+        <li><strong>shadow-none</strong>: Removes any shadow from the element.</li><br>
     </ul>
-
     <div class="example">
-      <h3>Font Family Examples</h3>
-      <pre><code class="language-html">&lt;p class="font-serif"&gt;Classic serif text&lt;/p&gt;
-&lt;p class="font-roboto"&gt;Modern sans-serif text&lt;/p&gt;
-&lt;p class="font-fira"&gt;Monospace code text&lt;/p&gt;
-&lt;p class="font-jetbrains"&gt;Developer monospace text&lt;/p&gt;
-&lt;p class="font-roboto-mono"&gt;Roboto monospace text&lt;/p&gt;
-&lt;p class="font-sofia"&gt;Elegant cursive text&lt;/p&gt;</code></pre>
+    <h4>Example</h4>
+    <pre><code class="language-html">&lt;div class="bg-white shadow-sm p-5 mb-5"&gt;Small Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-md p-5 mb-5"&gt;Medium Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-lg p-5 mb-5"&gt;Large Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-xl p-5 mb-5"&gt;Extra Large Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-2xl p-5 mb-5"&gt;2X Large Shadow&lt;/div&gt;
+&lt;div class="bg-white shadow-none p-5 mb-5"&gt;No Shadow&lt;/div&gt;</code></pre>
     </div>
-
-    <h3>Font Weights</h3>
-    <p>Control text weight with these utility classes:</p>
-    <ul>
-      <li><code>light</code> - Lighter font weight</li>
-      <li><code>bold</code> - Bold font weight</li>
-      <li><code>italic</code> - Italic font style</li>
-    </ul>
-
+    <h2>Custom shadow</h2>
+    <p>In addition to the predefined shadow utilities, Twigwind also allows you to create custom shadow utilities using arbitrary values.<br>You can specify your own shadow values by using the <code>shadow-[value]</code> syntax.</p>
     <div class="example">
-      <h3>Font Weight Examples</h3>
-      <pre><code class="language-html">&lt;p class="font-roboto light"&gt;Light weight text&lt;/p&gt;
-&lt;p class="font-roboto bold"&gt;Bold weight text&lt;/p&gt;
-&lt;p class="font-roboto italic"&gt;Italic style text&lt;/p&gt;
-&lt;p class="font-roboto bold italic"&gt;Bold italic text&lt;/p&gt;</code></pre>
+      <h4>Example</h4>
+      <pre><code class="language-html">&lt;div class="bg-white shadow-0_4px_6px_-1px_rgba(0,0,0,0.1) p-5 mb-5"&gt;Custom Shadow 1&lt;/div&gt;</code></pre>
     </div>
-
-    <h2>Material Symbols</h2>
-    <p>Twigwind includes Google's Material Symbols Outlined for consistent iconography across your application.</p>
-
-    <div class="alert info">
-      💡 Tip: Material Symbols are vector-based and scale perfectly at any size!
-    </div>
-
-    <h3>Using Material Symbols</h3>
-    <p>Use the <code>material-symbols-outlined</code> class with the icon name:</p>
-
-    <div class="example">
-      <h3>Basic Icon Usage</h3>
-      <pre><code class="language-html">&lt;span class="material-symbols-outlined"&gt;home&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;search&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;favorite&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;settings&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;account_circle&lt;/span&gt;</code></pre>
-    </div>
-
-    <h3>Icon Configuration</h3>
-    <p>Material Symbols come pre-configured with optimal settings:</p>
-    <ul>
-      <li><strong>FILL:</strong> 0 (outlined style)</li>
-      <li><strong>Weight:</strong> 400 (normal weight)</li>
-      <li><strong>Grade:</strong> 0 (standard grade)</li>
-      <li><strong>Optical Size:</strong> 24 (default size)</li>
-      <li><strong>Size:</strong> 1.5rem (24px equivalent)</li>
-      <li><strong>Alignment:</strong> Middle vertical alignment</li>
-    </ul>
-
-    <h3>Common Material Icons</h3>
-    <p>Here are some frequently used Material Symbols:</p>
-
-    <div class="example">
-      <h3>Popular Icons</h3>
-      <pre><code class="language-html">&lt;!-- Navigation --&gt;
-&lt;span class="material-symbols-outlined"&gt;menu&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;close&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;arrow_back&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;arrow_forward&lt;/span&gt;
-
-&lt;!-- Actions --&gt;
-&lt;span class="material-symbols-outlined"&gt;add&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;edit&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;delete&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;save&lt;/span&gt;
-
-&lt;!-- Communication --&gt;
-&lt;span class="material-symbols-outlined"&gt;mail&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;phone&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;chat&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;notifications&lt;/span&gt;
-
-&lt;!-- Media --&gt;
-&lt;span class="material-symbols-outlined"&gt;play_arrow&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;pause&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;stop&lt;/span&gt;
-&lt;span class="material-symbols-outlined"&gt;volume_up&lt;/span&gt;</code></pre>
-    </div>
-
-    <h3>Icons with Text</h3>
-    <p>Combine icons with text for enhanced UI elements:</p>
-
-    <div class="example">
-      <h3>Icon + Text Examples</h3>
-      <pre><code class="language-html">&lt;button class="bg-blue color-white p-10"&gt;
-  &lt;span class="material-symbols-outlined"&gt;download&lt;/span&gt;
-  Download
-&lt;/button&gt;
-
-&lt;div class="flex:row-left-center"&gt;
-  &lt;span class="material-symbols-outlined mr-5"&gt;person&lt;/span&gt;
-  &lt;span&gt;User Profile&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;a href="#" class="flex:row-center-center color-blue"&gt;
-  &lt;span class="material-symbols-outlined mr-5"&gt;link&lt;/span&gt;
-  External Link
-&lt;/a&gt;</code></pre>
-    </div>
-
-    <h3>Styling Icons</h3>
-    <p>Icons inherit text color and can be styled with Twigwind utilities:</p>
-
-    <div class="example">
-      <h3>Styled Icons</h3>
-      <pre><code class="language-html">&lt;!-- Colored icons --&gt;
-&lt;span class="material-symbols-outlined color-red"&gt;error&lt;/span&gt;
-&lt;span class="material-symbols-outlined color-green"&gt;check_circle&lt;/span&gt;
-&lt;span class="material-symbols-outlined color-blue"&gt;info&lt;/span&gt;
-&lt;span class="material-symbols-outlined color-orange"&gt;warning&lt;/span&gt;
-
-&lt;!-- Icons with hover effects --&gt;
-&lt;span class="material-symbols-outlined color-gray hover:color-blue"&gt;favorite&lt;/span&gt;
-&lt;span class="material-symbols-outlined color-gray hover:color-red"&gt;delete&lt;/span&gt;</code></pre>
-    </div>
-
-    <h2>Font Loading</h2>
-    <p>All fonts are loaded via Google Fonts CDN with optimized loading:</p>
-
-    <div class="example">
-      <h3>Imported Fonts</h3>
-      <pre><code class="language-css">/* Automatically imported in css.css */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sofia&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');</code></pre>
-    </div>
-
-    <div class="alert success">
-      ✅ All fonts are optimized for performance with <code>display=swap</code> for better loading experience!
-    </div>
-
-    <div class="alert warning">
-      ⚠️ Note: Material Symbols require an internet connection to load. Consider hosting locally for offline applications.
-    </div>
-
   </main>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');
