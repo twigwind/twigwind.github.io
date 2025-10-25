@@ -41,135 +41,123 @@
   <!-- Main Content -->
   <main class="main">
     <h1>Animation Utilities</h1>
-    <p>Twigwind provides a comprehensive set of animation utilities with predefined keyframes for creating engaging and dynamic user interfaces. All animations are defined in <code>css.css</code> and work seamlessly with the framework.</p>
+    <p>Twigwind provides a comprehensive set of animation utilities using a dynamic syntax pattern. All keyframes are defined in <code>css.css</code> and work seamlessly with the framework's JavaScript-powered utility generation.</p>
     
     <div class="alert info">
       💡 Tip: All animations work seamlessly with hover states and responsive prefixes for maximum flexibility.
     </div>
 
-    <h2>Basic Animations</h2>
-    <p>Essential animations for common UI interactions, available as CSS classes:</p>
+    <h2>Animation Syntax</h2>
+    <p>Twigwind uses a dynamic animation syntax pattern:</p>
+    <div class="example">
+      <h3>Syntax Pattern</h3>
+      <pre><code class="language-html">animate-(keyframe)-(duration)-(direction)</code></pre>
+      <ul>
+        <li><strong>keyframe</strong>: The animation name (e.g., spin, bounce, fadeIn)</li>
+        <li><strong>duration</strong>: Time with unit (e.g., 500ms, 2s, 1.5s)</li>
+        <li><strong>direction</strong>: Animation direction (infinite, normal, reverse, alternate, alternate-reverse)</li>
+      </ul>
+    </div>
+
+    <h2>Available Keyframes</h2>
+    <p>All keyframes are defined in <code>css.css</code> and include:</p>
     <ul>
-      <li><code>animate-spin</code> - Continuous rotation (perfect for loading spinners)</li>
-      <li><code>animate-pulse</code> - Gentle opacity fade in/out</li>
-      <li><code>animate-bounce</code> - Bouncing motion</li>
-      <li><code>animate-ping</code> - Scale and fade effect (great for notifications)</li>
+      <li><strong>spin</strong> - 360° rotation</li>
+      <li><strong>pulse</strong> - Opacity and scale pulsing</li>
+      <li><strong>bounce</strong> - Vertical bouncing with easing</li>
+      <li><strong>ping</strong> - Scale and fade effect</li>
+      <li><strong>fadeIn</strong> - Fade in from transparent</li>
+      <li><strong>fadeOut</strong> - Fade out to transparent</li>
+      <li><strong>slideUp</strong> - Slide in from bottom</li>
+      <li><strong>slideDown</strong> - Slide in from top</li>
+      <li><strong>slideLeft</strong> - Slide in from right</li>
+      <li><strong>slideRight</strong> - Slide in from left</li>
+      <li><strong>zoomIn</strong> - Scale in from zero</li>
+      <li><strong>zoomOut</strong> - Scale out to zero</li>
+      <li><strong>shake</strong> - Horizontal oscillation</li>
+      <li><strong>wiggle</strong> - Rotational oscillation</li>
+      <li><strong>heartbeat</strong> - Scale pulsing</li>
+      <li><strong>flash</strong> - Opacity flashing</li>
+      <li><strong>rubberBand</strong> - Elastic deformation</li>
     </ul>
+
+    <h2>Basic Animations</h2>
+    <p>Essential animations for common UI interactions:</p>
 
     <div class="example">
       <h3>Example</h3>
-      <pre><code class="language-html">&lt;div class="animate-spin bg-blue p-10"&gt;Loading...&lt;/div&gt;
-&lt;div class="animate-pulse bg-green p-10"&gt;Pulsing element&lt;/div&gt;
-&lt;div class="animate-bounce bg-red p-10"&gt;Bouncing box&lt;/div&gt;
-&lt;div class="animate-ping bg-yellow p-10"&gt;Notification&lt;/div&gt;</code></pre>
+      <pre><code class="language-html">&lt;div class="animate-spin-1s-infinite bg-blue p-10"&gt;Loading spinner&lt;/div&gt;
+&lt;div class="animate-pulse-2s-infinite bg-green p-10"&gt;Pulsing element&lt;/div&gt;
+&lt;div class="animate-bounce-800ms-infinite bg-red p-10"&gt;Bouncing box&lt;/div&gt;
+&lt;div class="animate-ping-1s-infinite bg-yellow p-10"&gt;Notification ping&lt;/div&gt;</code></pre>
     </div>
 
     <h2>Entrance Animations</h2>
     <p>Smooth entrance effects for revealing content:</p>
-    <ul>
-      <li><code>animate-fadeIn</code> - Fade in from transparent to opaque</li>
-      <li><code>animate-slideUp</code> - Slide in from bottom</li>
-      <li><code>animate-slideDown</code> - Slide in from top</li>
-      <li><code>animate-slideLeft</code> - Slide in from right</li>
-      <li><code>animate-slideRight</code> - Slide in from left</li>
-      <li><code>animate-zoomIn</code> - Scale in from zero</li>
-    </ul>
 
     <div class="example">
       <h3>Example</h3>
-      <pre><code class="language-html">&lt;div class="animate-fadeIn bg-purple p-10"&gt;Fading in&lt;/div&gt;
-&lt;div class="animate-slideUp bg-teal p-10"&gt;Sliding up&lt;/div&gt;
-&lt;div class="animate-zoomIn bg-orange p-10"&gt;Zooming in&lt;/div&gt;</code></pre>
+      <pre><code class="language-html">&lt;div class="animate-fadeIn-600ms-normal bg-purple p-10"&gt;Fading in&lt;/div&gt;
+&lt;div class="animate-slideUp-500ms-normal bg-teal p-10"&gt;Sliding up&lt;/div&gt;
+&lt;div class="animate-slideDown-700ms-normal bg-orange p-10"&gt;Sliding down&lt;/div&gt;
+&lt;div class="animate-slideLeft-400ms-normal bg-pink p-10"&gt;Sliding left&lt;/div&gt;
+&lt;div class="animate-slideRight-400ms-normal bg-cyan p-10"&gt;Sliding right&lt;/div&gt;
+&lt;div class="animate-zoomIn-800ms-normal bg-indigo p-10"&gt;Zooming in&lt;/div&gt;</code></pre>
     </div>
 
     <h2>Exit Animations</h2>
     <p>Smooth exit effects for hiding content:</p>
-    <ul>
-      <li><code>animate-fadeOut</code> - Fade out from opaque to transparent</li>
-      <li><code>animate-zoomOut</code> - Scale out to zero</li>
-    </ul>
 
     <div class="example">
       <h3>Example</h3>
-      <pre><code class="language-html">&lt;div class="animate-fadeOut bg-red p-10"&gt;Fading out&lt;/div&gt;
-&lt;div class="animate-zoomOut bg-blue p-10"&gt;Zooming out&lt;/div&gt;</code></pre>
+      <pre><code class="language-html">&lt;div class="animate-fadeOut-500ms-normal bg-red p-10"&gt;Fading out&lt;/div&gt;
+&lt;div class="animate-zoomOut-600ms-normal bg-blue p-10"&gt;Zooming out&lt;/div&gt;</code></pre>
     </div>
 
     <h2>Special Effects</h2>
     <p>Eye-catching animations for emphasis and interaction:</p>
+
+    <div class="example">
+      <h3>Example</h3>
+      <pre><code class="language-html">&lt;div class="animate-shake-300ms-normal bg-red p-10"&gt;Shake on error&lt;/div&gt;
+&lt;div class="animate-wiggle-500ms-normal bg-yellow p-10"&gt;Wiggle effect&lt;/div&gt;
+&lt;div class="animate-heartbeat-1s-infinite bg-pink p-10"&gt;Like button&lt;/div&gt;
+&lt;div class="animate-flash-800ms-infinite bg-orange p-10"&gt;Flash notification&lt;/div&gt;
+&lt;div class="animate-rubberBand-1s-normal bg-green p-10"&gt;Elastic effect&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2>Animation Directions</h2>
+    <p>Control how animations play with different direction values:</p>
     <ul>
-      <li><code>animate-shake</code> - Horizontal shaking motion</li>
-      <li><code>animate-wiggle</code> - Gentle rotation wiggle</li>
-      <li><code>animate-heartbeat</code> - Rhythmic scaling (like a heartbeat)</li>
-      <li><code>animate-flash</code> - Quick opacity flashing</li>
-      <li><code>animate-rubberBand</code> - Elastic stretching effect</li>
+      <li><strong>normal</strong> - Play animation once in normal direction</li>
+      <li><strong>reverse</strong> - Play animation once in reverse direction</li>
+      <li><strong>infinite</strong> - Loop animation infinitely</li>
+      <li><strong>alternate</strong> - Alternate between normal and reverse</li>
+      <li><strong>alternate-reverse</strong> - Alternate starting with reverse</li>
     </ul>
 
     <div class="example">
       <h3>Example</h3>
-      <pre><code class="language-html">&lt;div class="animate-shake bg-red p-10"&gt;Shake on error&lt;/div&gt;
-&lt;div class="animate-heartbeat bg-pink p-10"&gt;Like button&lt;/div&gt;
-&lt;div class="animate-rubberBand bg-green p-10"&gt;Elastic effect&lt;/div&gt;</code></pre>
+      <pre><code class="language-html">&lt;div class="animate-spin-2s-normal"&gt;Spin once&lt;/div&gt;
+&lt;div class="animate-spin-2s-reverse"&gt;Spin reverse&lt;/div&gt;
+&lt;div class="animate-spin-1s-infinite"&gt;Spin forever&lt;/div&gt;
+&lt;div class="animate-bounce-1s-alternate"&gt;Bounce back and forth&lt;/div&gt;</code></pre>
     </div>
 
-    <h2>Animation Control Classes</h2>
-    <p>Fine-tune animation behavior with control utilities defined in <code>css.css</code>:</p>
-
-    <h3>Play State</h3>
-    <ul>
-      <li><code>animate-paused</code> - Pause the animation</li>
-      <li><code>animate-running</code> - Resume the animation</li>
-    </ul>
-
-    <h3>Iteration Count</h3>
-    <ul>
-      <li><code>animate-infinite</code> - Loop animation infinitely</li>
-      <li><code>animate-once</code> - Play animation only once</li>
-      <li><code>animate-twice</code> - Play animation twice</li>
-    </ul>
-
-    <h3>Duration</h3>
-    <ul>
-      <li><code>animate-fast</code> - Faster animation (0.3s)</li>
-      <li><code>animate-slow</code> - Slower animation (2s)</li>
-      <li><code>animate-slower</code> - Much slower animation (3s)</li>
-    </ul>
-
-    <h3>Delay</h3>
-    <ul>
-      <li><code>animate-delay-100</code> - 0.1s delay</li>
-      <li><code>animate-delay-200</code> - 0.2s delay</li>
-      <li><code>animate-delay-300</code> - 0.3s delay</li>
-      <li><code>animate-delay-500</code> - 0.5s delay</li>
-      <li><code>animate-delay-1000</code> - 1s delay</li>
-    </ul>
+    <h2>Duration Examples</h2>
+    <p>Use different time units and values for precise control:</p>
 
     <div class="example">
       <h3>Example</h3>
-      <pre><code class="language-html">&lt;div class="animate-spin animate-fast"&gt;Fast spinning&lt;/div&gt;
-&lt;div class="animate-bounce animate-slow animate-twice"&gt;Slow bounce twice&lt;/div&gt;
-&lt;div class="animate-fadeIn animate-delay-500"&gt;Delayed fade in&lt;/div&gt;
+      <pre><code class="language-html">&lt;!-- Milliseconds --&gt;
+&lt;div class="animate-fadeIn-300ms-normal"&gt;Fast fade&lt;/div&gt;
+&lt;div class="animate-fadeIn-800ms-normal"&gt;Medium fade&lt;/div&gt;
+&lt;div class="animate-fadeIn-1500ms-normal"&gt;Slow fade&lt;/div&gt;
 
-&lt;!-- Interactive control --&gt;
-&lt;div id="controllable" class="animate-spin"&gt;Controllable&lt;/div&gt;
-&lt;button onclick="document.getElementById('controllable').classList.add('animate-paused')"&gt;
-  Pause
-&lt;/button&gt;</code></pre>
-    </div>
-
-    <h2>Dynamic Animation (JavaScript)</h2>
-    <p>For advanced use cases, Twigwind also supports dynamic animation generation through JavaScript with the pattern:</p>
-    <p><code>animate-{type}-{duration}{unit}-{iteration}</code></p>
-
-    <div class="example">
-      <h3>Example</h3>
-      <pre><code class="language-html">&lt;!-- These would be processed by the JavaScript engine --&gt;
-&lt;div class="animate-bounce-500ms-infinite"&gt;Custom bounce&lt;/div&gt;
-&lt;div class="animate-spin-2s-normal"&gt;Custom spin&lt;/div&gt;</code></pre>
-    </div>
-
-    <div class="alert warning">
-      ⚠️ Note: The JavaScript animation parser expects the format: <code>animate-{type}-{duration}{unit}-{iteration}</code>
+&lt;!-- Seconds --&gt;
+&lt;div class="animate-bounce-0.5s-infinite"&gt;Fast bounce&lt;/div&gt;
+&lt;div class="animate-bounce-1s-infinite"&gt;Normal bounce&lt;/div&gt;
+&lt;div class="animate-bounce-2s-infinite"&gt;Slow bounce&lt;/div&gt;</code></pre>
     </div>
 
     <h2>Hover Animations</h2>
@@ -177,10 +165,10 @@
 
     <div class="example">
       <h3>Example</h3>
-      <pre><code class="language-html">&lt;div class="hover:animate-spin bg-blue p-10"&gt;Hover to spin&lt;/div&gt;
-&lt;div class="hover:animate-bounce bg-green p-10"&gt;Hover to bounce&lt;/div&gt;
-&lt;div class="hover:animate-shake bg-red p-10"&gt;Hover to shake&lt;/div&gt;
-&lt;div class="hover:animate-pulse bg-purple p-10"&gt;Hover to pulse&lt;/div&gt;</code></pre>
+      <pre><code class="language-html">&lt;div class="hover:animate-spin-500ms-normal bg-blue p-10"&gt;Hover to spin&lt;/div&gt;
+&lt;div class="hover:animate-bounce-600ms-normal bg-green p-10"&gt;Hover to bounce&lt;/div&gt;
+&lt;div class="hover:animate-shake-300ms-normal bg-red p-10"&gt;Hover to shake&lt;/div&gt;
+&lt;div class="hover:animate-pulse-1s-infinite bg-purple p-10"&gt;Hover to pulse&lt;/div&gt;</code></pre>
     </div>
 
     <h2>Responsive Animations</h2>
@@ -188,7 +176,10 @@
 
     <div class="example">
       <h3>Example</h3>
-      <pre><code class="language-html">&lt;div class="animate-pulse sm:animate-spin md:animate-bounce lg:animate-shake"&gt;
+      <pre><code class="language-html">&lt;div class="animate-pulse-2s-infinite 
+           sm:animate-spin-1s-infinite 
+           md:animate-bounce-800ms-infinite 
+           lg:animate-shake-500ms-normal"&gt;
   Different animations at different screen sizes
 &lt;/div&gt;</code></pre>
     </div>
@@ -198,36 +189,21 @@
 
     <div class="example">
       <h3>Example</h3>
-      <pre><code class="language-html">&lt;!-- Animation with position change --&gt;
-&lt;div class="absolute top-50 left-50 animate-bounce 
-           hover:top-20 hover:left-20 
-           transition:all-ease-300"&gt;
-  Bouncing element that moves on hover
+      <pre><code class="language-html">&lt;!-- Animation with color changes --&gt;
+&lt;div class="animate-pulse-2s-infinite bg-blue hover:bg-red"&gt;
+  Pulsing element with color change on hover
 &lt;/div&gt;
 
-&lt;!-- Animation with color change --&gt;
-&lt;div class="animate-pulse bg-blue hover:bg-red 
-           transition:background-color-300"&gt;
-  Pulsing element with color transition
+&lt;!-- Animation with position --&gt;
+&lt;div class="absolute top-50 left-50 animate-bounce-1s-infinite"&gt;
+  Bouncing positioned element
+&lt;/div&gt;
+
+&lt;!-- Animation with gradients --&gt;
+&lt;div class="gradient-to-r-blue-purple animate-spin-3s-infinite p-20"&gt;
+  Spinning gradient
 &lt;/div&gt;</code></pre>
     </div>
-
-    <h2>Available Keyframes</h2>
-    <p>All keyframes are defined in <code>css.css</code> and include:</p>
-    <ul>
-      <li><strong>spin</strong> - 360° rotation</li>
-      <li><strong>pulse</strong> - Opacity 1 → 0.5 → 1</li>
-      <li><strong>bounce</strong> - Vertical bouncing with easing</li>
-      <li><strong>ping</strong> - Scale 1 → 2 with fade out</li>
-      <li><strong>fadeIn/fadeOut</strong> - Opacity transitions</li>
-      <li><strong>slideUp/Down/Left/Right</strong> - Directional sliding</li>
-      <li><strong>zoomIn/zoomOut</strong> - Scale transitions</li>
-      <li><strong>shake</strong> - Horizontal oscillation</li>
-      <li><strong>wiggle</strong> - Rotational oscillation</li>
-      <li><strong>heartbeat</strong> - Scale pulsing</li>
-      <li><strong>flash</strong> - Opacity flashing</li>
-      <li><strong>rubberBand</strong> - Elastic deformation</li>
-    </ul>
 
     <div class="alert success">
       ✅ All animations are optimized for performance and work smoothly across modern browsers!
@@ -235,6 +211,10 @@
 
     <div class="alert warning">
       ⚠️ Note: Use animations sparingly to avoid overwhelming users. Consider accessibility preferences for motion.
+    </div>
+
+    <div class="alert info">
+      💡 Pro Tip: The JavaScript engine dynamically generates CSS for each unique animation combination, ensuring optimal performance.
     </div>
 
   </main>
