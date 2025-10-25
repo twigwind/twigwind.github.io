@@ -56,9 +56,15 @@
     <h2>Usage</h2>
     <pre><code class="language-html">&lt;script src="/path/to/twigwind/css.js"&gt;&lt;/script&gt;
 &lt;link href="/path/to/twigwind/css.css" rel="stylesheet"&gt;</code></pre>
+    <p>then add the following js</p>
+    <pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", () =&gt; {
+  document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+  Twigwind.twInject(); 
+});</code></pre>
   <div class="alert warning">
       ⚠️ Note: Twigwind is still in development. Expect frequent updates.
-    </div>      
+    </div>
+
   </main>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');
