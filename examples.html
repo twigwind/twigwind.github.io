@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twigwind Examples</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Docs Styles -->
+  <link rel="stylesheet" href="docs.css">
+      <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Twigwind Docs</h2>
+    <nav>
+      <a href="docs.html">Getting Started</a>
+      <a href="docs2.html">Installation</a>
+      <a href="docs3.html">Colors</a>
+      <a href="docs4.html">Sizes</a>
+      <a href="docs5.html">Spacing</a>
+      <a href="docs6.html">Shadow</a>
+      <a href="docs7.html">Flex & Grid</a>
+      <a href="docs8.html">Hover and Media</a>
+      <a href="docs9.html">Transition & Transform</a>
+      <a href="docs10.html">Position Utilities</a>
+      <a href="docs11.html">Animation Utilities</a>
+      <a href="docs12.html">Gradients & Backgrounds</a>
+      <a href="docs13.html">Runtime Management</a>
+      <a href="examples.html" class="active">Examples</a>
+    </nav>
+  </aside>
+  <!-- Sidebar Toggle Button (visible on small screens) -->
+<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Twigwind Examples</h1>
+    <p>Explore various examples of how to use Twigwind in your projects.</p>
+    <h2>Example 1: Basic Usage</h2>
+    <p>This example demonstrates the basic usage of Twigwind to style a button.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+  &lt;html lang="en"&gt;
+  &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+      &lt;title&gt;Document&lt;/title&gt;
+      &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+      &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;button class="bg-blue color-white transition:all_0.1s_ease-out hover:shadow-lg border-2 border-transparent p-7 border-radius-7px"&gt;Click Me&lt;/button&gt;
+      &lt;script&gt;
+          document.addEventListener("DOMContentLoaded", () =&gt; {
+              document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+              Twigwind.twInject();
+          });
+      &lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+    </div>
+
+
+
+    <h2>Example 2: Code displaying</h2>
+    <p>This example shows how to display code snippets with syntax highlighting.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+  &lt;html lang="en"&gt;
+  &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+      &lt;title&gt;Document&lt;/title&gt;
+      &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+      &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
+      &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /&gt;
+      &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"&gt;
+      &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"&gt;&lt;/script&gt;
+      &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;div class="w-600 mt-50 bg-black border-radius-8px relative p-4"&gt;
+          &lt;!-- Header with copy button --&gt;
+          &lt;div class="flex:row-right-center mb-3 pb-2" style="border-bottom: 1px solid #333;"&gt;
+              &lt;span class="color-white" style="font-size: 14px; font-family: monospace;"&gt;Python&lt;/span&gt;
+              &lt;button class="material-symbols-outlined color-white hover:bg-red p-2 border-radius-4px transition:all_0.2s_ease ml-4"
+                      onclick="copyCode()"
+                      title="Copy code"&gt;
+                  content_copy
+              &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;!-- Code content --&gt;
+          &lt;pre style="margin: 0; overflow-x: auto;"&gt;&lt;code class="language-python"&gt;def greet(name):
+      """A simple greeting function"""
+      return f"Hello, {name}!"
+
+  # Example usage
+  user_name = "World"
+  message = greet(user_name)
+  print(message)
+
+  # More examples
+  numbers = [1, 2, 3, 4, 5]
+  squared = [x**2 for x in numbers]
+  print(f"Original: {numbers}")
+  print(f"Squared: {squared}")&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;script&gt;
+          function copyCode() {
+              const code = document.querySelector('code').textContent;
+              navigator.clipboard.writeText(code).then(() =&gt; {
+                  const button = document.querySelector('.material-symbols-outlined');
+                  const originalText = button.textContent;
+                  button.textContent = 'check';
+                  button.style.color = '#4CAF50';
+                  setTimeout(() =&gt; {
+                      button.textContent = originalText;
+                      button.style.color = 'white';
+                  }, 2000);
+              });
+          }
+          
+          document.addEventListener("DOMContentLoaded", () =&gt; {
+              document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+              Twigwind.twInject();
+          });
+      &lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+  </div>
+  </main>
+
+
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+
+// Create live preview iframes for each example
+document.querySelectorAll('.html-block').forEach((block) => {
+  const codeElement = block.querySelector('code');
+  const preElement = block.querySelector('pre');
+  if (codeElement && preElement) {
+    // Create preview container
+    const previewContainer = document.createElement('div');
+    previewContainer.className = 'preview-container';
+    
+    // Create iframe
+    const iframe = document.createElement('iframe');
+    iframe.style.width = '100%';
+    iframe.style.border = '1px solid var(--border)';
+    iframe.style.borderRadius = 'var(--radius)';
+    iframe.style.background = 'white';
+    
+    // Function to set iframe height to match pre element
+    const setIframeHeight = () => {
+      const preHeight = preElement.offsetHeight;
+      const headerHeight = 24; // h4 header height
+      iframe.style.height = `${preHeight - headerHeight}px`;
+    };
+    
+    // Get the HTML content and decode HTML entities
+    let htmlContent = codeElement.textContent;
+    htmlContent = htmlContent.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+    
+    iframe.srcdoc = htmlContent;
+    
+    previewContainer.appendChild(iframe);
+    block.appendChild(previewContainer);
+    
+    // Set height after elements are added to DOM
+    setTimeout(setIframeHeight, 100);
+    
+    // Update height on window resize
+    window.addEventListener('resize', setIframeHeight);
+  }
+});
+</script>
+
+</body>
+</html>
