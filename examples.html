@@ -53,8 +53,8 @@
       &lt;meta charset="UTF-8"&gt;
       &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
       &lt;title&gt;Document&lt;/title&gt;
-      &lt;script src="/twigwind/css.js"&gt;&lt;/script&gt;
-      &lt;link rel="stylesheet" href="/twigwind/css.css"&gt;
+      &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+      &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
   &lt;/head&gt;
   &lt;body&gt;
       &lt;button class="bg-blue color-white transition:all_0.1s_ease-out hover:shadow-lg border-2 border-transparent p-7 border-radius-7px"&gt;Click Me&lt;/button&gt;
@@ -79,8 +79,8 @@
       &lt;meta charset="UTF-8"&gt;
       &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
       &lt;title&gt;Document&lt;/title&gt;
-      &lt;script src="/twigwind/css.js"&gt;&lt;/script&gt;
-      &lt;link rel="stylesheet" href="/twigwind/css.css"&gt;
+      &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+      &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
       &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /&gt;
       &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"&gt;
       &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"&gt;&lt;/script&gt;
@@ -136,6 +136,247 @@
   &lt;/body&gt;
   &lt;/html&gt;</code></pre>
   </div>
+
+    <h2>Example 3: Card Layout with Flexbox</h2>
+    <p>This example demonstrates creating a responsive card layout using Twigwind's flex utilities.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Card Layout&lt;/title&gt;
+    &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-lightBlue p-20"&gt;
+    &lt;div class="flex:row-center-center"&gt;
+        &lt;div class="bg-white border-radius-12px p-20 m-10 w-300 hover:shadow-xl transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-purple mb-10"&gt;Feature Card&lt;/h3&gt;
+            &lt;p class="color-blueGrey mb-15"&gt;This is a beautiful card component built with Twigwind utilities.&lt;/p&gt;
+            &lt;button class="bg-purple color-white p-10 border-radius-6px hover:bg-deepPurple transition:all_0.2s_ease"&gt;Learn More&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="bg-white border-radius-12px p-20 m-10 w-300 hover:shadow-xl transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-teal mb-10"&gt;Another Card&lt;/h3&gt;
+            &lt;p class="color-blueGrey mb-15"&gt;Cards can be easily customized with different colors and effects.&lt;/p&gt;
+            &lt;button class="bg-teal color-white p-10 border-radius-6px hover:bg-green transition:all_0.2s_ease"&gt;Get Started&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <h2>Example 4: Grid Layout with Animations</h2>
+    <p>This example shows how to create a grid layout with hover animations and gradients.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Grid with Animations&lt;/title&gt;
+    &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-black p-30"&gt;
+    &lt;h1 class="color-white mb-30 flex:row-center-center"&gt;Animated Grid Gallery&lt;/h1&gt;
+    &lt;div class="grid:3,2,20px"&gt;
+        &lt;div class="gradient-to-br-purple-pink border-radius-10px p-20 hover:animate-bounce-500ms-normal hover:shadow-2xl transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-white mb-10"&gt;Item 1&lt;/h3&gt;
+            &lt;p class="color-white"&gt;Hover to see animation&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="gradient-to-br-blue-cyan border-radius-10px p-20 hover:animate-pulse-800ms-infinite hover:shadow-2xl transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-white mb-10"&gt;Item 2&lt;/h3&gt;
+            &lt;p class="color-white"&gt;Different animation&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="gradient-to-br-green-lime border-radius-10px p-20 hover:animate-spin-1s-normal hover:shadow-2xl transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-white mb-10"&gt;Item 3&lt;/h3&gt;
+            &lt;p class="color-white"&gt;Spin on hover&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="gradient-to-br-orange-red border-radius-10px p-20 hover:transform:scale-1.1 hover:shadow-2xl transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-white mb-10"&gt;Item 4&lt;/h3&gt;
+            &lt;p class="color-white"&gt;Scale transform&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="gradient-to-br-indigo-purple border-radius-10px p-20 hover:transform:rotate-5deg hover:shadow-2xl transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-white mb-10"&gt;Item 5&lt;/h3&gt;
+            &lt;p class="color-white"&gt;Rotate effect&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="gradient-to-br-pink-red border-radius-10px p-20 hover:transform:skew-10deg hover:shadow-2xl transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-white mb-10"&gt;Item 6&lt;/h3&gt;
+            &lt;p class="color-white"&gt;Skew transform&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <h2>Example 5: Navigation Bar</h2>
+    <p>This example demonstrates creating a responsive navigation bar with hover effects.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Navigation Bar&lt;/title&gt;
+    &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-white"&gt;
+    &lt;nav class="bg-blue p-15 shadow-lg"&gt;
+        &lt;div class="flex:row-left-center"&gt;
+            &lt;div class="color-white size-xl mr-30"&gt;TwigWind&lt;/div&gt;
+            &lt;div class="flex:row-left-center"&gt;
+                &lt;a href="#" class="color-white p-10 mr-15 hover:bg-lightBlue border-radius-5px transition:all_0.2s_ease"&gt;Home&lt;/a&gt;
+                &lt;a href="#" class="color-white p-10 mr-15 hover:bg-lightBlue border-radius-5px transition:all_0.2s_ease"&gt;About&lt;/a&gt;
+                &lt;a href="#" class="color-white p-10 mr-15 hover:bg-lightBlue border-radius-5px transition:all_0.2s_ease"&gt;Services&lt;/a&gt;
+                &lt;a href="#" class="color-white p-10 mr-15 hover:bg-lightBlue border-radius-5px transition:all_0.2s_ease"&gt;Contact&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;main class="p-30"&gt;
+        &lt;h1 class="color-blue mb-20"&gt;Welcome to Our Website&lt;/h1&gt;
+        &lt;p class="color-blueGrey mb-20"&gt;This is a sample page with a beautiful navigation bar created using Twigwind utilities.&lt;/p&gt;
+        &lt;button class="bg-blue color-white p-15 border-radius-8px hover:bg-deepPurple hover:shadow-lg transition:all_0.3s_ease"&gt;Get Started&lt;/button&gt;
+    &lt;/main&gt;
+    &lt;script&gt;
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <h2>Example 6: Form with Validation Styling</h2>
+    <p>This example shows how to create a styled form with different states using Twigwind.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Styled Form&lt;/title&gt;
+    &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-sand p-30"&gt;
+    &lt;div class="flex:row-center-center"&gt;
+        &lt;form class="bg-white p-30 border-radius-12px shadow-xl w-400"&gt;
+            &lt;h2 class="color-purple mb-25 flex:row-center-center"&gt;Contact Form&lt;/h2&gt;
+            
+            &lt;div class="mb-20"&gt;
+                &lt;label class="color-blueGrey mb-5"&gt;Name&lt;/label&gt;
+                &lt;input type="text" class="w-100% p-12 border-2 border-lightBlue border-radius-6px hover:border-blue transition:all_0.2s_ease" placeholder="Enter your name"&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="mb-20"&gt;
+                &lt;label class="color-blueGrey mb-5"&gt;Email&lt;/label&gt;
+                &lt;input type="email" class="w-100% p-12 border-2 border-green border-radius-6px hover:border-teal transition:all_0.2s_ease" placeholder="Enter your email"&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="mb-20"&gt;
+                &lt;label class="color-blueGrey mb-5"&gt;Message&lt;/label&gt;
+                &lt;textarea class="w-100% p-12 border-2 border-orange border-radius-6px hover:border-deepOrange transition:all_0.2s_ease h-100" placeholder="Enter your message"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            
+            &lt;button type="submit" class="w-100% bg-purple color-white p-15 border-radius-8px hover:bg-deepPurple hover:shadow-lg transition:all_0.3s_ease"&gt;Send Message&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <h2>Example 7: Dashboard Layout</h2>
+    <p>This example demonstrates a complex dashboard layout with positioning and multiple components.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Dashboard&lt;/title&gt;
+    &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-lightBlue"&gt;
+    &lt;!-- Header --&gt;
+    &lt;header class="bg-blue color-white p-15 shadow-md relative z-10"&gt;
+        &lt;div class="flex:row-left-center"&gt;
+            &lt;h1 class="size-lg"&gt;Dashboard&lt;/h1&gt;
+            &lt;div class="absolute right-20"&gt;
+                &lt;span class="bg-green color-white p-8 border-radius-20px"&gt;Online&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+    
+    &lt;!-- Main Content --&gt;
+    &lt;div class="flex:row-left-center p-20"&gt;
+        &lt;!-- Sidebar --&gt;
+        &lt;aside class="bg-white w-250 p-20 border-radius-8px shadow-lg mr-20"&gt;
+            &lt;nav&gt;
+                &lt;div class="mb-15 p-10 bg-purple color-white border-radius-6px"&gt;Dashboard&lt;/div&gt;
+                &lt;div class="mb-10 p-10 hover:bg-lightBlue border-radius-6px transition:all_0.2s_ease"&gt;Analytics&lt;/div&gt;
+                &lt;div class="mb-10 p-10 hover:bg-lightBlue border-radius-6px transition:all_0.2s_ease"&gt;Users&lt;/div&gt;
+                &lt;div class="mb-10 p-10 hover:bg-lightBlue border-radius-6px transition:all_0.2s_ease"&gt;Settings&lt;/div&gt;
+            &lt;/nav&gt;
+        &lt;/aside&gt;
+        
+        &lt;!-- Content Area --&gt;
+        &lt;main class="flex-1"&gt;
+            &lt;!-- Stats Cards --&gt;
+            &lt;div class="grid:3,1,20px mb-30"&gt;
+                &lt;div class="bg-white p-20 border-radius-8px shadow-md hover:shadow-lg transition:all_0.3s_ease"&gt;
+                    &lt;h3 class="color-blue mb-10"&gt;Total Users&lt;/h3&gt;
+                    &lt;p class="size-xl color-purple"&gt;1,234&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="bg-white p-20 border-radius-8px shadow-md hover:shadow-lg transition:all_0.3s_ease"&gt;
+                    &lt;h3 class="color-green mb-10"&gt;Revenue&lt;/h3&gt;
+                    &lt;p class="size-xl color-teal"&gt;$45,678&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="bg-white p-20 border-radius-8px shadow-md hover:shadow-lg transition:all_0.3s_ease"&gt;
+                    &lt;h3 class="color-orange mb-10"&gt;Orders&lt;/h3&gt;
+                    &lt;p class="size-xl color-deepOrange"&gt;567&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;!-- Chart Area --&gt;
+            &lt;div class="bg-white p-30 border-radius-8px shadow-md"&gt;
+                &lt;h3 class="color-blueGrey mb-20"&gt;Analytics Chart&lt;/h3&gt;
+                &lt;div class="bg-lightBlue h-200 border-radius-6px flex:row-center-center"&gt;
+                    &lt;p class="color-blue"&gt;Chart would go here&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/main&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
   </main>
 
 
