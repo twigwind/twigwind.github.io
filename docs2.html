@@ -43,28 +43,59 @@
   <!-- Main Content -->
   <main class="main">
     <h1>Installation</h1>
-    <p>to install twigwind vist <a href="https://github.com/helloadhavan/twigwind" target="_blank">https://github.com/helloadhavan/twigwind</a> or run</p>
+    
+    <h2>NPM Package (Recommended)</h2>
+    <p>Install Twigwind via NPM for the latest version and easy updates:</p>
+    <pre><code class="language-bash">npm install twigwind</code></pre>
+    
+    <h2>GitHub Repository</h2>
+    <p>Clone the repository for development or manual installation:</p>
     <pre><code class="language-bash">git clone https://github.com/helloadhavan/twigwind.git</code></pre>
-    <p>by running the command above you'll get the following files</p>
+    
+    <h2>Project Structure</h2>
+    <p>After installation, you'll have access to these key files:</p>
     <ul>
-        <li><strong>version.txt</strong>: the version of twigwind</li><br>
-        <li><strong>css.js</strong>: the real js sources file</li><br>
-        <li><strong>css.css</strong>: the optional css file for icons,fonts, etc...</li><br>
-        <li><strong>hljs_styles</strong>: the css folder for hljs highlighting stylesheets</li><br>
-        <li><strong>README.md</strong>: the md file</li><br>
-        <li><strong>hljs.js</strong>: the js file for including the hljs extention</li><br>
+        <li><strong>src/css.js</strong>: Main JavaScript framework file (ES6 module)</li>
+        <li><strong>src/css.css</strong>: Base styles and animations</li>
+        <li><strong>build.js</strong>: Build system for CSS optimization</li>
+        <li><strong>package.json</strong>: NPM package configuration</li>
+        <li><strong>version.txt</strong>: Current version (3.2.0)</li>
+        <li><strong>README.md</strong>: Comprehensive documentation</li>
     </ul>
-    <hr>
-    <h2>Usage</h2>
-    <pre><code class="language-html">&lt;script src="/path/to/twigwind/css.js"&gt;&lt;/script&gt;
-&lt;link href="/path/to/twigwind/css.css" rel="stylesheet"&gt;</code></pre>
-    <p>then add the following js</p>
+    
+    <h2>Runtime Usage</h2>
+    <p>Include Twigwind in your HTML for runtime CSS generation:</p>
+    <pre><code class="language-html">&lt;!-- Base styles (optional) --&gt;
+&lt;link rel="stylesheet" href="src/css.css"&gt;
+
+&lt;!-- Twigwind JavaScript --&gt;
+&lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;</code></pre>
+    
+    <p>Initialize Twigwind after DOM content loads:</p>
     <pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", () =&gt; {
   document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
-  Twigwind.twInject(); 
+  Twigwind.twInject();
 });</code></pre>
-  <div class="alert warning">
-      ⚠️ Note: Twigwind is still in development. Expect frequent updates.
+
+    <h2>Build System (Optional)</h2>
+    <p>For optimized production builds, use the build system:</p>
+    <pre><code class="language-bash"># Run build system with file watching
+node build.js
+
+# Or use NPM scripts
+npm run build
+npm run dev</code></pre>
+    
+    <p>The build system will:</p>
+    <ul>
+        <li>Scan all HTML files for Twigwind classes</li>
+        <li>Generate optimized CSS containing only used utilities</li>
+        <li>Output CSS files to the <code>dist/</code> directory</li>
+        <li>Watch for changes and rebuild automatically</li>
+    </ul>
+
+    <div class="alert info">
+        💡 Tip: Use runtime generation for development and build-time optimization for production.
     </div>
 
   </main>

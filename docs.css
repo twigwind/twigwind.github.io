@@ -110,10 +110,52 @@ pre {
   overflow-x: auto;
   margin: 1.5rem 0;
 }
-code {
-  background: rgba(255, 255, 255, 0.06);
+code.hljs {
+  background: transparent;
   padding: 0.2rem 0.4rem;
   border-radius: 6px;
+}
+
+div.html-block {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+div.html-block pre {
+  flex: 1;
+  margin: 0;
+}
+
+div.html-block .preview-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+div.html-block .preview-container h4 {
+  margin: 0 0 0.5rem 0;
+  flex-shrink: 0;
+}
+
+div.html-block .preview-container iframe {
+  flex: 1;
+  height: 100%;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 1024px) {
+  div.html-block {
+    flex-direction: column;
+    align-items: normal;
+  }
+  
+  div.html-block .preview-container iframe {
+    min-height: 200px;
+  }
 }
 
 /* ====== Tables ====== */

@@ -49,12 +49,21 @@
       💡 Tip: Twigwind's JavaScript engine dynamically generates CSS based on the classes found in your HTML.
     </div>
 
-    <h2>Basic Setup</h2>
+    <h2>ES6 Module Setup</h2>
+    <p>Twigwind now uses ES6 modules for modern JavaScript environments:</p>
+    <pre><code class="language-html">&lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;</code></pre>
+    
+    <h2>Basic Runtime Initialization</h2>
     <p>The standard way to initialize Twigwind is to process all elements with classes and inject the generated CSS:</p>
     <pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[class]").forEach(el => Twigwind.twApply(el));
   Twigwind.twInject();
 });</code></pre>
+
+    <h2>Build-Time Alternative</h2>
+    <p>For production optimization, use the build system instead of runtime generation:</p>
+    <pre><code class="language-bash">node build.js</code></pre>
+    <p>This generates optimized CSS files in the <code>dist/</code> directory containing only the utilities you actually use.</p>
 
     <h2>Core Functions</h2>
     <p>Twigwind exposes several key functions for runtime management:</p>
