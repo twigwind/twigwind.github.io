@@ -1,16 +1,25 @@
 /* ==============================
-   Twigwind Docs Theme (dark)
+   Twigwind Docs Theme (Modern Dark)
    ============================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --bg: #0d0d10;
-  --surface: #141418;
-  --surface-alt: #1b1b1f;
-  --border: #2a2a33;
-  --text: #e9eef6;
-  --text-muted: #a0a8b9;
-  --accent-a: #7f5af0;
+  --bg-dark: #080e1d;
+  --bg-darker: #020617;
+  --text-light: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #1a9ad1;
+  --font-sans: 'Jetbrains Mono', 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Legacy variables for compatibility */
+  --bg: var(--bg-dark);
+  --surface: #1e293b59;
+  --surface-alt: #334155;
+  --border: #475569;
+  --text: var(--text-light);
+  --accent-a: var(--accent);
   --accent-b: #2cb67d;
+
   --code-bg: #0f1115;
   --code-border: #22252c;
   --max-width: 1200px;
@@ -22,14 +31,119 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
-  font-family: "JetBrains Mono", "Fira Code", monospace;
-  background: var(--bg);
-  color: var(--text);
+  font-family: var(--font-sans);
+  color: var(--text-light);
+  background: var(--bg-dark);
   line-height: 1.6;
   display: flex;
   min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* ====== Header Styles ====== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+nav a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ====== Hero Section ====== */
+.hero {
+  text-align: center;
+  padding: 8rem 1rem;
+  background: linear-gradient(to bottom, var(--bg-dark), var(--bg-darker));
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+
+.hero .buttons a {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+
+.primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.secondary {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* ====== Features Grid ====== */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 6rem auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ====== Footer ====== */
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 /* ====== Sidebar ====== */
@@ -46,9 +160,6 @@ body {
 .sidebar h2 {
   font-size: 1.2rem;
   margin: 0 0 1.2rem;
-  background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .sidebar nav a {
   display: block;

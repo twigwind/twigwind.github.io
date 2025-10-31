@@ -368,7 +368,8 @@
             &lt;/div&gt;
         &lt;/main&gt;
     &lt;/div&gt;
-    &lt;script&gt;
+    &lt;script type="module"&gt;
+        import { Twigwind } from 'src/css.js';
         document.addEventListener("DOMContentLoaded", () =&gt; {
             document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
             Twigwind.twInject();

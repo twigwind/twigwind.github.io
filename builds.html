@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twigwind Build System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Docs Styles -->
+  <link rel="stylesheet" href="docs.css">
+      <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Twigwind Docs</h2>
+    <nav>
+      <a href="docs.html">Getting Started</a>
+      <a href="docs2.html" class="active">Installation</a>
+      <a href="docs3.html">Colors</a>
+      <a href="docs4.html">Sizes</a>
+      <a href="docs5.html">Spacing</a>
+      <a href="docs6.html">Shadow</a>
+      <a href="docs7.html">Flex & Grid</a>
+      <a href="docs8.html">Hover and Media</a>
+      <a href="docs9.html">Transition & Transform</a>
+      <a href="docs10.html">Position Utilities</a>
+      <a href="docs11.html">Animation Utilities</a>
+      <a href="docs12.html">Gradients & Backgrounds</a>
+      <a href="docs13.html">Runtime Management</a>
+      <a href="examples.html">Examples</a>
+    </nav>
+  </aside>
+  <!-- Sidebar Toggle Button (visible on small screens) -->
+<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Twigwind Build System</h1>
+    <p>In the previous sections, we covered the installation and basic usage of Twigwind in Runtime. Now, let's explore the build system.</p>
+    <h2>Why Use the Build System?</h2>
+    <p>While the runtime version of Twigwind is great for quick prototyping and development, using the build system offers several advantages:</p>
+    <ul>
+      <li><strong>Performance:</strong> The build system generates a static CSS file that can be served directly to users, reducing load times and improving performance.</li>
+      <li><strong>Customization:</strong> You can customize the generated CSS by configuring which utilities to include, allowing for a smaller file size.</li>
+      <li><strong>Production Ready:</strong> The build system is designed for production environments, ensuring that your styles are optimized and ready for deployment.</li>
+    </ul>
+    <h2>Setting Up the Build System</h2>
+    <p>To set up the Twigwind build system, follow these steps:</p>
+    <ol>
+      <li><strong>Install Node.js:</strong> Ensure you have Node.js installed on your machine. You can download it from <a href="https://nodejs.org/">nodejs.org</a>.</li>
+      <li><strong>Create a New Project:</strong> Set up a new directory for your project and navigate into it:
+        <pre><code>mkdir my-twigwind-project
+cd my-twigwind-project</code></pre>
+      </li>
+      <li><strong>Initialize <code>npm</code>:</strong> Run the following command to create a package
+        <pre><code>npm init -y</code></pre>
+      </li>
+        <li><strong>Install Twigwind:</strong> Install Twigwind as a development dependency:
+            <pre><code>npm install twigwind --save-dev</code></pre>
+        </li>
+        </ol>
+        <p>Now we have installed Twigwind, we can start using it in our project.</p>
+        <p>To use it make some html files and include the generated CSS file:</p>
+        <pre><code>&lt;link rel="stylesheet" href="dist/your_current_file_name.css"&gt;</code></pre>
+        <p>then run:</p>
+        <pre><code>npm run build</code></pre>
+        <p>This will generate the CSS file in the <code>dist</code> folder.</p>
+  </main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
+
+</body>
+</html>

@@ -8,19 +8,27 @@
   <title>Twigwind — Utility CSS Framework</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
   <style>
     :root{
-      --bg:#0d0d10;
-      --panel:#141418;
-      --muted:#9aa3b2;
-      --accent-a:#7f5af0;
-      --accent-b:#2cb67d;
-      --glass: rgba(20,20,20,0.7);
-      --glass-2: rgba(255,255,255,0.03);
-      --card-border:#232329;
-      --max-width:1100px;
+      --bg-dark: #0a0a0f;
+      --bg-darker: #050508;
+      --panel: #141418;
+      --text-light: #e8eaed;
+      --text-muted: #9aa0a6;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: rgba(99, 102, 241, 0.1);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --glass: rgba(20, 20, 24, 0.8);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --max-width: 1200px;
     }
 
     /* ====== Reset & base ====== */
@@ -29,19 +37,20 @@
     body{
       margin:0;
       min-height:100vh;
-      font-family:monospace;
-      background:linear-gradient(180deg,var(--bg) 0%, #060607 100%);
-      color:#e9eef6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+      color: var(--text-light);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       scroll-behavior:smooth;
-      line-height:1.5;
+      line-height:1.6;
       overflow-x:hidden;
     }
-    a{color:inherit}
+    a{color:inherit; text-decoration: none;}
+    a:hover{color: var(--accent);}
     img{max-width:100%;height:auto;display:block}
-    h1,h2,h3{margin:0;line-height:1.05}
-    section{padding:72px 20px}
+    h1,h2,h3{margin:0;line-height:1.2; font-weight: 600;}
+    section{padding:80px 24px}
 
     /* ====== Header ====== */
     header{
@@ -53,72 +62,110 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:20px;
-      padding:18px 36px;
+      gap:24px;
+      padding:20px 32px;
       background:var(--glass);
-      backdrop-filter: blur(8px) saturate(120%);
-      border-bottom:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(16px) saturate(120%);
+      border-bottom:1px solid var(--border);
     }
     .brand{
       display:flex;
-      gap:12px;
+      gap:16px;
       align-items:center;
     }
     .logo{
-      width:44px;height:44px;border-radius:9px;
-      background:linear-gradient(135deg,var(--accent-a),var(--accent-b));
-      box-shadow:0 6px 22px rgba(43,30,97,0.22), inset 0 -6px 20px rgba(255,255,255,0.02);
+      width:48px;height:48px;border-radius:12px;
+      background:linear-gradient(135deg, var(--accent), var(--accent-hover));
+      box-shadow:0 8px 32px rgba(99, 102, 241, 0.3), inset 0 -2px 8px rgba(255,255,255,0.1);
       display:inline-grid;place-items:center;color:white;font-weight:700;font-size:18px;
     }
-    header h1{font-size:1.1rem;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .logo img{
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    header h1{
+      font-size:1.25rem; 
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--text-light), var(--text-muted));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip: text;
+    }
     nav {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  overflow-x: auto;
-  padding-bottom: 4px; /* optional: avoids clipping scrollbar */
-  
-  /* Firefox scrollbar */
-  scrollbar-width: thin;
-  scrollbar-color: #2a2a33 #141418;
-}
-
-/* WebKit scrollbar for Chrome, Edge, Safari */
-nav::-webkit-scrollbar {
-  height: 6px; /* horizontal scrollbar height */
-}
-
-nav::-webkit-scrollbar-track {
-  background: #141418;
-  border-radius: 3px;
-}
-
-nav::-webkit-scrollbar-thumb {
-  background-color: #2a2a33;
-  border-radius: 3px;
-}
-
-nav::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-}
-
-
-    nav a{font-size:0.95rem;color:var(--muted);padding:8px 10px;border-radius:8px;transition:all .22s}
-    nav a:hover{color:#fff;transform:translateY(-3px);background:rgba(255,255,255,0.02)}
-    .cta{
-      padding:8px 12px;border-radius:9px;font-weight:700;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));box-shadow:0 8px 30px rgba(127,90,240,0.12);color:white;text-decoration:none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      
+      /* Firefox scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: #2a2a33 #141418;
     }
 
-    /* ====== HERO (integrated SVG) ====== */
+    /* WebKit scrollbar for Chrome, Edge, Safari */
+    nav::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    nav::-webkit-scrollbar-track {
+      background: #141418;
+      border-radius: 3px;
+    }
+
+    nav::-webkit-scrollbar-thumb {
+      background-color: #2a2a33;
+      border-radius: 3px;
+    }
+
+    nav::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+
+    nav a{
+      font-size:0.95rem;
+      color:var(--text-muted);
+      padding:10px 16px;
+      border-radius:10px;
+      transition:all 0.3s ease;
+      font-weight: 500;
+    }
+    nav a:hover{
+      color:var(--text-light);
+      transform:translateY(-2px);
+      background:var(--accent-light);
+    }
+    .cta{
+      padding:10px 20px;
+      border-radius:10px;
+      font-weight:600;
+      background:linear-gradient(135deg, var(--accent), var(--accent-hover));
+      box-shadow:0 4px 20px rgba(99, 102, 241, 0.3);
+      color:white;
+      text-decoration:none;
+      transition: all 0.3s ease;
+    }
+    .cta:hover{
+      transform: translateY(-2px);
+      box-shadow:0 8px 32px rgba(99, 102, 241, 0.4);
+    }
+
+    /* ====== HERO ====== */
     .hero-outer{
       display:grid;
       grid-template-columns:1fr;
       align-items:center;
       min-height:calc(100vh - 76px);
-      padding-top:96px; /* header spacing */
+      padding-top:120px;
       position:relative;
       z-index:1;
       overflow:hidden;
+      background: linear-gradient(
+    to bottom right,
+    #0ea4e958 0%,   /* sky-500 */
+    #0f172a49 100%  /* slate-900 */
+  );
     }
     .hero-inner{
       max-width:var(--max-width);
@@ -127,36 +174,61 @@ nav::-webkit-scrollbar-thumb:hover {
       display:flex;
       gap:48px;
       align-items:center;
-      justify-content:space-between;
-      padding:22px;
+      justify-content:center;
+      padding:32px;
       position:relative;
       z-index:4;
+      text-align: center;
     }
 
     .hero-left{
-      flex:1 1 480px;
-      color:#f8fbff;
+      flex:1 1 100%;
+      color:var(--text-light);
+      max-width: 800px;
     }
     .hero-left h1{
-      font-size:clamp(28px,5vw,48px);
-      margin-bottom:12px;
+      font-size:clamp(32px,5vw,56px);
+      margin-bottom:16px;
       letter-spacing:-0.02em;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--text-light), var(--text-muted));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip: text;
     }
-    .hero-left p{color:var(--muted);font-size:1.05rem;margin-bottom:18px}
-    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-left p{color:var(--text-muted);font-size:1.125rem;margin-bottom:32px; line-height: 1.7;}
+    .hero-buttons{display:flex;gap:16px;flex-wrap:wrap; justify-content: center;}
     .btn{
-      border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;
-      transition:transform .18s ease, box-shadow .18s ease;
+      border:0;
+      padding:14px 24px;
+      border-radius:12px;
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      transition:all 0.3s ease;
+      font-size: 0.95rem;
     }
-    .btn:hover{transform:translateY(-4px)}
-    .btn-primary{background:linear-gradient(135deg,var(--accent-a),var(--accent-b));color:white;box-shadow:0 12px 30px rgba(44,182,125,0.06)}
-    .btn-light{background:rgba(255,255,255,0.04);color:#fff;border:1px solid rgba(255,255,255,0.04)}
-
-    /* hero svg container */
-    .hero-svg-wrap{
-      position:absolute;inset:0;z-index:1;pointer-events:none;
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color:white;
+      box-shadow:0 8px 32px rgba(99, 102, 241, 0.3);
     }
-    #hero-svg{width:100%;height:100%;display:block;will-change:transform,filter}
+    .btn-primary:hover{
+      box-shadow:0 12px 40px rgba(99, 102, 241, 0.4);
+    }
+    .btn-light{
+      background:var(--accent-light);
+      color:var(--text-light);
+      border:1px solid var(--border);
+    }
+    .btn-light:hover{
+      background:rgba(255,255,255,0.08);
+      border-color: var(--border-hover);
+    }
 
     /* reveal helpers */
     .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.2,.9,.2,1),transform .7s cubic-bezier(.2,.9,.2,1)}
@@ -164,48 +236,126 @@ nav::-webkit-scrollbar-thumb:hover {
 
     /* ====== Features ====== */
     .features{
-      max-width:var(--max-width);margin:0 auto;text-align:left;display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
+      max-width:var(--max-width);
+      margin:0 auto;
+      text-align:left;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:24px;
     }
     .feature-card{
-      background:linear-gradient(180deg,rgba(255,255,255,0.012),rgba(0,0,0,0.02));
-      border:1px solid var(--card-border);
-      padding:20px;border-radius:12px;
-      box-shadow:0 6px 24px rgba(5,7,10,0.5);
-      transition:transform .18s, border-color .18s;
+      background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
+      border:1px solid var(--border);
+      padding:24px;
+      border-radius:16px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.3);
+      transition:all 0.3s ease;
+      backdrop-filter: blur(8px);
     }
-    .feature-card:hover{transform:translateY(-6px);border-color:rgba(127,90,240,0.18)}
-    .feature-card h3{color:#fff;margin-bottom:8px}
-    .feature-card p{color:var(--muted);margin:0;font-size:0.98rem}
+    .feature-card:hover{
+      transform:translateY(-8px);
+      border-color:var(--accent);
+      box-shadow:0 16px 48px rgba(0,0,0,0.4);
+    }
+    .feature-card h3{
+      color:var(--text-light);
+      margin-bottom:12px;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+    .feature-card p{
+      color:var(--text-muted);
+      margin:0;
+      font-size:0.95rem;
+      line-height: 1.6;
+    }
 
     /* ====== Example code block ====== */
     .example{
-      max-width:var(--max-width);margin:28px auto;padding:22px;border-radius:10px;background:var(--panel);border:1px solid var(--card-border);
-      overflow:auto;box-shadow:0 10px 30px rgba(2,6,12,0.6)
+      max-width:var(--max-width);
+      margin:32px auto;
+      padding:24px;
+      border-radius:16px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      overflow:auto;
+      box-shadow:0 16px 48px rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
     }
-    pre{margin:0;color:#e6eef8;background:transparent;font-family:monospace;font-size:0.9rem;line-height:1.4;white-space:pre-wrap;word-break:break-word}
+    pre{
+      margin:0;
+      color:var(--text-light);
+      background:transparent;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size:0.875rem;
+      line-height:1.6;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
 
     /* ====== Comparison table ====== */
     .comparison{
-      max-width:var(--max-width);margin:36px auto;border-collapse:collapse;width:100%;
-      border-radius:10px;overflow:hidden;border:1px solid var(--card-border);
+      max-width:var(--max-width);
+      margin:40px auto;
+      border-collapse:collapse;
+      width:100%;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:0 8px 32px rgba(0,0,0,0.3);
     }
-    .comparison thead th{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.04));padding:14px 12px;text-align:left;color:#fff;font-weight:700}
-    .comparison td{padding:12px 14px;background:rgba(255,255,255,0.01);color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
-    .comparison tr:hover td{background:rgba(255,255,255,0.015);color:#fff}
-    .comparison td:first-child{color:var(--accent-a);font-weight:700}
+    .comparison thead th{
+      background:linear-gradient(135deg, var(--panel), rgba(255,255,255,0.02));
+      padding:16px;
+      text-align:left;
+      color:var(--text-light);
+      font-weight:600;
+      font-size: 0.95rem;
+    }
+    .comparison td{
+      padding:14px 16px;
+      background:rgba(255,255,255,0.01);
+      color:var(--text-muted);
+      border-top:1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .comparison tr:hover td{
+      background:var(--accent-light);
+      color:var(--text-light);
+    }
+    .comparison td:first-child{
+      color:var(--accent);
+      font-weight:600;
+    }
 
     /* ====== Footer ====== */
-    footer{padding:36px 20px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);margin-top:40px}
+    footer{
+      padding:48px 24px;
+      text-align:center;
+      color:var(--text-muted);
+      border-top:1px solid var(--border);
+      margin-top:48px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    }
 
     /* responsive */
     @media (max-width:980px){
-      .hero-inner{flex-direction:column;gap:18px;padding:8px}
+      .hero-inner{flex-direction:column;gap:24px;padding:16px}
       .features{grid-template-columns:1fr}
-      section{padding:56px 18px}
+      section{padding:64px 20px}
+      header{padding: 16px 20px;}
+      nav{gap: 12px;}
+    }
+
+    @media (max-width:640px){
+      .hero-left h1{font-size: clamp(28px, 8vw, 40px);}
+      .btn{padding: 12px 20px; font-size: 0.9rem;}
+      .feature-card{padding: 20px;}
+      section{padding: 48px 16px;}
     }
 
     /* small visual niceties */
-    .muted{color:var(--muted)}
+    .muted{color:var(--text-muted)}
   </style>
 </head>
 <body>
@@ -226,83 +376,8 @@ nav::-webkit-scrollbar-thumb:hover {
     </nav>
   </header>
 
-  <!-- HERO (SVG & content) -->
+  <!-- HERO -->
   <main class="hero-outer" role="main" aria-labelledby="hero-title">
-
-    <!-- SVG hero background + parallax layers -->
-    <div class="hero-svg-wrap" aria-hidden="true">
-      <!-- Inline SVG (same as earlier - morphing blobs + particles + lines) -->
-      <svg id="hero-svg" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice"
-           xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true">
-        <defs>
-          <linearGradient id="grad1" x1="0" x2="1">
-            <stop offset="0%" stop-color="#7f5af0"/>
-            <stop offset="100%" stop-color="#2cb67d"/>
-          </linearGradient>
-          <radialGradient id="blobGradA" cx="30%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#7f5af0" stop-opacity="0.95"/>
-            <stop offset="70%" stop-color="#2cb67d" stop-opacity="0.65"/>
-            <stop offset="100%" stop-color="#2cb67d" stop-opacity="0.25"/>
-          </radialGradient>
-          <radialGradient id="blobGradB" cx="70%" cy="70%" r="70%">
-            <stop offset="0%" stop-color="#ff6b6b" stop-opacity="0.95"/>
-            <stop offset="50%" stop-color="#feca57" stop-opacity="0.7"/>
-            <stop offset="100%" stop-color="#feca57" stop-opacity="0.18"/>
-          </radialGradient>
-          <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="24" result="b"/>
-            <feBlend in="SourceGraphic" in2="b" mode="normal"/>
-          </filter>
-          <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.03)"></circle>
-          </pattern>
-        </defs>
-
-        <rect width="100%" height="100%" fill="url(#grad1)" opacity="0.04"/>
-        <g class="parallax layer-slow" transform="translate(0,0)">
-          <path id="blobA" fill="url(#blobGradA)" filter="url(#softBlur)" opacity="0.95"
-                d="M300,120 C420,40 560,20 720,120 C900,240 960,420 840,540 C700,660 420,640 260,540 C120,440 180,240 300,120 Z">
-            <animate attributeName="d" dur="12s" repeatCount="indefinite"
-              values="
-                M300,120 C420,40 560,20 720,120 C900,240 960,420 840,540 C700,660 420,640 260,540 C120,440 180,240 300,120 Z;
-                M280,140 C420,40 580,40 740,160 C920,290 940,430 800,540 C660,660 420,620 240,540 C110,460 170,260 280,140 Z;
-                M320,100 C440,40 560,10 700,120 C880,250 980,420 860,520 C720,640 430,640 290,540 C150,440 210,240 320,100 Z;
-                M300,120 C420,40 560,20 720,120 C900,240 960,420 840,540 C700,660 420,640 260,540 C120,440 180,240 300,120 Z
-              " />
-          </path>
-        </g>
-
-        <g class="parallax layer-med" transform="translate(0,0)">
-          <path id="blobB" fill="url(#blobGradB)" filter="url(#softBlur)" opacity="0.92"
-                d="M1040,420 C1180,360 1260,300 1320,340 C1400,400 1380,520 1260,580 C1120,650 940,640 820,560 C700,480 880,480 1040,420 Z">
-            <animate attributeName="d" dur="14s" repeatCount="indefinite"
-              values="
-                M1040,420 C1180,360 1260,300 1320,340 C1400,400 1380,520 1260,580 C1120,650 940,640 820,560 C700,480 880,480 1040,420 Z;
-                M1020,400 C1160,340 1240,300 1300,360 C1380,420 1360,540 1240,600 C1100,670 940,640 820,560 C700,480 880,500 1020,400 Z;
-                M1060,430 C1200,370 1280,320 1336,360 C1410,410 1390,520 1264,578 C1116,648 948,642 826,558 C704,474 884,485 1060,430 Z;
-                M1040,420 C1180,360 1260,300 1320,340 C1400,400 1380,520 1260,580 C1120,650 940,640 820,560 C700,480 880,480 1040,420 Z
-              " />
-          </path>
-        </g>
-
-        <g class="parallax layer-fast" style="mix-blend-mode:screen">
-          <circle class="dot" cx="200" cy="90" r="3" fill="#fff" opacity="0.18"/>
-          <circle class="dot" cx="460" cy="180" r="2.5" fill="#fff" opacity="0.12"/>
-          <circle class="dot" cx="980" cy="120" r="2" fill="#fff" opacity="0.10"/>
-          <circle class="dot" cx="1240" cy="220" r="2.8" fill="#fff" opacity="0.12"/>
-          <circle class="dot" cx="880" cy="60" r="2.3" fill="#fff" opacity="0.09"/>
-          <circle class="dot" cx="520" cy="420" r="3.2" fill="#fff" opacity="0.08"/>
-        </g>
-
-        <g class="lines" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none" >
-          <path id="line1" d="M40 600 C220 520 480 520 680 600 C880 680 1160 640 1360 520" stroke-linecap="round" stroke-linejoin="round" />
-          <path id="line2" d="M0 420 C200 380 420 460 700 420 C980 380 1180 460 1400 420" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-        </g>
-
-        <rect width="100%" height="100%" fill="url(#dots)" opacity="0.02"></rect>
-      </svg>
-    </div>
-
     <!-- Hero content -->
     <div class="hero-inner" id="hero">
       <div class="hero-left" aria-labelledby="hero-title">
@@ -313,16 +388,13 @@ nav::-webkit-scrollbar-thumb:hover {
           <a class="btn btn-light" href="#example">See Example</a>
         </div>
       </div>
-
-      <!-- You can place an optional small preview card or screenshot on the right if desired -->
-      <div style="flex:0 0 360px;display:none" aria-hidden="true"></div>
     </div>
   </main>
 
   <!-- Features -->
   <section id="features" class="reveal" aria-labelledby="features-title">
     <div style="max-width:var(--max-width);margin:0 auto">
-      <h2 id="features-title" style="font-size:1.6rem;margin-bottom:12px">Features</h2>
+      <h2 id="features-title" style="font-size:1.8rem;margin-bottom:16px;text-align:center">Features</h2>
       <div class="features" role="list">
         <div class="feature-card" role="listitem">
           <h3>⚡ Utility-first</h3>
@@ -347,9 +419,9 @@ nav::-webkit-scrollbar-thumb:hover {
   <!-- Example Usage -->
   <section id="example" class="reveal" aria-labelledby="example-title">
     <div style="max-width:var(--max-width);margin:0 auto">
-      <h2 id="example-title" style="font-size:1.6rem;margin-bottom:12px">Example Usage</h2>
+      <h2 id="example-title" style="font-size:1.8rem;margin-bottom:16px;text-align:center">Example Usage</h2>
       <div class="example" role="region" aria-label="Example code">
-<pre><code>&lt;!DOCTYPE html&gt;
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -383,7 +455,7 @@ nav::-webkit-scrollbar-thumb:hover {
   <!-- Comparison -->
   <section id="comparison" class="reveal" aria-labelledby="comparison-title">
     <div style="max-width:var(--max-width);margin:0 auto">
-      <h2 id="comparison-title" style="font-size:1.6rem;margin-bottom:12px">Framework Comparison</h2>
+      <h2 id="comparison-title" style="font-size:1.8rem;margin-bottom:16px;text-align:center">Framework Comparison</h2>
 
       <table class="comparison" role="table" aria-label="Comparison table">
         <thead>
@@ -418,7 +490,7 @@ nav::-webkit-scrollbar-thumb:hover {
     </div>
   </footer>
 
-  <!-- ====== Scripts: Reveal + Parallax + small niceties ====== -->
+  <!-- ====== Scripts: Reveal + small niceties ====== -->
   <script>
     // Reveal on scroll (IntersectionObserver)
     (function(){
@@ -431,41 +503,6 @@ nav::-webkit-scrollbar-thumb:hover {
         });
       }, {threshold:0.18});
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    })();
-
-    // Parallax + subtle idle motion for the SVG hero
-    (function(){
-      const svg = document.getElementById('hero-svg');
-      if (!svg) return;
-      const slow = svg.querySelector('.layer-slow');
-      const med = svg.querySelector('.layer-med');
-      const fast = svg.querySelector('.layer-fast');
-      const wrapper = document.querySelector('.hero-outer');
-      // handler
-      function moveLayers(clientX, clientY) {
-        const w = wrapper.clientWidth, h = wrapper.clientHeight;
-        const nx = (clientX / w) - 0.5;
-        const ny = (clientY / h) - 0.5;
-        if (slow) slow.style.transform = `translate(${nx * 18}px, ${ny * 12}px)`;
-        if (med) med.style.transform = `translate(${nx * 36}px, ${ny * 24}px)`;
-        if (fast) fast.style.transform = `translate(${nx * 72}px, ${ny * 48}px)`;
-      }
-      window.addEventListener('mousemove', (e) => moveLayers(e.clientX, e.clientY), {passive:true});
-      window.addEventListener('touchmove', (ev) => {
-        const t = ev.touches && ev.touches[0];
-        if (t) moveLayers(t.clientX, t.clientY);
-      }, {passive:true});
-      // idle breathing
-      let t = 0;
-      function idle(){
-        t += 0.0065;
-        const sx = Math.cos(t) * 6, sy = Math.sin(t * 0.8) * 4;
-        if (slow) slow.style.transform = `translate(${sx}px, ${sy}px)`;
-        if (med) med.style.transform  = `translate(${sx*1.8}px, ${sy*1.6}px)`;
-        if (fast) fast.style.transform = `translate(${sx*3.2}px, ${sy*2.4}px)`;
-        requestAnimationFrame(idle);
-      }
-      idle();
     })();
 
     // Small: highlight nav when section in view
