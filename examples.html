@@ -53,12 +53,13 @@
       &lt;meta charset="UTF-8"&gt;
       &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
       &lt;title&gt;Document&lt;/title&gt;
-      &lt;script src="./twigwind/css.js" type="module"&gt;&lt;/script&gt;
-      &lt;link rel="stylesheet" href="./twigwind/css.css"&gt;
+      &lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;
+      &lt;link rel="stylesheet" href="src/css.css"&gt;
   &lt;/head&gt;
   &lt;body&gt;
       &lt;button class="bg-blue color-white transition:all_0.1s_ease-out hover:shadow-lg border-2 border-transparent p-7 border-radius-7px"&gt;Click Me&lt;/button&gt;
-      &lt;script&gt;
+      &lt;script type="module"&gt;
+          import { Twigwind } from 'src/css.js';
           document.addEventListener("DOMContentLoaded", () =&gt; {
               document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
               Twigwind.twInject();
@@ -79,8 +80,8 @@
       &lt;meta charset="UTF-8"&gt;
       &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
       &lt;title&gt;Document&lt;/title&gt;
-      &lt;script src="./twigwind/css.js" type="module"&gt;&lt;/script&gt;
-      &lt;link rel="stylesheet" href="./twigwind/css.css"&gt;
+      &lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;
+      &lt;link rel="stylesheet" href="src/css.css"&gt;
       &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /&gt;
       &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"&gt;
       &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"&gt;&lt;/script&gt;
@@ -113,7 +114,9 @@
   print(f"Original: {numbers}")
   print(f"Squared: {squared}")&lt;/code&gt;&lt;/pre&gt;
       &lt;/div&gt;
-      &lt;script&gt;
+      &lt;script type="module"&gt;
+          import { Twigwind } from 'src/css.js';
+          
           function copyCode() {
               const code = document.querySelector('code').textContent;
               navigator.clipboard.writeText(code).then(() =&gt; {
@@ -146,8 +149,8 @@
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;Card Layout&lt;/title&gt;
-    &lt;script src="../src/css.js" type="module"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+    &lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="src/css.css"&gt;
 &lt;/head&gt;
 &lt;body class="bg-lightBlue p-20"&gt;
     &lt;div class="flex:row-center-center"&gt;
@@ -162,7 +165,8 @@
             &lt;button class="bg-teal color-white p-10 border-radius-6px hover:bg-green transition:all_0.2s_ease"&gt;Get Started&lt;/button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;script&gt;
+    &lt;script type="module"&gt;
+        import { Twigwind } from 'src/css.js';
         document.addEventListener("DOMContentLoaded", () =&gt; {
             document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
             Twigwind.twInject();
@@ -181,8 +185,8 @@
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;Grid with Animations&lt;/title&gt;
-    &lt;script src="../src/css.js" type="module"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+    &lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="src/css.css"&gt;
 &lt;/head&gt;
 &lt;body class="bg-black p-30"&gt;
     &lt;h1 class="color-white mb-30 flex:row-center-center"&gt;Animated Grid Gallery&lt;/h1&gt;
@@ -212,7 +216,8 @@
             &lt;p class="color-white"&gt;Skew transform&lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;script&gt;
+    &lt;script type="module"&gt;
+        import { Twigwind } from 'src/css.js';
         document.addEventListener("DOMContentLoaded", () =&gt; {
             document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
             Twigwind.twInject();
@@ -231,8 +236,8 @@
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;Navigation Bar&lt;/title&gt;
-    &lt;script src="../src/css.js" type="module"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+    &lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="src/css.css"&gt;
 &lt;/head&gt;
 &lt;body class="bg-white"&gt;
     &lt;nav class="bg-blue p-15 shadow-lg"&gt;
@@ -251,7 +256,8 @@
         &lt;p class="color-blueGrey mb-20"&gt;This is a sample page with a beautiful navigation bar created using Twigwind utilities.&lt;/p&gt;
         &lt;button class="bg-blue color-white p-15 border-radius-8px hover:bg-deepPurple hover:shadow-lg transition:all_0.3s_ease"&gt;Get Started&lt;/button&gt;
     &lt;/main&gt;
-    &lt;script&gt;
+    &lt;script type="module"&gt;
+        import { Twigwind } from 'src/css.js';
         document.addEventListener("DOMContentLoaded", () =&gt; {
             document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
             Twigwind.twInject();
@@ -270,8 +276,8 @@
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;Styled Form&lt;/title&gt;
-    &lt;script src="../src/css.js" type="module"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+    &lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="src/css.css"&gt;
 &lt;/head&gt;
 &lt;body class="bg-sand p-30"&gt;
     &lt;div class="flex:row-center-center"&gt;
@@ -296,7 +302,8 @@
             &lt;button type="submit" class="w-100% bg-purple color-white p-15 border-radius-8px hover:bg-deepPurple hover:shadow-lg transition:all_0.3s_ease"&gt;Send Message&lt;/button&gt;
         &lt;/form&gt;
     &lt;/div&gt;
-    &lt;script&gt;
+    &lt;script type="module"&gt;
+        import { Twigwind } from 'src/css.js';
         document.addEventListener("DOMContentLoaded", () =&gt; {
             document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
             Twigwind.twInject();
@@ -315,8 +322,8 @@
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;Dashboard&lt;/title&gt;
-    &lt;script src="twigwind/css.js"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="twigwind/css.css"&gt;
+    &lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="src/css.css"&gt;
 &lt;/head&gt;
 &lt;body class="bg-lightBlue"&gt;
     &lt;!-- Header --&gt;
