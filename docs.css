@@ -1,15 +1,15 @@
 /* ==============================
    Twigwind Docs Theme (Modern Dark)
    ============================== */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Sans:wght@200..800&display=swap');
 
 :root {
   --bg-dark: #080e1d;
   --bg-darker: #020617;
   --text-light: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-muted: #9aa0a6;
   --accent: #1a9ad1;
-  --font-sans: 'Jetbrains Mono', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Momo Trust Sans', system-ui, -apple-system, sans-serif;
   
   /* Legacy variables for compatibility */
   --bg: var(--bg-dark);
@@ -39,7 +39,10 @@ body {
   background: var(--bg-dark);
   line-height: 1.6;
   display: flex;
+  font-weight: 400;
   min-height: 100vh;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 a {
@@ -329,6 +332,7 @@ table tr:hover td {
 
 .example h4 {
   margin-top: 0;
+  color: rgba(255, 255, 255, 0.654);
 }
 
 /* Sidebar Toggle Button */

@@ -64,14 +64,14 @@
         <li><strong>README.md</strong>: Comprehensive documentation</li>
     </ul>
     
-    <h2>Runtime Usage</h2>
+    <h2>CDN Usage</h2>
     <p>Include Twigwind in your HTML for runtime CSS generation:</p>
     <pre><code class="language-html">&lt;!-- Base styles (optional) --&gt;
-&lt;link rel="stylesheet" href="src/css.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/helloadhavan/twigwind/src/css.css"&gt;
 
 &lt;!-- Twigwind JavaScript --&gt;
-&lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;</code></pre>
-    
+&lt;script src="https://cdn.jsdelivr.net/gh/helloadhavan/twigwind/src/css.js" type="module"&gt;&lt;/script&gt;</code></pre>
+
     <p>Initialize Twigwind after DOM content loads:</p>
     <pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", () =&gt; {
   document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
