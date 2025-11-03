@@ -25,7 +25,7 @@
       <a href="docs3.html">Colors</a>
       <a href="docs4.html">Sizes</a>
       <a href="docs5.html">Spacing</a>
-      <a href="docs6.html">Shadow</a>
+      <a href="docs6.html">Shadow & Borders</a>
       <a href="docs7.html">Flex & Grid</a>
       <a href="docs8.html">Hover and Media</a>
       <a href="docs9.html">Transition & Transform</a>
@@ -73,12 +73,47 @@ cd my-twigwind-project</code></pre>
         <p>then run:</p>
         <pre><code>twigwind build</code></pre>
         <p>This will generate the CSS file in the <code>dist</code> folder.</p>
-        <div class="note warning">
+        <div class="alert warning">
           <p><strong>Note:</strong> Make sure to include the generated CSS file in your HTML files for the styles to take effect and remove any unused styles.</p>
         </div>
         <div class="alert success">
           🎉 You're all set! You can now use Twigwind in your project with the build system.<br>
           You can modify and extend your build process as needed by editing build.js.
+        </div>
+        <div class="example">
+          <h4>Example Usage</h4>
+          <p>Here's a simple example of how to use Twigwind in your project:</p>
+          <ol>
+            <li><strong>Initialize <code>npm</code>:</strong> Run <code>npm init -y</code> to create a <code>package.json</code> file.</li>
+            <pre><code class="language-bash"> mkdir my-twigwind-project
+cd my-twigwind-project
+npm init -y
+            </code></pre>
+            <li><strong>Install Twigwind:</strong> Run <code>npm install -g twigwind</code> to install Twigwind globally.</li>
+            <pre><code class="language-bash"> npm install -g twigwind
+            </code></pre>
+            <li><strong>Create HTML File:</strong> Create an <code>index.html</code> file and include the generated CSS file:
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;link rel="stylesheet" href="dist/index.css"&gt;
+  &lt;title&gt;My Twigwind Project&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="bg-blue color-white p-4 border-radius-10px"&gt;
+    &lt;h1 class="size-2xl"&gt;Hello, Twigwind!&lt;/h1&gt;
+    &lt;p&gt;This is a simple example using Twigwind classes.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+          <li><strong>Build CSS:</strong> Run <code>twigwind build</code> to generate the CSS file at <code>dist/index.css</code>.</li>
+            <pre><code class="language-bash">twigwind build
+            </code></pre>
+            <li><strong>Open in Browser:</strong> Open <code>index.html</code> in your web browser to see the styled content.</li>
+          </ol>
         </div>
   </main>
 <script>
