@@ -1,0 +1,69 @@
+<div class="version-content">
+  <h2>Version 3.2.4 <span class="version-date">November 2024</span></h2>
+  
+  <div class="changelog-section">
+    <h3>🚀 New Features</h3>
+    <ul>
+      <li><strong>CSS Shortcuts System</strong> - Revolutionary new way to define reusable components using CSS-like syntax in <code>&lt;twigwind&gt;</code> tags</li>
+      <li><strong>Enhanced Dark Mode</strong> - Complete dark mode implementation with <code>dark:</code> prefixes for all utilities</li>
+      <li><strong>Advanced Position Utilities</strong> - Added <code>fixed</code>, <code>absolute</code>, <code>relative</code>, <code>sticky</code>, and <code>z-index</code> utilities</li>
+      <li><strong>Animation Framework</strong> - Built-in animations with <code>animate-</code> prefix and custom keyframes</li>
+      <li><strong>Typography System</strong> - Enhanced text utilities with <code>text-center</code>, <code>font-weight</code>, and size controls</li>
+    </ul>
+  </div>
+
+  <div class="changelog-section">
+    <h3>✨ Improvements</h3>
+    <ul>
+      <li><strong>Performance Optimization</strong> - Faster CSS generation and reduced bundle size</li>
+      <li><strong>Better Error Handling</strong> - Improved error messages and debugging capabilities</li>
+      <li><strong>Enhanced Documentation</strong> - Complete rewrite of documentation with interactive examples</li>
+      <li><strong>Responsive Design</strong> - Better mobile support and responsive utilities</li>
+    </ul>
+  </div>
+
+  <div class="changelog-section">
+    <h3>🔧 Technical Changes</h3>
+    <ul>
+      <li>Refactored <code>TagHandler()</code> function for better CSS shortcuts parsing</li>
+      <li>Added <code>applyUtilityClass()</code> function for centralized utility processing</li>
+      <li>Improved <code>parsePrefix()</code> function to handle complex selectors</li>
+      <li>Enhanced <code>pushCSS()</code> function with better selector generation</li>
+    </ul>
+  </div>
+
+  <div class="changelog-section">
+    <h3>📚 Documentation Updates</h3>
+    <ul>
+      <li>Added comprehensive CSS Shortcuts guide</li>
+      <li>Updated Dark Mode documentation with examples</li>
+      <li>Created Typography documentation page</li>
+      <li>Enhanced Build System documentation</li>
+      <li>Added Runtime Management guide</li>
+    </ul>
+  </div>
+
+  <div class="changelog-section">
+    <h3>🐛 Bug Fixes</h3>
+    <ul>
+      <li>Fixed CSS shortcuts parsing for complex selectors</li>
+      <li>Resolved dark mode toggle functionality</li>
+      <li>Fixed utility class generation edge cases</li>
+      <li>Corrected responsive breakpoint handling</li>
+    </ul>
+  </div>
+
+  <div class="code-example">
+    <h4>CSS Shortcuts Example</h4>
+    <pre><code class="language-html">&lt;twigwind&gt;
+  card: {
+    bg-white; dark:bg-gray;
+    shadow-lg; border-radius-12;
+    p-24; hover:transform-scale-102;
+    transition-all-300ms;
+  }
+&lt;/twigwind&gt;
+
+&lt;div class="card"&gt;Beautiful component!&lt;/div&gt;</code></pre>
+  </div>
+</div>
