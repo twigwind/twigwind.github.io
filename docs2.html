@@ -62,7 +62,8 @@
     <ul>
         <li><strong>src/css.js</strong>: Main JavaScript framework file (ES6 module)</li>
         <li><strong>src/css.css</strong>: Base styles and animations</li>
-        <li><strong>build.js</strong>: Build system for CSS optimization</li>
+        <li><strong>build.cjs</strong>: Build system for CSS optimization</li>
+        <li><strong>cli.cjs</strong>: Command-line interface for build tasks</li>
         <li><strong>package.json</strong>: NPM package configuration</li>
         <li><strong>version.txt</strong>: Current version (3.2.0)</li>
         <li><strong>README.md</strong>: Comprehensive documentation</li>
@@ -71,10 +72,10 @@
     <h2>CDN Usage</h2>
     <p>Include Twigwind in your HTML for runtime CSS generation:</p>
     <pre><code class="language-html">&lt;!-- Base styles (optional) --&gt;
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/helloadhavan/twigwind/src/css.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twigwind@latest/src/css.min.css"&gt;
 
 &lt;!-- Twigwind JavaScript --&gt;
-&lt;script src="https://cdn.jsdelivr.net/gh/helloadhavan/twigwind/src/css.js" type="module"&gt;&lt;/script&gt;</code></pre>
+&lt;script src="https://cdn.jsdelivr.net/npm/twigwind@latest/src/css.js"&gt;&lt;/script&gt;</code></pre>
 
     <p>Initialize Twigwind after DOM content loads:</p>
     <pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", () =&gt; {
