@@ -382,6 +382,397 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
     </div>
+
+    <h2>Example 8: Dark Mode Toggle</h2>
+    <p>This example demonstrates implementing a dark mode toggle with Twigwind's dark mode utilities.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Dark Mode Toggle&lt;/title&gt;
+    &lt;script src="../src/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-white dark:bg-black transition:all_0.3s_ease"&gt;
+    &lt;div class="p-30"&gt;
+        &lt;!-- Header with toggle --&gt;
+        &lt;header class="flex:row-left-center mb-30"&gt;
+            &lt;h1 class="color-black dark:color-white mr-30"&gt;Dark Mode Demo&lt;/h1&gt;
+            &lt;button id="darkToggle" class="bg-blue dark:bg-purple color-white p-12 border-radius-8px hover:shadow-lg transition:all_0.3s_ease"&gt;
+                Toggle Dark Mode
+            &lt;/button&gt;
+        &lt;/header&gt;
+        
+        &lt;!-- Content cards --&gt;
+        &lt;div class="grid:2,1,20px"&gt;
+            &lt;div class="bg-lightBlue dark:bg-blueGrey p-25 border-radius-12px shadow-md dark:shadow-2xl transition:all_0.3s_ease"&gt;
+                &lt;h3 class="color-blue dark:color-lightBlue mb-15"&gt;Light Theme Card&lt;/h3&gt;
+                &lt;p class="color-blueGrey dark:color-white"&gt;This card adapts to the current theme automatically using Twigwind's dark mode utilities.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="bg-sand dark:bg-deepPurple p-25 border-radius-12px shadow-md dark:shadow-2xl transition:all_0.3s_ease"&gt;
+                &lt;h3 class="color-orange dark:color-yellow mb-15"&gt;Adaptive Colors&lt;/h3&gt;
+                &lt;p class="color-brown dark:color-white"&gt;Colors change seamlessly between light and dark modes for optimal readability.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script&gt;
+        const darkToggle = document.getElementById('darkToggle');
+        const body = document.body;
+        
+        darkToggle.addEventListener('click', () =&gt; {
+            body.classList.toggle('dark');
+        });
+        
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <h2>Example 9: CSS Shortcuts with Twigwind Tags</h2>
+    <p>This example shows how to use Twigwind's CSS shortcuts feature to create reusable component styles.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;CSS Shortcuts Demo&lt;/title&gt;
+    &lt;script src="../src/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-lightBlue p-30"&gt;
+    &lt;!-- Define CSS shortcuts --&gt;
+    &lt;twigwind style="display:none"&gt;
+        card {
+            bg-white;
+            p-20;
+            border-radius-12px;
+            shadow-lg;
+            hover:shadow-xl;
+            transition:all_0.3s_ease;
+        }
+        
+        btn-primary {
+            bg-blue;
+            color-white;
+            p-12;
+            border-radius-6px;
+            hover:bg-deepPurple;
+            hover:shadow-md;
+            transition:all_0.2s_ease;
+        }
+        
+        btn-secondary {
+            bg-transparent;
+            color-blue;
+            p-12;
+            border-2;
+            border-blue;
+            border-radius-6px;
+            hover:bg-blue;
+            hover:color-white;
+            transition:all_0.2s_ease;
+        }
+        
+        feature-icon {
+            w-60;
+            h-60;
+            bg-purple;
+            border-radius-50%;
+            flex:row-center-center;
+            color-white;
+            mb-15;
+        }
+    &lt;/twigwind&gt;
+    
+    &lt;h1 class="color-blue mb-30 flex:row-center-center"&gt;CSS Shortcuts Demo&lt;/h1&gt;
+    
+    &lt;div class="grid:3,1,20px"&gt;
+        &lt;div class="card"&gt;
+            &lt;div class="feature-icon"&gt;🚀&lt;/div&gt;
+            &lt;h3 class="color-purple mb-15"&gt;Fast Development&lt;/h3&gt;
+            &lt;p class="color-blueGrey mb-20"&gt;Build components quickly with reusable CSS shortcuts.&lt;/p&gt;
+            &lt;button class="btn-primary mr-10"&gt;Learn More&lt;/button&gt;
+            &lt;button class="btn-secondary"&gt;Demo&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="card"&gt;
+            &lt;div class="feature-icon"&gt;⚡&lt;/div&gt;
+            &lt;h3 class="color-teal mb-15"&gt;Performance&lt;/h3&gt;
+            &lt;p class="color-blueGrey mb-20"&gt;Lightweight and optimized for production use.&lt;/p&gt;
+            &lt;button class="btn-primary mr-10"&gt;Benchmark&lt;/button&gt;
+            &lt;button class="btn-secondary"&gt;Test&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="card"&gt;
+            &lt;div class="feature-icon"&gt;🎨&lt;/div&gt;
+            &lt;h3 class="color-orange mb-15"&gt;Customizable&lt;/h3&gt;
+            &lt;p class="color-blueGrey mb-20"&gt;Create your own utility classes and shortcuts.&lt;/p&gt;
+            &lt;button class="btn-primary mr-10"&gt;Customize&lt;/button&gt;
+            &lt;button class="btn-secondary"&gt;Guide&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script&gt;
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <h2>Example 10: Modal Dialog</h2>
+    <p>This example demonstrates creating a modal dialog with backdrop blur and animations.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Modal Dialog&lt;/title&gt;
+    &lt;script src="../src/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-sand p-30"&gt;
+    &lt;div class="flex:row-center-center h-100vh"&gt;
+        &lt;button id="openModal" class="bg-purple color-white p-20 border-radius-8px hover:bg-deepPurple hover:shadow-lg transition:all_0.3s_ease"&gt;
+            Open Modal
+        &lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Modal Backdrop --&gt;
+    &lt;div id="modalBackdrop" class="fixed top-0 left-0 w-100vw h-100vh bg-black opacity-0 backdrop-blur-10px z-50 transition:all_0.3s_ease" style="display: none; pointer-events: none;"&gt;
+        &lt;div class="flex:row-center-center h-100%"&gt;
+            &lt;!-- Modal Content --&gt;
+            &lt;div id="modalContent" class="bg-white p-30 border-radius-12px shadow-2xl w-400 transform:scale-0.8 transition:all_0.3s_ease"&gt;
+                &lt;div class="flex:row-left-center mb-20"&gt;
+                    &lt;h2 class="color-purple"&gt;Modal Title&lt;/h2&gt;
+                    &lt;button id="closeModal" class="absolute right-20 top-20 color-blueGrey hover:color-red transition:all_0.2s_ease"&gt;✕&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;p class="color-blueGrey mb-25"&gt;This is a beautiful modal dialog created with Twigwind utilities. It features backdrop blur, smooth animations, and responsive design.&lt;/p&gt;
+                &lt;div class="flex:row-right-center"&gt;
+                    &lt;button id="cancelBtn" class="bg-transparent color-blueGrey p-12 border-radius-6px hover:bg-lightBlue transition:all_0.2s_ease mr-15"&gt;Cancel&lt;/button&gt;
+                    &lt;button id="confirmBtn" class="bg-purple color-white p-12 border-radius-6px hover:bg-deepPurple transition:all_0.2s_ease"&gt;Confirm&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script&gt;
+        const openModal = document.getElementById('openModal');
+        const closeModal = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const confirmBtn = document.getElementById('confirmBtn');
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const modalContent = document.getElementById('modalContent');
+        
+        function showModal() {
+            modalBackdrop.style.display = 'block';
+            modalBackdrop.style.pointerEvents = 'auto';
+            setTimeout(() =&gt; {
+                modalBackdrop.style.opacity = '0.5';
+                modalContent.style.transform = 'scale(1)';
+            }, 10);
+        }
+        
+        function hideModal() {
+            modalBackdrop.style.opacity = '0';
+            modalContent.style.transform = 'scale(0.8)';
+            setTimeout(() =&gt; {
+                modalBackdrop.style.display = 'none';
+                modalBackdrop.style.pointerEvents = 'none';
+            }, 300);
+        }
+        
+        openModal.addEventListener('click', showModal);
+        closeModal.addEventListener('click', hideModal);
+        cancelBtn.addEventListener('click', hideModal);
+        confirmBtn.addEventListener('click', () =&gt; {
+            alert('Confirmed!');
+            hideModal();
+        });
+        
+        modalBackdrop.addEventListener('click', (e) =&gt; {
+            if (e.target === modalBackdrop) hideModal();
+        });
+        
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <h2>Example 11: Pricing Table</h2>
+    <p>This example demonstrates creating a responsive pricing table with hover effects and gradients.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Pricing Table&lt;/title&gt;
+    &lt;script src="../src/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-lightBlue p-30"&gt;
+    &lt;h1 class="color-blue mb-40 flex:row-center-center size-xxl"&gt;Choose Your Plan&lt;/h1&gt;
+    
+    &lt;div class="grid:3,1,30px"&gt;
+        &lt;!-- Basic Plan --&gt;
+        &lt;div class="bg-white p-30 border-radius-12px shadow-lg hover:shadow-2xl hover:transform:translateY-5px transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-blueGrey mb-10 flex:row-center-center"&gt;Basic&lt;/h3&gt;
+            &lt;div class="flex:row-center-center mb-20"&gt;
+                &lt;span class="size-xxl color-blue"&gt;$9&lt;/span&gt;
+                &lt;span class="color-blueGrey ml-5"&gt;/month&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;ul class="mb-30"&gt;
+                &lt;li class="color-blueGrey mb-10"&gt;✓ 5 Projects&lt;/li&gt;
+                &lt;li class="color-blueGrey mb-10"&gt;✓ 10GB Storage&lt;/li&gt;
+                &lt;li class="color-blueGrey mb-10"&gt;✓ Email Support&lt;/li&gt;
+                &lt;li class="color-lightGrey mb-10"&gt;✗ Priority Support&lt;/li&gt;
+                &lt;li class="color-lightGrey mb-10"&gt;✗ Advanced Features&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;button class="w-100% bg-blue color-white p-15 border-radius-8px hover:bg-deepPurple transition:all_0.2s_ease"&gt;Get Started&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Pro Plan (Featured) --&gt;
+        &lt;div class="gradient-to-br-purple-pink p-30 border-radius-12px shadow-xl hover:shadow-2xl hover:transform:translateY-5px transition:all_0.3s_ease relative"&gt;
+            &lt;div class="absolute top-10 right-10 bg-yellow color-black p-5 border-radius-20px size-sm"&gt;Popular&lt;/div&gt;
+            &lt;h3 class="color-white mb-10 flex:row-center-center"&gt;Pro&lt;/h3&gt;
+            &lt;div class="flex:row-center-center mb-20"&gt;
+                &lt;span class="size-xxl color-white"&gt;$29&lt;/span&gt;
+                &lt;span class="color-white ml-5"&gt;/month&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;ul class="mb-30"&gt;
+                &lt;li class="color-white mb-10"&gt;✓ 50 Projects&lt;/li&gt;
+                &lt;li class="color-white mb-10"&gt;✓ 100GB Storage&lt;/li&gt;
+                &lt;li class="color-white mb-10"&gt;✓ Priority Support&lt;/li&gt;
+                &lt;li class="color-white mb-10"&gt;✓ Advanced Features&lt;/li&gt;
+                &lt;li class="color-white mb-10"&gt;✓ API Access&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;button class="w-100% bg-white color-purple p-15 border-radius-8px hover:bg-yellow hover:color-black transition:all_0.2s_ease"&gt;Get Started&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Enterprise Plan --&gt;
+        &lt;div class="bg-white p-30 border-radius-12px shadow-lg hover:shadow-2xl hover:transform:translateY-5px transition:all_0.3s_ease"&gt;
+            &lt;h3 class="color-blueGrey mb-10 flex:row-center-center"&gt;Enterprise&lt;/h3&gt;
+            &lt;div class="flex:row-center-center mb-20"&gt;
+                &lt;span class="size-xxl color-blue"&gt;$99&lt;/span&gt;
+                &lt;span class="color-blueGrey ml-5"&gt;/month&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;ul class="mb-30"&gt;
+                &lt;li class="color-blueGrey mb-10"&gt;✓ Unlimited Projects&lt;/li&gt;
+                &lt;li class="color-blueGrey mb-10"&gt;✓ 1TB Storage&lt;/li&gt;
+                &lt;li class="color-blueGrey mb-10"&gt;✓ 24/7 Support&lt;/li&gt;
+                &lt;li class="color-blueGrey mb-10"&gt;✓ Custom Integrations&lt;/li&gt;
+                &lt;li class="color-blueGrey mb-10"&gt;✓ Dedicated Manager&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;button class="w-100% bg-blue color-white p-15 border-radius-8px hover:bg-deepPurple transition:all_0.2s_ease"&gt;Contact Sales&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script&gt;
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <h2>Example 12: Loading Animations</h2>
+    <p>This example showcases various loading animations and spinners using Twigwind's animation utilities.</p>
+    <div class="html-block">
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Loading Animations&lt;/title&gt;
+    &lt;script src="../src/css.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="../src/css.css"&gt;
+&lt;/head&gt;
+&lt;body class="bg-black p-30"&gt;
+    &lt;h1 class="color-white mb-40 flex:row-center-center"&gt;Loading Animations&lt;/h1&gt;
+    
+    &lt;div class="grid:4,2,30px"&gt;
+        &lt;!-- Spinner 1 --&gt;
+        &lt;div class="bg-blueGrey p-30 border-radius-12px flex:column-center-center"&gt;
+            &lt;div class="w-40 h-40 border-4 border-blue border-top-transparent border-radius-50% animate-spin-1s-infinite mb-15"&gt;&lt;/div&gt;
+            &lt;p class="color-white"&gt;Classic Spinner&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Pulse Animation --&gt;
+        &lt;div class="bg-blueGrey p-30 border-radius-12px flex:column-center-center"&gt;
+            &lt;div class="w-40 h-40 bg-green border-radius-50% animate-pulse-1s-infinite mb-15"&gt;&lt;/div&gt;
+            &lt;p class="color-white"&gt;Pulse Effect&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Bounce Animation --&gt;
+        &lt;div class="bg-blueGrey p-30 border-radius-12px flex:column-center-center"&gt;
+            &lt;div class="w-40 h-40 bg-purple border-radius-50% animate-bounce-800ms-infinite mb-15"&gt;&lt;/div&gt;
+            &lt;p class="color-white"&gt;Bounce Ball&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Fade Animation --&gt;
+        &lt;div class="bg-blueGrey p-30 border-radius-12px flex:column-center-center"&gt;
+            &lt;div class="w-40 h-40 bg-orange border-radius-8px animate-fade-1.5s-infinite mb-15"&gt;&lt;/div&gt;
+            &lt;p class="color-white"&gt;Fade In/Out&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Dots Loading --&gt;
+        &lt;div class="bg-blueGrey p-30 border-radius-12px flex:column-center-center"&gt;
+            &lt;div class="flex:row-center-center mb-15"&gt;
+                &lt;div class="w-8 h-8 bg-pink border-radius-50% animate-bounce-600ms-infinite mr-5"&gt;&lt;/div&gt;
+                &lt;div class="w-8 h-8 bg-pink border-radius-50% animate-bounce-600ms-infinite mr-5" style="animation-delay: 0.2s;"&gt;&lt;/div&gt;
+                &lt;div class="w-8 h-8 bg-pink border-radius-50% animate-bounce-600ms-infinite" style="animation-delay: 0.4s;"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;p class="color-white"&gt;Dot Sequence&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Scale Animation --&gt;
+        &lt;div class="bg-blueGrey p-30 border-radius-12px flex:column-center-center"&gt;
+            &lt;div class="w-40 h-40 bg-teal border-radius-8px animate-scale-1s-infinite mb-15"&gt;&lt;/div&gt;
+            &lt;p class="color-white"&gt;Scale Effect&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Rotate Animation --&gt;
+        &lt;div class="bg-blueGrey p-30 border-radius-12px flex:column-center-center"&gt;
+            &lt;div class="w-40 h-40 bg-yellow border-radius-8px animate-spin-2s-infinite mb-15"&gt;&lt;/div&gt;
+            &lt;p class="color-white"&gt;Slow Rotate&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Progress Bar --&gt;
+        &lt;div class="bg-blueGrey p-30 border-radius-12px flex:column-center-center"&gt;
+            &lt;div class="w-100 h-4 bg-lightGrey border-radius-2px overflow-hidden mb-15"&gt;
+                &lt;div class="h-100% bg-blue animate-slide-2s-infinite"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;p class="color-white"&gt;Progress Bar&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script&gt;
+        document.addEventListener("DOMContentLoaded", () =&gt; {
+            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+            Twigwind.twInject();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
   </main>
 
 
