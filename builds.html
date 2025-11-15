@@ -32,11 +32,13 @@
       <a href="docs10.html">Position Utilities</a>
       <a href="docs11.html">Animation Utilities</a>
       <a href="docs12.html">Gradients & Backgrounds</a>
-      <a href="docs13.html">Runtime Management</a>
       <a href="docs14.html">Dark Mode</a>
       <a href="docs15.html">Typography</a>
+      <a href="tag.html">Twigwind Tags</a>
+      <a href="docs13.html">Runtime Management</a>
       <a href="builds.html" class="active">Build System</a>
       <a href="examples.html">Examples</a>
+      <a href="version.html">Version History</a>
     </nav>
   </aside>
   <!-- Sidebar Toggle Button (visible on small screens) -->
@@ -80,7 +82,7 @@ cd my-twigwind-project</code></pre>
         </div>
         <div class="alert success">
           🎉 You're all set! You can now use Twigwind in your project with the build system.<br>
-          You can modify and extend your build process as needed by editing build.js.
+          You can modify and extend your build process as needed by editing build.cjs.
         </div>
         <div class="example">
           <h4>Example Usage</h4>
@@ -100,7 +102,7 @@ npm init -y
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;link rel="stylesheet" href="dist/index.css"&gt;
+  &lt;link rel="stylesheet" href="dist/twigwind.css"&gt;
   &lt;title&gt;My Twigwind Project&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -111,12 +113,66 @@ npm init -y
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
             </li>
-          <li><strong>Build CSS:</strong> Run <code>twigwind build</code> to generate the CSS file at <code>dist/index.css</code>.</li>
+          <li><strong>Build CSS:</strong> Run <code>twigwind build</code> to generate the CSS file at <code>dist/twigwind.css</code>.</li>
             <pre><code class="language-bash">twigwind build
             </code></pre>
             <li><strong>Open in Browser:</strong> Open <code>index.html</code> in your web browser to see the styled content.</li>
           </ol>
         </div>
+      <h2>Twigwind CLI cheat sheet</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>twigwind build</code></td>
+            <td>Generates the CSS file based on your configuration.</td>
+          </tr>
+          <tr>
+            <td><code>twigwind version</code></td>
+            <td>Shows the current version of Twigwind and its dependencies.</td>
+          </tr>
+          <tr>
+            <td><code>twigwind help</code></td>
+            <td>Displays help information about Twigwind commands.</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--input &lt;path&gt;</code></td>
+            <td>Specifies a custom path to the html dir or file.</td>
+          </tr>
+          <tr>
+            <td><code>--output &lt;path&gt;</code></td>
+            <td>Specifies a custom output directory for the generated CSS file.</td>
+          </tr>
+          <tr>
+            <td><code>--minify</code></td>
+            <td>Generates a minified version of the CSS file.</td>
+          </tr>
+          <tr>
+            <td><code>--watch</code></td>
+            <td>Watch for changes in the input files and rebuild automatically.</td>
+          </tr>
+          <tr>
+            <td><code>-s</code></td>
+            <td>Saves the Object Model for advanced usage.</td>
+          </tr>
+        </tbody>
+      </table>
   </main>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');

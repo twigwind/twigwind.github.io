@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Twigwind Transition & Transform</title>
+  <title>Twigwind Tags</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -28,18 +28,17 @@
       <a href="docs6.html">Shadow & Borders</a>
       <a href="docs7.html">Flex & Grid</a>
       <a href="docs8.html">Hover and Media</a>
-      <a href="docs9.html" class="active">Transition & Transform</a>
+      <a href="docs9.html">Transition & Transform</a>
       <a href="docs10.html">Position Utilities</a>
       <a href="docs11.html">Animation Utilities</a>
       <a href="docs12.html">Gradients & Backgrounds</a>
       <a href="docs14.html">Dark Mode</a>
       <a href="docs15.html">Typography</a>
-      <a href="tag.html">Twigwind Tags</a>
+      <a href="tag.html" class="active">Twigwind Tags</a>
       <a href="docs13.html">Runtime Management</a>
       <a href="builds.html">Build System</a>
       <a href="examples.html">Examples</a>
       <a href="version.html">Version History</a>
-      <a href="examples.html">Examples</a>
     </nav>
   </aside>
   <!-- Sidebar Toggle Button (visible on small screens) -->
@@ -48,47 +47,26 @@
 
   <!-- Main Content -->
   <main class="main">
-    <h1>Transition & Transform</h1>
-    <p>twigwind provides utilities for transitions and transforms.</p>
-    <h2>Transition</h2>
-    <p>Twigwind utilities to control the timing and easing of CSS transitions using the <code>transition: </code> prefix followed by <code>-</code> signs for spaces.</p>
-    <div class="alert info">
-      💡 Tip: You can add multiple transistion properties
-    </div>
-    <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">
-&lt;div class="bg-purple p-10 transition:all-500-ease hover:bg-pink"&gt;hover me&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-background-color: #7b2ff7;
-padding: 10px;
-transition: all 500ms ease;
+   <h1><code>&lt;twigwind&gt;</code> Tag</h1>
+   <p>The <code>&lt;twigwind&gt;</code> tag is a powerful tool to create reusable styles and layouts without rewriting Twigwind CSS.</p>
+    <h2>Usage</h2>
+    <pre><code class="language-html">&lt;twigwind style="display: none"&gt;
+      .card {
+        bg-white
+        shadow-md
+        rounded-lg
+        p-6
+      }
+&lt;/twigwind&gt;
 </code></pre>
-    </div>
-    <h2>Transform</h2>
-    <p>Twigwind provides utilities for CSS transforms including translation, rotation, scaling, and skewing. Use the following functions with the prefix <code>transform:</code></p><BR>
-    <ul>
-        <li><strong>translate-</strong> for moving elements along the X and Y axes</li>
-        <li><strong>rotate-</strong> for rotating elements</li>
-        <li><strong>scale-</strong> for scaling elements up or down</li>
-        <li><strong>skew-</strong> for skewing elements along the X and Y axes</li>
-    </ul>
-    <div class="alert warning">
-      💡 Note: use multiple transform functions for complex effects.
-    </div>
-    <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">
-&lt;div class="bg-blue p-10 transform:translate-20px-10px transform:rotate-15 transform:scale-1.5 transform:skew-10px-5px"&gt;Transformed&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-bg-blue { background-color: #1e90ff; }
-p-10 { padding: 10px; }
-transform: translate(20px, 10px) rotate(15deg) scale(1.5) skew(10px, 5px);
-  </main>
+    <p>In this example, we define a reusable <code>.card</code> class with various Twigwind utility classes. You can then apply the <code>.card</code> class to any HTML element to apply these styles.</p>
+    <h2>Example</h2>
+    <pre><code class="language-html">&lt;div class="card"&gt;
+  &lt;h2 class="text-xl font-bold mb-4"&gt;Card Title&lt;/h2&gt;
+  &lt;p class="text-gray-700"&gt;This is a sample card using the .card class defined in the &lt;twigwind&gt; tag.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+    <p>This will render a styled card with a title and paragraph using the styles defined in the <code>&lt;twigwind&gt;</code> tag.</p>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');
 const sidebar = document.querySelector('.sidebar');

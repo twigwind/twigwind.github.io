@@ -195,6 +195,9 @@ footer {
   margin-bottom: 1rem;
   line-height: 1.2;
 }
+.main h1 code {
+  font-size: 2rem;
+}
 .main h1 { font-size: 2.2rem; }
 .main h2 { font-size: 1.6rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
 .main h3 { font-size: 1.3rem; color: var(--accent-a); }
@@ -213,7 +216,7 @@ footer {
 
 /* ====== Code Blocks ====== */
 pre, code {
-  font-family: "Jetbrains mono", "Consalas", monospace;
+  font-family: "Jetbrains mono", "Fira Code", "Consolas", monospace;
   font-size: 0.9rem;
 }
 pre {
