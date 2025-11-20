@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="logo.png">
+  <meta name="description" content="Twigwind tutorials and documentation — Utility CSS Framework">
+  <meta name="keywords" content="HTML, CSS, JavaScript, twigwing, utility css, framework, frontend, web development">
+  <meta name="author" content="John Doe">
   <meta name="google-site-verification" content="tpgZ9i_7LQD46Rk5M4NNyVFa-TImRFCzDY2_O9MO3Gc" />
   <title>Twigwind — Utility CSS Framework</title>
 
@@ -153,20 +156,37 @@
 
     /* ====== HERO ====== */
     .hero-outer{
-      display:grid;
-      grid-template-columns:1fr;
+      display:flex;
       align-items:center;
       min-height:calc(100vh - 76px);
       padding-top:120px;
       position:relative;
       z-index:1;
       overflow:hidden;
+      background-image: url('./svg2.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-outer::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(
     to bottom right,
-    #0ea4e958 0%,   /* sky-500 */
-    #0f172a49 100%  /* slate-900 */
+    #0ea4e928 0%,   /* sky-500 */
+    #0f172a56 100%  /* slate-900 */
   );
+      z-index: 2;
+      pointer-events: none;
     }
+
+    
+
     .hero-inner{
       max-width:var(--max-width);
       margin:0 auto;
@@ -175,16 +195,18 @@
       gap:48px;
       align-items:center;
       justify-content:center;
-      padding:32px;
       position:relative;
       z-index:4;
       text-align: center;
     }
 
-    .hero-left{
-      flex:1 1 100%;
-      color:var(--text-light);
-      max-width: 800px;
+    .hero-left {
+      flex: 3;
+      min-width: 50%;
+    }
+
+    .hero-right {
+      flex: 1;
     }
     .hero-left h1{
       font-size:clamp(32px,5vw,56px);
@@ -239,8 +261,8 @@
       max-width:var(--max-width);
       margin:0 auto;
       text-align:left;
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap:24px;
     }
     .feature-card{
@@ -282,16 +304,47 @@
       box-shadow:0 16px 48px rgba(0,0,0,0.4);
       backdrop-filter: blur(8px);
     }
-    pre{
-      margin:0;
-      color:var(--text-light);
-      background:transparent;
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-      font-size:0.875rem;
-      line-height:1.6;
-      white-space:pre-wrap;
-      word-break:break-word;
-    }
+    pre {
+  display: block;
+  margin: 0;
+  padding: 1rem;
+
+  white-space: pre;          /* IMPORTANT: keeps real formatting */
+  overflow-x: auto;          /* horizontal scroll when needed */
+  overflow-y: hidden;
+  word-break: normal;        /* prevents mid-word breaks */
+  word-wrap: normal;         /* prevents wrapping */
+  text-align: left !important; /* stops centering */
+
+  background: #0d1117;
+  border-radius: 8px;
+
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.hero-right pre {
+  font-size: 0.75rem;
+  max-width: 800px;
+  max-height: 5%;
+  min-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  overflow: auto;
+}
+
+pre code {
+  display: block;              /* REQUIRED to stop auto-centering */
+  white-space: inherit;        /* follow <pre> rules */
+  background: none !important; /* syntax highlighter reset */
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+}
+
+
 
     /* ====== Comparison table ====== */
     .comparison{
@@ -345,6 +398,9 @@
       section{padding:64px 20px}
       header{padding: 16px 20px;}
       nav{gap: 12px;}
+      .hero-right{
+        display: none;
+      }  
     }
 
     @media (max-width:640px){
@@ -353,6 +409,7 @@
       .feature-card{padding: 20px;}
       section{padding: 48px 16px;}
     }
+
 
     /* small visual niceties */
     .muted{color:var(--text-muted)}
@@ -378,7 +435,6 @@
 
   <!-- HERO -->
   <main class="hero-outer" role="main" aria-labelledby="hero-title">
-    <!-- Hero content -->
     <div class="hero-inner" id="hero">
       <div class="hero-left" aria-labelledby="hero-title">
         <h1 id="hero-title">Rapidly build modern websites without ever leaving your HTML.</h1>
@@ -386,6 +442,37 @@
         <div class="hero-buttons">
           <a class="btn btn-primary" href="https://github.com/helloadhavan/twigwind" target="_blank" rel="noopener">View on GitHub</a>
           <a class="btn btn-light" href="#example">See Example</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="example" role="region" aria-label="Example code">
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Twigwind Test Page&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;link rel="stylesheet" href="css.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1 class="color-blue size-xl mb-20"&gt;Twigwind Test Page&lt;/h1&gt;
+
+  &lt;!-- Colors --&gt;
+  &lt;section&gt;
+    &lt;h2 class="color-purple size-lg mb-10"&gt;Colors&lt;/h2&gt;
+    &lt;div class="flex:row-left-center mb-10"&gt;
+      &lt;div class="bg-red size-md mr-10 p-10"&gt;Red&lt;/div&gt;
+      &lt;div class="bg-green size-md mr-10 p-10"&gt;Green&lt;/div&gt;
+      &lt;div class="bg-blue size-md p-10"&gt;Blue&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Twigwind JS --&gt;
+  &lt;script src="css.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
         </div>
       </div>
     </div>
