@@ -527,22 +527,22 @@ versionsSelect.addEventListener('change', (e) => {
 // Initialize with default version - use multiple event listeners to ensure it works
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded - showing default version');
-  showVersion('v3.3.7');
+  showVersion('v3.4.7');
 });
 
 window.addEventListener('load', () => {
   console.log('Window loaded - ensuring default version is shown');
-  showVersion('v3.3.7');
+  showVersion('v3.4.7');
 });
 
 // Also initialize immediately if DOM is already ready
 if (document.readyState === 'loading') {
   // Document is still loading
-  document.addEventListener('DOMContentLoaded', () => showVersion('v3.3.7'));
+  document.addEventListener('DOMContentLoaded', () => showVersion('v3.4.7'));
 } else {
   // Document has already loaded
   console.log('Document already loaded - showing default version');
-  showVersion('v3.3.7');
+  showVersion('v3.4.7');
 }
 
 toggleBtn.addEventListener('click', (e) => {
