@@ -13,7 +13,8 @@
   
   /* Legacy variables for compatibility */
   --bg: var(--bg-dark);
-  --surface: #1e293b59;
+  --surface: #1e293b3f;
+  --sidenav: #1e293b36;
   --surface-alt: #334155;
   --border: #475569;
   --text: var(--text-light);
@@ -152,13 +153,14 @@ footer {
 /* ====== Sidebar ====== */
 .sidebar {
   width: var(--sidebar-width);
-  background: var(--surface);
+  background: var(--sidenav);
   border-right: 1px solid var(--border);
   padding: 2rem 1rem;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  width: fit-content;
 }
 .sidebar h2 {
   font-size: 1.2rem;
@@ -182,6 +184,7 @@ footer {
   color: white;
   font-weight: bold;
 }
+
 
 /* ====== Main Content ====== */
 .main {
@@ -235,11 +238,7 @@ code.hljs {
 
 div.html-block {
   margin: 1.5rem 0;
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
   width: 100%;
-  align-items: stretch;
 }
 
 div.html-block pre {
@@ -331,6 +330,7 @@ table tr:hover td {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .example h4 {
@@ -352,6 +352,32 @@ table tr:hover td {
   border-radius: var(--radius);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.run {
+  display: block;
+  background: linear-gradient(135deg, var(--accent), #2cb67d);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(26, 154, 209, 0.3);
+}
+
+.run:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 154, 209, 0.4);
+  opacity: 1;
+}
+
+.run:active {
+  transform: translateY(0);
 }
 
 /* Small screens: hide sidebar, show toggle */

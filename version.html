@@ -36,6 +36,7 @@
       <a href="docs15.html">Typography</a>
       <a href="tag.html">Twigwind Tags</a>
       <a href="docs13.html">Runtime Management</a>
+      <a href="twigom.html">Twigwind's Object Model</a>
       <a href="builds.html">Build System</a>
       <a href="examples.html">Examples</a>
       <a href="version.html" class="active">Version History</a>
@@ -47,7 +48,8 @@
   <main class="main">
     <h1>Twigwind Version History</h1>
     <select name="versions" id="versions">
-      <option value="v3.3.7" selected>3.3.7 (Latest)</option>
+      <option value="v3.4.7" selected>3.4.7 (Latest)</option>
+      <option value="v3.3.7">3.3.7</option>
       <option value="v3.3.6">3.3.6</option>
       <option value="v3.3.5">3.3.5</option>
       <option value="v3.3.4">3.3.4</option>
@@ -57,7 +59,70 @@
       <option value="v3.1.4">3.1.4</option>
     </select>
     <div class="content">
-      <div id="v3.3.7" class="version-content">
+      <div id="v3.4.7" class="version-content">
+        <h2>Version 3.4.7 <span class="version-date">December 2 2024</span></h2>
+
+        <div class="changelog-section">
+          <h3>🚀 Major Features</h3>
+          <ul>
+            <li><strong>RGB Array Color System</strong> - Revolutionary new color system with 10 variants per color family (red-0 to red-9)</li>
+            <li><strong>Advanced Gradient System</strong> - Enhanced gradients supporting numbered color variants (gradient-to-r-red-2-blue-7)</li>
+            <li><strong>CSS Variables Support</strong> - Full CSS variables integration with @varname syntax in &lt;twigwind&gt; tags</li>
+            <li><strong>Predefined CSS Integration</strong> - Seamless integration with predefined CSS utilities from src/css.css</li>
+            <li><strong>Enhanced Build System</strong> - Improved build system with better path resolution and global npm support</li>
+          </ul>
+        </div>
+
+        <div class="changelog-section">
+          <h3>🎨 Color System Overhaul</h3>
+          <ul>
+            <li><strong>11 Color Families</strong> - red, orange, yellow, lime, green, spring, cyan, blue, indigo, violet, grey</li>
+            <li><strong>10 Variants Each</strong> - Each color family provides variants 0-9 from darkest to lightest</li>
+            <li><strong>Smart Defaults</strong> - Using just color name (e.g., 'red') defaults to variant 5 (middle value)</li>
+            <li><strong>Precise Control</strong> - Use specific variants like red-3 for dark red or red-8 for light red</li>
+            <li><strong>Gradient Integration</strong> - Mix different variants in gradients for smooth color transitions</li>
+          </ul>
+        </div>
+
+        <div class="changelog-section">
+          <h3>✨ Framework Improvements</h3>
+          <ul>
+            <li><strong>Enhanced Documentation</strong> - Complete rewrite of color documentation with live examples</li>
+            <li><strong>Better Error Handling</strong> - Improved debugging with comprehensive console logging</li>
+            <li><strong>Performance Optimization</strong> - Faster CSS generation and reduced memory usage</li>
+            <li><strong>Dark Theme Integration</strong> - Seamless dark/sleek styling with predefined utilities</li>
+          </ul>
+        </div>
+
+        <div class="changelog-section">
+          <h3>🔧 Technical Changes</h3>
+          <ul>
+            <li>Refactored <code>twColor()</code> function to support RGB array system</li>
+            <li>Enhanced <code>twLinearGradient()</code> function for numbered color variants</li>
+            <li>Fixed CSS variables parsing in <code>TagHandler()</code> function</li>
+            <li>Improved <code>formatColor()</code> function for RGB array conversion</li>
+            <li>Updated build system with proper CommonJS compatibility</li>
+          </ul>
+        </div>
+
+        <div class="code-example">
+          <h4>New Color System Example</h4>
+          <pre><code class="language-html">&lt;!-- Basic color usage --&gt;
+&lt;div class="bg-red color-white"&gt;Default red (red-5)&lt;/div&gt;
+&lt;div class="bg-red-2 color-red-8"&gt;Dark red with light text&lt;/div&gt;
+
+&lt;!-- Advanced gradients --&gt;
+&lt;div class="gradient-to-r-blue-1-cyan-7"&gt;Blue to cyan gradient&lt;/div&gt;
+
+&lt;!-- CSS Variables --&gt;
+&lt;twigwind&gt;
+  @primary: { #3b82f6 }
+  @secondary: { #10b981 }
+&lt;/twigwind&gt;</code></pre>
+        </div>
+      </div>
+      
+      <div id="v3.3.7" class="version-content" style="display: none;">
         <h2>Version 3.3.7 <span class="version-date">November 14 2024</span></h2>
 
         <div class="changelog-section">
@@ -66,6 +131,20 @@
             <li>Fixed CSS compression bugs</li>
             <li>Resolved CLI usage issues</li>
             <li>Improved documentation clarity</li>
+          </ul>
+        </div>
+      </div>
+      <div id="v3.3.7" class="version-content">
+        <h2>Version 3.3.7 <span class="version-date">November 16 2024</span></h2>
+        
+        <div class="changelog-section">
+          <h3>🚀 New Features</h3>
+          <ul>
+            <li>Improved CLI error handling</li>
+            <li>Better documentation for new features</li>
+            <li>Better twigwind CLI integration</li>
+            <li>Improved performance for large projects</li>
+            <li>Twigwind's object model feature added</li>
           </ul>
         </div>
       </div>
