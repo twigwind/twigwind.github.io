@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How to build a site using Twigwind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Docs Styles -->
+  <link rel="stylesheet" href="docs.css">
+      <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Twigwind Docs</h2>
+    <nav>
+      <a href="docs.html">Getting Started</a>
+      <a href="docs2.html">Installation</a>
+      <a href="docs3.html">Colors</a>
+      <a href="docs4.html">Sizes</a>
+      <a href="docs5.html">Spacing</a>
+      <a href="docs6.html">Shadow & Borders</a>
+      <a href="docs7.html">Flex & Grid</a>
+      <a href="docs8.html">Hover and Media</a>
+      <a href="docs9.html">Transition & Transform</a>
+      <a href="docs10.html">Position Utilities</a>
+      <a href="docs11.html">Animation Utilities</a>
+      <a href="docs12.html">Gradients & Backgrounds</a>
+      <a href="docs13.html">Runtime Management</a>
+      <a href="docs14.html">Dark Mode</a>
+      <a href="docs15.html">Typography</a>
+      <a href="docs16.html">Filters</a>
+      <a href="tag.html">Twigwind Tags</a>
+      <a href="twigom.html">Twigwind's Object Model</a>
+      <a href="builds.html">Build System</a>
+      <a href="examples.html">Examples</a>
+      <a href="site.html" class="active">Site Example</a>
+      <a href="version.html">Version History</a>
+    </nav>
+  </aside>
+  <!-- Sidebar Toggle Button (visible on small screens) -->
+<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>How to build a site using Twigwind</h1>
+    <p>Twigwind is a powerful tool for building modern websites with ease. In this guide, we'll walk you through the steps to create a site using Twigwind.</p>
+    <div class="example-section">
+      <h2>Step 1: Set Up Your Project</h2>
+      <p>Start by creating a new project directory and installing Twigwind.</p>
+        <pre><code class="language-bash">mkdir my-twigwind-site
+cd my-twigwind-site
+npm init -y
+npm install twigwind
+</code></pre>
+    <div class="alert info">
+      💡 Tip: If you do not have node js installed, you can download it from <a href="https://nodejs.org/">nodejs.org</a>.
+    </div>
+    </div>
+    <div class="example-section">
+      <h2>Step 2: Create Your HTML Structure</h2>
+      <p>Create an some files and set up the basic HTML structure. here is some example files.</p>
+        <div class="file-tabs">
+        <div class="tab-bar">
+            <button class="tab active" data-file="html">index.html</button>
+            <button class="tab" data-file="svg">github.svg</button>
+        </div>
+        <div class="tab-content">
+            <pre data-content="html"><code class="language-html" >    
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Twigwind Test - Navigation&lt;/title&gt;
+    &lt;link rel="stylesheet" href="../css.css"&gt;
+    &lt;link rel="stylesheet" href="./path/to/index.css"&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/atom-one-dark.min.css"&gt;
+    &lt;script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="bg-#000814 m-0 p-0" style="margin: 0; padding: 0; height: 100vh; overflow-x: hidden;"&gt;
+    &lt;!-- Enhanced Navigation with Glass Effect --&gt;
+    &lt;nav class="color-white pt-15 pb-15 pl-30 pr-30 font-family-roboto shadow-xl" style="background: rgba(0, 13, 33, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);"&gt;
+        &lt;div class="flex:row-left-center"&gt;
+            &lt;div class="font-weight-bold font-size-1.2rem mr-40 color-blue-6"&gt;pybin&lt;/div&gt;
+            &lt;div class="flex:row-left-center"&gt;
+                &lt;a href="#" class="color-white mr-25 hover:color-blue-6 font-weight-500 p-8 border-radius-6px hover:bg-blue-9" style="text-decoration: none; transition: all 0.3s ease;"&gt;home&lt;/a&gt;
+                &lt;a href="#" class="color-white mr-25 hover:color-blue-6 font-weight-500 p-8 border-radius-6px hover:bg-blue-9" style="text-decoration: none; transition: all 0.3s ease;"&gt;blogs&lt;/a&gt;
+                &lt;a href="#" class="color-white mr-25 hover:color-blue-6 font-weight-500 p-8 border-radius-6px hover:bg-blue-9" style="text-decoration: none; transition: all 0.3s ease;"&gt;docs&lt;/a&gt;
+                &lt;a href="#" style="text-decoration: none; transition: all 0.3s ease;"&gt;&lt;img src="/path/to/github.svg" alt="Support Icon" class="icon" width="30" height="30"/&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- Main Content with Enhanced Styling --&gt;
+    &lt;main class="w-100% flex:col-center-center relative" style="min-height: calc(100vh - 80px); height: calc(100vh - 80px);"&gt;
+        &lt;!-- Overlay for better text readability --&gt;
+        &lt;div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(0, 13, 33, 0.8), rgba(0, 0, 117, 0.6)); backdrop-filter: blur(2px);"&gt;&lt;/div&gt;
+        
+        &lt;!-- Hero Section --&gt;
+        &lt;div class="flex:col-center-center mb-40" style="position: relative; z-index: 2;"&gt;
+            &lt;div class="text-center mb-30"&gt;
+                &lt;h1 class="font-family-roboto color-white font-size-4rem font-weight-bold mb-15 animate-fade-1s-normal" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); letter-spacing: -2px;"&gt;pybin&lt;/h1&gt;
+                &lt;p class="font-family-roboto color-blue-7 font-size-1.5rem font-weight-300 mb-20" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3);"&gt;Handle binary data with ease&lt;/p&gt;
+                &lt;div class="w-60 h-2 bg-blue-5 border-radius-2px mx-auto animate-pulse-2s-infinite"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Enhanced Code Block --&gt;
+        &lt;div class="p-25 border-radius-15px mt-20 shadow-2xl backdrop-filter:blur-15px;" style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); position: relative; z-index: 2; max-width: 600px; width: 90%;"&gt;
+            &lt;div class="flex:row-left-center mb-15"&gt;
+                &lt;div class="w-12 h-12 bg-red border-radius-50% mr-8"&gt;&lt;/div&gt;
+                &lt;div class="w-12 h-12 bg-yellow border-radius-50% mr-8"&gt;&lt;/div&gt;
+                &lt;div class="w-12 h-12 bg-green border-radius-50%"&gt;&lt;/div&gt;
+                &lt;div class="color-grey-7 font-size-0.8rem font-family-roboto" style="margin-left: auto;"&gt;python&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;pre class="m-0"&gt;&lt;code class="color-white font-family-jetbrains-mono font-size-0.95rem" style="background: transparent; line-height: 1.6;"&gt;import pybin
+print(pybin.__version__)
+bits = pybin.BitArray("110100101")
+print(bits.encode("hex"))&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Call to Action --&gt;
+        &lt;div class="mt-40 flex:row-center-center" style="position: relative; z-index: 2;"&gt;
+            &lt;button class="bg-blue-5 color-white p-15 border-radius-8px font-family-roboto font-weight-600 hover:bg-blue-4 hover:shadow-lg mr-15" style="border: none; cursor: pointer; transition: all 0.3s ease;"&gt;Get Started&lt;/button&gt;
+            &lt;button class="bg-transparent color-white p-15 border-radius-8px font-family-roboto font-weight-600 hover:bg-white hover:color-blue-2" style="border: 2px solid rgba(255, 255, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"&gt;Learn More&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+    &lt;footer class="w-100% pt-20 pb-20 flex:row-center-center font-family-roboto font-size-0.9rem color-grey-6" style="background: rgba(0, 13, 33, 0.95); border-top: 1px solid rgba(255, 255, 255, 0.1);"&gt;
+        &lt;p&gt;&amp;copy; 2024 Twigwind. All rights reserved.&lt;/p&gt;&lt;br&gt;
+        &lt;p&gt;Built with twigwind&lt;/p&gt;
+    &lt;/footer&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+            </pre>
+        </div>
+        <div class="tab-content">
+            <pre data-content="svg" hidden><code class="language-xml" >
+&lt;svg width="64px" height="64px" viewBox="-2 -2 24.00 24.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#00000" stroke="#00000"&gt;&lt;g id="SVGRepo_bgCarrier" stroke-width="0"&gt;&lt;/g&gt;&lt;g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.04"&gt;&lt;/g&gt;&lt;g id="SVGRepo_iconCarrier"&gt; &lt;title&gt;github [#142]&lt;/title&gt; &lt;desc&gt;Created with Sketch.&lt;/desc&gt; &lt;defs&gt; &lt;/defs&gt; &lt;g id="Page-1" stroke-width="0.0002" fill="none" fill-rule="evenodd"&gt; &lt;g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#ffffff"&gt; &lt;g id="icons" transform="translate(56.000000, 160.000000)"&gt; &lt;path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"&gt; &lt;/path&gt; &lt;/g&gt; &lt;/g&gt; &lt;/g&gt; &lt;/g&gt;&lt;/svg&gt;
+            </code></pre>
+        </div>
+    </div>
+    </div>
+    <div class="example-section">
+      <h2>Step 3: Build Your CSS</h2>
+      <p>Use Twigwind to generate your CSS file based on your HTML structure.</p>
+      <pre><code data-highlighted="yes"><span class="hljs-keyword">twigwind</span> <span class="hljs-built_in">build</span> <span class="hljs-attr">--input</span> <span class="hljs-string">/path/to/your/input/folder</span> <span class="hljs-attr">--output</span> <span class="hljs-string">/path/to/your/output/folder</span></code></pre>
+    </div>
+    <p>Click to see the example above in <a href="./testx.html">https://twigwind.github.io/testx.html</a></p>
+    <p>thats all! No vite setup, No painful configuration, just a simple command to get you started.</p>
+    <div class="alert success">
+      🎉 Congratulations! You've successfully built a site using Twigwind. Explore more features and customize your site further with Twigwind's extensive utility classes.
+    </div>
+    <div class="alert success">
+        Twigwind can be used as Instant On-demand Atomic CSS Engine (like UnoCss) or as a Build Tool to generate static CSS files for production use (like Tailwind CSS). It supports dual environments browsers and node js.
+    </div>
+  </main>
+<script>
+/* Sidebar toggle */
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+body.addEventListener('click', (e) => {
+  if (
+    !sidebar.contains(e.target) &&
+    !toggleBtn.contains(e.target) &&
+    sidebar.classList.contains('show')
+  ) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+
+/* File tabs */
+document.querySelectorAll(".file-tabs").forEach(block => {
+  const tabs = block.querySelectorAll(".tab");
+  const panes = block.querySelectorAll(".tab-content pre");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const file = tab.dataset.file;
+
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      panes.forEach(pre => {
+        pre.style.display =
+          pre.dataset.content === file ? "block" : "none";
+      });
+
+      if (window.hljs) hljs.highlightAll();
+    });
+  });
+});
+
+
+</script>
+</body>
+</html>

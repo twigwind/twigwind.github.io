@@ -338,6 +338,50 @@ table tr:hover td {
   color: rgba(255, 255, 255, 0.654);
 }
 
+.file-tabs {
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--code-bg);
+}
+
+.tab-bar {
+  display: flex;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  border-right: 1px solid var(--border);
+}
+
+.tab:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+}
+
+.tab.active {
+  color: var(--text-light);
+  background: var(--code-bg);
+  border-bottom: 2px solid var(--accent);
+  font-weight: 600;
+}
+
+.tab-content {
+  margin: 0;
+  padding: 1rem;
+  background: var(--code-bg);
+}
+
+
 /* Sidebar Toggle Button */
 .sidebar-toggle {
   display: none;

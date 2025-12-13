@@ -32,12 +32,15 @@
       <a href="docs10.html">Position Utilities</a>
       <a href="docs11.html">Animation Utilities</a>
       <a href="docs12.html">Gradients & Backgrounds</a>
+      <a href="docs13.html">Runtime Management</a>
       <a href="docs14.html">Dark Mode</a>
       <a href="docs15.html">Typography</a>
+      <a href="docs16.html">Filters</a>
       <a href="tag.html">Twigwind Tags</a>
-      <a href="docs13.html">Runtime Management</a>
+      <a href="twigom.html">Twigwind's Object Model</a>
       <a href="builds.html">Build System</a>
       <a href="examples.html">Examples</a>
+      <a href="site.html">Site Example</a>
       <a href="version.html">Version History</a>
     </nav>
   </aside>
@@ -62,7 +65,17 @@
 &lt;div class="bg-teal size-lg mr-10 p-5"&gt;LG&lt;/div&gt;
 &lt;div class="bg-teal size-xl p-5"&gt;XL&lt;/div&gt;</code></pre>
     <p>You can also use custom sizes by applying arbitrary values, for example:</p>
-    <pre><code class="language-html">&lt;div class="bg-teal size-[10px] mr-10 p-5"&gt;Custom Size&lt;/div&gt;</code></pre>
+    <pre><code class="language-html">&lt;div class="bg-teal size-10px mr-10 p-5"&gt;Custom Size&lt;/div&gt;</code></pre>
+    <h1>Available Units</h1>
+    <ul>
+        <li><strong>px</strong></li>
+        <li><strong>rem</strong></li>
+        <li><strong>em</strong></li>
+        <li><strong>%</strong></li>
+    </ul>
+    <h2>min and max</h2>
+    <p>For versions 3.4.7 and above, you can use the <code>min-</code> and <code>max-</code> prefixes to create responsive utilities.</p>
+    <pre><code class="language-html">&lt;div class="bg-orange min-w-50px max-w-100%  p-5"&gt;Min Size&lt;/div&gt;
   </main>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');

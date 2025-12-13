@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twigwind Test - Navigation</title>
+    <link rel="stylesheet" href="../css.css">
+    <link rel="stylesheet" href="./testx.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body class="bg-#000814 m-0 p-0" style="margin: 0; padding: 0; height: 100vh; overflow-x: hidden;">
+    <!-- Enhanced Navigation with Glass Effect -->
+    <nav class="color-white pt-15 pb-15 pl-30 pr-30 font-family-roboto shadow-xl" style="background: rgba(0, 13, 33, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="flex:row-left-center">
+            <div class="font-weight-bold font-size-1.2rem mr-40 color-blue-6">pybin</div>
+            <div class="flex:row-left-center">
+                <a href="#" class="color-white mr-25 hover:color-blue-6 font-weight-500 p-8 border-radius-6px hover:bg-blue-9" style="text-decoration: none; transition: all 0.3s ease;">home</a>
+                <a href="#" class="color-white mr-25 hover:color-blue-6 font-weight-500 p-8 border-radius-6px hover:bg-blue-9" style="text-decoration: none; transition: all 0.3s ease;">blogs</a>
+                <a href="#" class="color-white mr-25 hover:color-blue-6 font-weight-500 p-8 border-radius-6px hover:bg-blue-9" style="text-decoration: none; transition: all 0.3s ease;">docs</a>
+                <a href="#" style="text-decoration: none; transition: all 0.3s ease;"><img src="./github.svg" alt="Support Icon" class="icon" width="30" height="30"/></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content with Enhanced Styling -->
+    <main class="w-100% flex:col-center-center relative" style="min-height: calc(100vh - 80px); height: calc(100vh - 80px);">
+        <!-- Overlay for better text readability -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(0, 13, 33, 0.8), rgba(0, 0, 117, 0.6)); backdrop-filter: blur(2px);"></div>
+        
+        <!-- Hero Section -->
+        <div class="flex:col-center-center mb-40" style="position: relative; z-index: 2;">
+            <div class="text-center mb-30">
+                <h1 class="font-family-roboto color-white font-size-4rem font-weight-bold mb-15 animate-fade-1s-normal" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); letter-spacing: -2px;">pybin</h1>
+                <p class="font-family-roboto color-blue-7 font-size-1.5rem font-weight-300 mb-20" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Handle binary data with ease</p>
+                <div class="w-60 h-2 bg-blue-5 border-radius-2px mx-auto animate-pulse-2s-infinite"></div>
+            </div>
+        </div>
+
+        <!-- Enhanced Code Block -->
+        <div class="p-25 border-radius-15px mt-20 shadow-2xl backdrop-filter:blur-15px;" style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); position: relative; z-index: 2; max-width: 600px; width: 90%;">
+            <div class="flex:row-left-center mb-15">
+                <div class="w-12 h-12 bg-red border-radius-50% mr-8"></div>
+                <div class="w-12 h-12 bg-yellow border-radius-50% mr-8"></div>
+                <div class="w-12 h-12 bg-green border-radius-50%"></div>
+                <div class="color-grey-7 font-size-0.8rem font-family-roboto" style="margin-left: auto;">python</div>
+            </div>
+            <pre class="m-0"><code class="color-white font-family-jetbrains-mono font-size-0.95rem" style="background: transparent; line-height: 1.6;">import pybin
+print(pybin.__version__)
+bits = pybin.BitArray("110100101")
+print(bits.encode("hex"))</code></pre>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-40 flex:row-center-center" style="position: relative; z-index: 2;">
+            <button class="bg-blue-5 color-white p-15 border-radius-8px font-family-roboto font-weight-600 hover:bg-blue-4 hover:shadow-lg mr-15" style="border: none; cursor: pointer; transition: all 0.3s ease;">Get Started</button>
+            <button class="bg-transparent color-white p-15 border-radius-8px font-family-roboto font-weight-600 hover:bg-white hover:color-blue-2" style="border: 2px solid rgba(255, 255, 255, 0.3); cursor: pointer; transition: all 0.3s ease;">Learn More</button>
+        </div>
+    </main>
+    <footer class="w-100% pt-20 pb-20 flex:row-center-center font-family-roboto font-size-0.9rem color-grey-6" style="background: rgba(0, 13, 33, 0.95); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        <p>&copy; 2024 Twigwind. All rights reserved.</p><br>
+        <p>Built with twigwind</p>
+    </footer>
+    
+</body>
+</html>

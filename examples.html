@@ -32,12 +32,15 @@
       <a href="docs10.html">Position Utilities</a>
       <a href="docs11.html">Animation Utilities</a>
       <a href="docs12.html">Gradients & Backgrounds</a>
+      <a href="docs13.html">Runtime Management</a>
       <a href="docs14.html">Dark Mode</a>
       <a href="docs15.html">Typography</a>
+      <a href="docs16.html">Filters</a>
       <a href="tag.html">Twigwind Tags</a>
-      <a href="docs13.html">Runtime Management</a>
+      <a href="twigom.html">Twigwind's Object Model</a>
       <a href="builds.html">Build System</a>
       <a href="examples.html" class="active">Examples</a>
+      <a href="site.html">Site Example</a>
       <a href="version.html">Version History</a>
     </nav>
   </aside>
@@ -71,6 +74,7 @@
       &lt;/script&gt;
   &lt;/body&gt;
   &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/ogxGRmp" target="_blank" class="run">Run Example 1</a>
     </div>
 
 
@@ -140,6 +144,7 @@
       &lt;/script&gt;
   &lt;/body&gt;
   &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/GgZMbrL" target="_blank" class="run">Run Example 2</a>
   </div>
 
     <h2>Example 3: Card Layout with Flexbox</h2>
@@ -175,6 +180,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/ZYWXdVv" target="_blank" class="run">Run Example 3</a>
     </div>
 
     <h2>Example 4: Grid Layout with Animations</h2>
@@ -225,6 +231,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/XJdeLQY" target="_blank" class="run">Run Example 4</a>
     </div>
 
     <h2>Example 5: Navigation Bar</h2>
@@ -242,7 +249,7 @@
 &lt;body class="bg-white"&gt;
     &lt;nav class="bg-blue p-15 shadow-lg"&gt;
         &lt;div class="flex:row-left-center"&gt;
-            &lt;div class="color-white size-xl mr-30"&gt;TwigWind&lt;/div&gt;
+            &lt;div class="color-white mr-30 bg-purple p-10px border-radius-10px"&gt;TwigWind&lt;/div&gt;
             &lt;div class="flex:row-left-center"&gt;
                 &lt;a href="#" class="color-white p-10 mr-15 hover:bg-lightBlue border-radius-5px transition:all_0.2s_ease"&gt;Home&lt;/a&gt;
                 &lt;a href="#" class="color-white p-10 mr-15 hover:bg-lightBlue border-radius-5px transition:all_0.2s_ease"&gt;About&lt;/a&gt;
@@ -264,6 +271,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/OPNxeeN" target="_blank" class="run">Run Example 5</a>
     </div>
 
     <h2>Example 6: Form with Validation Styling</h2>
@@ -309,6 +317,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/ogxGrKR" target="_blank" class="run">Run Example 6</a>
     </div>
 
     <h2>Example 7: Dashboard Layout</h2>
@@ -381,6 +390,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/myPBNBr" target="_blank" class="run">Run Example 7</a>
     </div>
 
     <h2>Example 8: Dark Mode Toggle</h2>
@@ -395,8 +405,8 @@
     &lt;script src="https://cdn.jsdelivr.net/npm/twigwind@latest/src/css.min.js"&gt;&lt;/script&gt;
     &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twigwind@latest/src/css.min.css"&gt;
 &lt;/head&gt;
-&lt;body class="bg-white dark:bg-black transition:all_0.3s_ease"&gt;
-    &lt;div class="p-30"&gt;
+&lt;body class="bg-white"&gt;
+    &lt;div class="p-30 dark:bg-black transition:all_0.3s_ease w-100% h-100%"&gt;
         &lt;!-- Header with toggle --&gt;
         &lt;header class="flex:row-left-center mb-30"&gt;
             &lt;h1 class="color-black dark:color-white mr-30"&gt;Dark Mode Demo&lt;/h1&gt;
@@ -433,101 +443,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-    </div>
-
-    <h2>Example 9: CSS Shortcuts with Twigwind Tags</h2>
-    <p>This example shows how to use Twigwind's CSS shortcuts feature to create reusable component styles.</p>
-    <div class="html-block">
-      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;CSS Shortcuts Demo&lt;/title&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/twigwind@latest/src/css.min.js"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twigwind@latest/src/css.min.css"&gt;
-&lt;/head&gt;
-&lt;body class="bg-lightBlue p-30"&gt;
-    &lt;!-- Define CSS shortcuts --&gt;
-    &lt;twigwind style="display:none"&gt;
-        card {
-            bg-white;
-            p-20;
-            border-radius-12px;
-            shadow-lg;
-            hover:shadow-xl;
-            transition:all_0.3s_ease;
-        }
-        
-        btn-primary {
-            bg-blue;
-            color-white;
-            p-12;
-            border-radius-6px;
-            hover:bg-deepPurple;
-            hover:shadow-md;
-            transition:all_0.2s_ease;
-        }
-        
-        btn-secondary {
-            bg-transparent;
-            color-blue;
-            p-12;
-            border-2;
-            border-blue;
-            border-radius-6px;
-            hover:bg-blue;
-            hover:color-white;
-            transition:all_0.2s_ease;
-        }
-        
-        feature-icon {
-            w-60;
-            h-60;
-            bg-purple;
-            border-radius-50%;
-            flex:row-center-center;
-            color-white;
-            mb-15;
-        }
-    &lt;/twigwind&gt;
-    
-    &lt;h1 class="color-blue mb-30 flex:row-center-center"&gt;CSS Shortcuts Demo&lt;/h1&gt;
-    
-    &lt;div class="grid:3,1,20px"&gt;
-        &lt;div class="card"&gt;
-            &lt;div class="feature-icon"&gt;🚀&lt;/div&gt;
-            &lt;h3 class="color-purple mb-15"&gt;Fast Development&lt;/h3&gt;
-            &lt;p class="color-blueGrey mb-20"&gt;Build components quickly with reusable CSS shortcuts.&lt;/p&gt;
-            &lt;button class="btn-primary mr-10"&gt;Learn More&lt;/button&gt;
-            &lt;button class="btn-secondary"&gt;Demo&lt;/button&gt;
-        &lt;/div&gt;
-        
-        &lt;div class="card"&gt;
-            &lt;div class="feature-icon"&gt;⚡&lt;/div&gt;
-            &lt;h3 class="color-teal mb-15"&gt;Performance&lt;/h3&gt;
-            &lt;p class="color-blueGrey mb-20"&gt;Lightweight and optimized for production use.&lt;/p&gt;
-            &lt;button class="btn-primary mr-10"&gt;Benchmark&lt;/button&gt;
-            &lt;button class="btn-secondary"&gt;Test&lt;/button&gt;
-        &lt;/div&gt;
-        
-        &lt;div class="card"&gt;
-            &lt;div class="feature-icon"&gt;🎨&lt;/div&gt;
-            &lt;h3 class="color-orange mb-15"&gt;Customizable&lt;/h3&gt;
-            &lt;p class="color-blueGrey mb-20"&gt;Create your own utility classes and shortcuts.&lt;/p&gt;
-            &lt;button class="btn-primary mr-10"&gt;Customize&lt;/button&gt;
-            &lt;button class="btn-secondary"&gt;Guide&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    
-    &lt;script&gt;
-        document.addEventListener("DOMContentLoaded", () =&gt; {
-            document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
-            Twigwind.twInject();
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/qEZPeoB" target="_blank" class="run">Run Example 8</a>
     </div>
 
     <h2>Example 10: Modal Dialog</h2>
@@ -612,6 +528,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/gbrGVEx" target="_blank" class="run">Run Example 10</a>
     </div>
 
     <h2>Example 11: Pricing Table</h2>
@@ -691,6 +608,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/ZYWazbd" target="_blank" class="run">Run Example 11</a>
     </div>
 
     <h2>Example 12: Loading Animations</h2>
@@ -772,6 +690,7 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+      <a href="https://codepen.io/Adhavan-Yuvaraj/pen/jEqaNqd" target="_blank" class="run">Run Example 12</a>
     </div>
   </main>
 
@@ -795,44 +714,15 @@ body.addEventListener('click', (e) => {
   }
 });
 
-// Create live preview iframes for each example
-document.querySelectorAll('.html-block').forEach((block) => {
-  const codeElement = block.querySelector('code');
-  const preElement = block.querySelector('pre');
-  if (codeElement && preElement) {
-    // Create preview container
-    const previewContainer = document.createElement('div');
-    previewContainer.className = 'preview-container';
-    
-    // Create iframe
-    const iframe = document.createElement('iframe');
-    iframe.style.width = '100%';
-    iframe.style.border = '1px solid var(--border)';
-    iframe.style.borderRadius = 'var(--radius)';
-    iframe.style.background = 'white';
-    
-    // Function to set iframe height to match pre element
-    const setIframeHeight = () => {
-      const preHeight = preElement.offsetHeight;
-      const headerHeight = 24; // h4 header height
-      iframe.style.height = `${preHeight - headerHeight}px`;
-    };
-    
-    // Get the HTML content and decode HTML entities
-    let htmlContent = codeElement.textContent;
-    htmlContent = htmlContent.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
-    
-    iframe.srcdoc = htmlContent;
-    
-    previewContainer.appendChild(iframe);
-    block.appendChild(previewContainer);
-    
-    // Set height after elements are added to DOM
-    setTimeout(setIframeHeight, 100);
-    
-    // Update height on window resize
-    window.addEventListener('resize', setIframeHeight);
-  }
+// Enhanced functionality for CodePen links
+document.querySelectorAll('.run').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    // Add a small visual feedback when clicking CodePen links
+    link.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      link.style.transform = 'scale(1)';
+    }, 150);
+  });
 });
 </script>
 

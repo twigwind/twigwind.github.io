@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Twigwind Transition & Transform</title>
+  <title>Twigwind's Object Model</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -28,7 +28,7 @@
       <a href="docs6.html">Shadow & Borders</a>
       <a href="docs7.html">Flex & Grid</a>
       <a href="docs8.html">Hover and Media</a>
-      <a href="docs9.html" class="active">Transition & Transform</a>
+      <a href="docs9.html">Transition & Transform</a>
       <a href="docs10.html">Position Utilities</a>
       <a href="docs11.html">Animation Utilities</a>
       <a href="docs12.html">Gradients & Backgrounds</a>
@@ -37,7 +37,7 @@
       <a href="docs15.html">Typography</a>
       <a href="docs16.html">Filters</a>
       <a href="tag.html">Twigwind Tags</a>
-      <a href="twigom.html">Twigwind's Object Model</a>
+      <a href="twigom.html" class="active">Twigwind's Object Model</a>
       <a href="builds.html">Build System</a>
       <a href="examples.html">Examples</a>
       <a href="site.html">Site Example</a>
@@ -50,46 +50,39 @@
 
   <!-- Main Content -->
   <main class="main">
-    <h1>Transition & Transform</h1>
-    <p>twigwind provides utilities for transitions and transforms.</p>
-    <h2>Transition</h2>
-    <p>Twigwind utilities to control the timing and easing of CSS transitions using the <code>transition: </code> prefix followed by <code>-</code> signs for spaces.</p>
-    <div class="alert info">
-      💡 Tip: You can add multiple transistion properties
-    </div>
-    <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">
-&lt;div class="bg-purple p-10 transition:all-500-ease hover:bg-pink"&gt;hover me&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-background-color: #7b2ff7;
-padding: 10px;
-transition: all 500ms ease;
-</code></pre>
-    </div>
-    <h2>Transform</h2>
-    <p>Twigwind provides utilities for CSS transforms including translation, rotation, scaling, and skewing. Use the following functions with the prefix <code>transform:</code></p><BR>
+    <h1>Twigwind's Object Model</h1>
+    <p>Twigwind's object model is designed to provide a flexible and efficient way to manage and debug styles in your projects.</p>
+    <h2>How it is structured</h2>
+    <p>The object model consists of several key components:</p>
     <ul>
-        <li><strong>translate-</strong> for moving elements along the X and Y axes</li>
-        <li><strong>rotate-</strong> for rotating elements</li>
-        <li><strong>scale-</strong> for scaling elements up or down</li>
-        <li><strong>skew-</strong> for skewing elements along the X and Y axes</li>
+      <li><strong>Name:</strong> A unique identifier for the style.</li>
+      <li><strong>Properties:</strong> representing the compiled style attributes (e.g., color, size).</li>
+      <li><strong>Variants:</strong> Different versions of the style for various contexts (e.g., hover, dark).</li>
     </ul>
-    <div class="alert warning">
-      💡 Note: use multiple transform functions for complex effects.
-    </div>
-    <div class="example">
-        <h3>Example</h3>
-        <pre><code class="language-html">
-&lt;div class="bg-blue p-10 transform:translate-20px-10px transform:rotate-15 transform:scale-1.5 transform:skew-10px-5px"&gt;Transformed&lt;/div&gt;
-        </code></pre>
-        <p>will be complied into</p>
-        <pre><code class="language-css">
-bg-blue { background-color: #1e90ff; }
-p-10 { padding: 10px; }
-transform: translate(20px, 10px) rotate(15deg) scale(1.5) skew(10px, 5px);
+    <h3>Example Object Model</h3>
+    <pre><code class="language-json">
+{
+  ".bg-red-500": ["background-color: #f56565", []],
+  ".text-lg": ["font-size: 1.125rem", []],
+  ".hover\\:bg-blue-500:hover": ["background-color: #4299e1", ["hover"]],
+  ".dark .text-white": ["color: #ffffff", ["dark"]],
+  "@media (min-width: 768px) { .md\\:p-4 }": ["padding: 1rem", ["media-768px"]]
+}
+    </code></pre>
+    <p>The most common use cases for the object model include:</p>
+    <ul>
+      <li>Inspecting the generated CSS for a specific class.</li>
+      <li>Identifying unused styles in your project.</li>
+      <li>Debugging style conflicts and overrides.</li>
+    </ul>
+    <h2>Accessing the Object Model</h2>
+    <p>In browser runtime version (only for development), you can access the object model in your JavaScript code as follows:</p>
+    <pre><code class="language-javascript">
+model = Twigwind.Object_Model</code></pre>
+    <p>While in build mode, the object model is not accessible but can be saved into a json file by adding the <code>--s</code> flag.</p>
+    <pre><code class="language-shell">
+twigwind build --s
+</code></pre>
   </main>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');
