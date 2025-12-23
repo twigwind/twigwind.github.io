@@ -1,108 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Twigwind's Object Model</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="logo.png">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <!-- Docs Styles -->
-  <link rel="stylesheet" href="docs.css">
-      <script>hljs.highlightAll();</script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/twigom.html">
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h2>Twigwind Docs</h2>
-    <nav>
-      <a href="docs.html">Getting Started</a>
-      <a href="docs2.html">Installation</a>
-      <a href="docs3.html">Colors</a>
-      <a href="docs4.html">Sizes</a>
-      <a href="docs5.html">Spacing</a>
-      <a href="docs6.html">Shadow & Borders</a>
-      <a href="docs7.html">Flex & Grid</a>
-      <a href="docs8.html">Hover and Media</a>
-      <a href="docs9.html">Transition & Transform</a>
-      <a href="docs10.html">Position Utilities</a>
-      <a href="docs11.html">Animation Utilities</a>
-      <a href="docs12.html">Gradients & Backgrounds</a>
-      <a href="docs13.html">Runtime Management</a>
-      <a href="docs14.html">Dark Mode</a>
-      <a href="docs15.html">Typography</a>
-      <a href="docs16.html">Filters</a>
-      <a href="tag.html">Twigwind Tags</a>
-      <a href="twigom.html" class="active">Twigwind's Object Model</a>
-      <a href="builds.html">Build System</a>
-      <a href="examples.html">Examples</a>
-      <a href="site.html">Site Example</a>
-      <a href="version.html">Version History</a>
-    </nav>
-  </aside>
-  <!-- Sidebar Toggle Button (visible on small screens) -->
-<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
-
-
-  <!-- Main Content -->
-  <main class="main">
-    <h1>Twigwind's Object Model</h1>
-    <p>Twigwind's object model is designed to provide a flexible and efficient way to manage and debug styles in your projects.</p>
-    <h2>How it is structured</h2>
-    <p>The object model consists of several key components:</p>
-    <ul>
-      <li><strong>Name:</strong> A unique identifier for the style.</li>
-      <li><strong>Properties:</strong> representing the compiled style attributes (e.g., color, size).</li>
-      <li><strong>Variants:</strong> Different versions of the style for various contexts (e.g., hover, dark).</li>
-    </ul>
-    <h3>Example Object Model</h3>
-    <pre><code class="language-json">
-{
-  ".bg-red-500": ["background-color: #f56565", []],
-  ".text-lg": ["font-size: 1.125rem", []],
-  ".hover\\:bg-blue-500:hover": ["background-color: #4299e1", ["hover"]],
-  ".dark .text-white": ["color: #ffffff", ["dark"]],
-  "@media (min-width: 768px) { .md\\:p-4 }": ["padding: 1rem", ["media-768px"]]
-}
-    </code></pre>
-    <p>The most common use cases for the object model include:</p>
-    <ul>
-      <li>Inspecting the generated CSS for a specific class.</li>
-      <li>Identifying unused styles in your project.</li>
-      <li>Debugging style conflicts and overrides.</li>
-    </ul>
-    <h2>Accessing the Object Model</h2>
-    <p>In browser runtime version (only for development), you can access the object model in your JavaScript code as follows:</p>
-    <pre><code class="language-javascript">
-model = Twigwind.Object_Model</code></pre>
-    <p>While in build mode, the object model is not accessible but can be saved into a json file by adding the <code>--s</code> flag.</p>
-    <pre><code class="language-shell">
-twigwind build --s
-</code></pre>
-  </main>
-<script>
-const toggleBtn = document.getElementById('sidebar-toggle');
-const sidebar = document.querySelector('.sidebar');
-const body = document.body;
-
-toggleBtn.addEventListener('click', (e) => {
-  e.stopPropagation(); // prevent body click from immediately closing
-  sidebar.classList.toggle('show');
-  body.classList.toggle('sidebar-open');
-});
-
-// Close sidebar if clicking outside
-body.addEventListener('click', (e) => {
-  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
-    sidebar.classList.remove('show');
-    body.classList.remove('sidebar-open');
-  }
-});
-</script>
+<a href="https://adhavan.zipyoda.com/twigom.html">if the page did not redirect. click this</a>
 
 </body>
 </html>
