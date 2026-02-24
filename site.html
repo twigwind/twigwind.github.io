@@ -1,79 +1,76 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>How to build a site using Twigwind</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="logo.png">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <!-- Docs Styles -->
-  <link rel="stylesheet" href="docs.css">
-      <script>hljs.highlightAll();</script>
+<meta charset="utf-8"/>
+<title>How to build a site using Twigwind</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="../logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="../static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h2>Twigwind Docs</h2>
-    <nav>
-      <a href="docs.html">Getting Started</a>
-      <a href="docs2.html">Installation</a>
-      <a href="docs3.html">Colors</a>
-      <a href="docs4.html">Sizes</a>
-      <a href="docs5.html">Spacing</a>
-      <a href="docs6.html">Shadow & Borders</a>
-      <a href="docs7.html">Flex & Grid</a>
-      <a href="docs8.html">Hover and Media</a>
-      <a href="docs9.html">Transition & Transform</a>
-      <a href="docs10.html">Position Utilities</a>
-      <a href="docs11.html">Animation Utilities</a>
-      <a href="docs12.html">Gradients & Backgrounds</a>
-      <a href="docs13.html">Runtime Management</a>
-      <a href="docs14.html">Dark Mode</a>
-      <a href="docs15.html">Typography</a>
-      <a href="docs16.html">Filters</a>
-      <a href="tag.html">Twigwind Tags</a>
-      <a href="twigom.html">Twigwind's Object Model</a>
-      <a href="builds.html">Build System</a>
-      <a href="examples.html">Examples</a>
-      <a href="site.html" class="active">Site Example</a>
-      <a href="version.html">Version History</a>
-    </nav>
-  </aside>
-  <!-- Sidebar Toggle Button (visible on small screens) -->
-<button id="sidebar-toggle" class="sidebar-toggle">☰</button>
-
-
-  <!-- Main Content -->
-  <main class="main">
-    <h1>How to build a site using Twigwind</h1>
-    <p>Twigwind is a powerful tool for building modern websites with ease. In this guide, we'll walk you through the steps to create a site using Twigwind.</p>
-    <div class="example-section">
-      <h2>Step 1: Set Up Your Project</h2>
-      <p>Start by creating a new project directory and installing Twigwind.</p>
-        <pre><code class="language-bash">mkdir my-twigwind-site
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html" class="active">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1>How to build a site using Twigwind</h1>
+<p>Twigwind is a powerful tool for building modern websites with ease. In this guide, we'll walk you through the steps to create a site using Twigwind.</p>
+<div class="example-section">
+<h2>Step 1: Set Up Your Project</h2>
+<p>Start by creating a new project directory and installing Twigwind.</p>
+<pre><code class="language-bash">mkdir my-twigwind-site
 cd my-twigwind-site
 npm init -y
 npm install twigwind
 </code></pre>
-    <div class="alert info">
+<div class="alert info">
       💡 Tip: If you do not have node js installed, you can download it from <a href="https://nodejs.org/">nodejs.org</a>.
     </div>
-    </div>
-    <div class="example-section">
-      <h2>Step 2: Create Your HTML Structure</h2>
-      <p>Create an some files and set up the basic HTML structure. here is some example files.</p>
-        <div class="file-tabs">
-        <div class="tab-bar">
-            <button class="tab active" data-file="html">index.html</button>
-            <button class="tab" data-file="svg">github.svg</button>
-        </div>
-        <div class="tab-content">
-            <pre data-content="html"><code class="language-html" >    
+</div>
+<div class="example-section">
+<h2>Step 2: Create Your HTML Structure</h2>
+<p>Create an some files and set up the basic HTML structure. here is some example files.</p>
+<div class="file-tabs">
+<div class="tab-bar">
+<button class="tab active" data-file="html">index.html</button>
+<button class="tab" data-file="svg">github.svg</button>
+</div>
+<div class="tab-content">
+<pre data-content="html"><code class="language-html">    
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
@@ -146,28 +143,28 @@ print(bits.encode("hex"))&lt;/code&gt;&lt;/pre&gt;
 &lt;/html&gt;
             </code>
             </pre>
-        </div>
-        <div class="tab-content">
-            <pre data-content="svg" hidden><code class="language-xml" >
+</div>
+<div class="tab-content">
+<pre data-content="svg" hidden=""><code class="language-xml">
 &lt;svg width="64px" height="64px" viewBox="-2 -2 24.00 24.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#00000" stroke="#00000"&gt;&lt;g id="SVGRepo_bgCarrier" stroke-width="0"&gt;&lt;/g&gt;&lt;g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.04"&gt;&lt;/g&gt;&lt;g id="SVGRepo_iconCarrier"&gt; &lt;title&gt;github [#142]&lt;/title&gt; &lt;desc&gt;Created with Sketch.&lt;/desc&gt; &lt;defs&gt; &lt;/defs&gt; &lt;g id="Page-1" stroke-width="0.0002" fill="none" fill-rule="evenodd"&gt; &lt;g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#ffffff"&gt; &lt;g id="icons" transform="translate(56.000000, 160.000000)"&gt; &lt;path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"&gt; &lt;/path&gt; &lt;/g&gt; &lt;/g&gt; &lt;/g&gt; &lt;/g&gt;&lt;/svg&gt;
             </code></pre>
-        </div>
-    </div>
-    </div>
-    <div class="example-section">
-      <h2>Step 3: Build Your CSS</h2>
-      <p>Use Twigwind to generate your CSS file based on your HTML structure.</p>
-      <pre><code data-highlighted="yes"><span class="hljs-keyword">twigwind</span> <span class="hljs-built_in">build</span> <span class="hljs-attr">--input</span> <span class="hljs-string">/path/to/your/input/folder</span> <span class="hljs-attr">--output</span> <span class="hljs-string">/path/to/your/output/folder</span></code></pre>
-    </div>
-    <p>Click to see the example above in <a href="./testx.html">https://twigwind.github.io/testx.html</a></p>
-    <p>thats all! No vite setup, No painful configuration, just a simple command to get you started.</p>
-    <div class="alert success">
+</div>
+</div>
+</div>
+<div class="example-section">
+<h2>Step 3: Build Your CSS</h2>
+<p>Use Twigwind to generate your CSS file based on your HTML structure.</p>
+<pre><code data-highlighted="yes"><span class="hljs-keyword">twigwind</span> <span class="hljs-built_in">build</span> <span class="hljs-attr">--input</span> <span class="hljs-string">/path/to/your/input/folder</span> <span class="hljs-attr">--output</span> <span class="hljs-string">/path/to/your/output/folder</span></code></pre>
+</div>
+<p>Click to see the example above in <a href="./testx.html">https://twigwind.github.io/testx.html</a></p>
+<p>thats all! No vite setup, No painful configuration, just a simple command to get you started.</p>
+<div class="alert success">
       🎉 Congratulations! You've successfully built a site using Twigwind. Explore more features and customize your site further with Twigwind's extensive utility classes.
     </div>
-    <div class="alert success">
+<div class="alert success">
         Twigwind can be used as Instant On-demand Atomic CSS Engine (like UnoCss) or as a Build Tool to generate static CSS files for production use (like Tailwind CSS). It supports dual environments browsers and node js.
     </div>
-  </main>
+</main>
 <script>
 /* Sidebar toggle */
 const toggleBtn = document.getElementById('sidebar-toggle');

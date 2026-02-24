@@ -1,22 +1,209 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/docs13.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind Runtime Management</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html" class="active">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1>Runtime Management</h1>
+<p>This section covers how to manage and control the runtime behavior of Twigwind's JavaScript engine.</p>
+<div class="alert info">
+      💡 Tip: Twigwind's JavaScript engine dynamically generates CSS based on the classes found in your HTML.
+    </div>
+<h2>ES6 Module Setup</h2>
+<p>Twigwind now uses ES6 modules for modern JavaScript environments:</p>
+<pre><code class="language-html">&lt;script src="src/css.js" type="module"&gt;&lt;/script&gt;</code></pre>
+<h2>Basic Runtime Initialization</h2>
+<p>The standard way to initialize Twigwind is to process all elements with classes and inject the generated CSS:</p>
+<pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", () =&gt; {
+  document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+  Twigwind.twInject();
+});</code></pre>
+<h2>Build-Time Alternative</h2>
+<p>For production optimization, use the build system instead of runtime generation:</p>
+<pre><code class="language-bash">node build.js</code></pre>
+<p>This generates optimized CSS files in the <code>dist/</code> directory containing only the utilities you actually use.</p>
+<h2>Core Functions</h2>
+<p>Twigwind exposes several key functions for runtime management:</p>
+<h3>twApply(element)</h3>
+<p>Processes all classes on a specific element and generates corresponding CSS rules.</p>
+<pre><code class="language-javascript">const myElement = document.getElementById("my-element");
+Twigwind.twApply(myElement);</code></pre>
+<h3>twInject()</h3>
+<p>Injects all generated CSS rules into the document head as a &lt;style&gt; element.</p>
+<pre><code class="language-javascript">Twigwind.twInject();</code></pre>
+<h2>Dynamic Class Updates</h2>
+<p>When you dynamically add or change classes, you need to reprocess the element and inject new styles:</p>
+<div class="example">
+<h3>Example: Dynamic Color Change</h3>
+<pre><code class="language-javascript">const button = document.getElementById("my-button");
+button.addEventListener("click", () =&gt; {
+  // Toggle between blue and red background
+  if (button.classList.contains("bg-blue")) {
+    button.classList.remove("bg-blue");
+    button.classList.add("bg-red");
+  } else {
+    button.classList.remove("bg-red");
+    button.classList.add("bg-blue");
+  }
+  
+  // Reprocess the element and inject new CSS
+  Twigwind.twApply(button);
+  Twigwind.twInject();
+});</code></pre>
+</div>
+<div class="example">
+<h3>Example: Adding Animation</h3>
+<pre><code class="language-javascript">const card = document.querySelector(".card");
+card.addEventListener("mouseenter", () =&gt; {
+  card.classList.add("animate-bounce-500ms-normal");
+  Twigwind.twApply(card);
+  Twigwind.twInject();
+});
 
-<a href="https://adhavan.zipyoda.com/docs13.html">if the page did not redirect. click this</a>
+card.addEventListener("mouseleave", () =&gt; {
+  card.classList.remove("animate-bounce-500ms-normal");
+  // No need to reprocess since we're removing classes
+});</code></pre>
+</div>
+<h2>Performance Optimization</h2>
+<p>For better performance when making multiple changes:</p>
+<div class="example">
+<h3>Batch Processing</h3>
+<pre><code class="language-javascript">// Instead of calling twInject() multiple times
+const elements = document.querySelectorAll(".dynamic-element");
+elements.forEach(el =&gt; {
+  el.classList.add("new-class");
+  Twigwind.twApply(el);
+});
+// Inject once at the end
+Twigwind.twInject();</code></pre>
+</div>
+<div class="alert warning">
+      ⚠️ Performance Note: Avoid calling <code>twInject()</code> frequently. Batch your class changes and inject once when possible.
+    </div>
+<h2>Available Utility Functions</h2>
+<p>Twigwind exposes individual utility functions for specific use cases:</p>
+<ul>
+<li><code>twColor(className)</code> - Process color utilities (bg-, color-)</li>
+<li><code>twSpacing(className)</code> - Process spacing utilities (p-, m-)</li>
+<li><code>twSize(className)</code> - Process size utilities (w-, h-, size-)</li>
+<li><code>twflex(className)</code> - Process flex utilities</li>
+<li><code>twGrid(className)</code> - Process grid utilities</li>
+<li><code>twPosition(className)</code> - Process position utilities</li>
+<li><code>twAnimation(className)</code> - Process animation utilities</li>
+<li><code>twLinearGradient(className)</code> - Process gradient utilities</li>
+<li><code>twImage(className)</code> - Process image utilities</li>
+</ul>
+<div class="example">
+<h3>Using Individual Functions</h3>
+<pre><code class="language-javascript">// Process only specific utility types
+Twigwind.twColor("bg-blue");
+Twigwind.twSpacing("p-20");
+Twigwind.twAnimation("animate-spin-1s-infinite");
+Twigwind.twInject();</code></pre>
+</div>
+<h2>Real-World Examples</h2>
+<div class="example">
+<h3>Theme Switcher</h3>
+<pre><code class="language-javascript">function switchTheme(isDark) {
+  const elements = document.querySelectorAll("[data-theme]");
+  
+  elements.forEach(el =&gt; {
+    if (isDark) {
+      el.classList.remove("bg-white", "color-black");
+      el.classList.add("bg-black", "color-white");
+    } else {
+      el.classList.remove("bg-black", "color-white");
+      el.classList.add("bg-white", "color-black");
+    }
+    Twigwind.twApply(el);
+  });
+  
+  Twigwind.twInject();
+}</code></pre>
+</div>
+<div class="example">
+<h3>Progressive Enhancement</h3>
+<pre><code class="language-javascript">// Add classes progressively as user scrolls
+window.addEventListener("scroll", () =&gt; {
+  const cards = document.querySelectorAll(".scroll-card");
+  
+  cards.forEach((card, index) =&gt; {
+    const rect = card.getBoundingClientRect();
+    if (rect.top &lt; window.innerHeight) {
+      card.classList.add(`animate-fadeIn-${(index + 1) * 200}ms-normal`);
+      Twigwind.twApply(card);
+    }
+  });
+  
+  Twigwind.twInject();
+});</code></pre>
+</div>
+<div class="alert success">
+      ✅ Pro Tip: Twigwind's runtime system is designed to be lightweight and efficient, generating only the CSS you actually use!
+    </div>
+</main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
 
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
 </body>
 </html>

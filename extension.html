@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind Installation</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
+</head>
+    <body>
+        <aside class="sidebar">
+        <h2>Twigwind Docs</h2>
+        <nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+    </aside>
+    <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+    <main class="main">
+
+    </main>
+    <script>
+    const toggleBtn = document.getElementById('sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // prevent body click from immediately closing
+      sidebar.classList.toggle('show');
+      body.classList.toggle('sidebar-open');
+    });
+
+    // Close sidebar if clicking outside
+    body.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+        sidebar.classList.remove('show');
+        body.classList.remove('sidebar-open');
+      }
+    });
+    </script>
+    </body>
+</html>

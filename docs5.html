@@ -1,22 +1,97 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/docs5.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind spacing</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html" class="active">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1>Spacing</h1>
+<p>spacing is in two types which are:</p>
+<ol>
+<li>Padding - is the space inside the element or in other word the space bettween the border and the element</li>
+<br/>
+<li>Margin - is the space outside the element or in other word the space bettween other elements and the element itself</li>
+</ol>
+<img alt="spacing illustration" src="static/svg1.svg" style="max-width: 100%; height: auto; margin-bottom: 20px; max-width: 100%; overflow: auto;"/>
+<hr/>
+<p>to define padding we use the <code>p-</code> prefix</p>
+<pre><code class="language-html">&lt;div class="bg-teal p-10"&gt;Padding 10px&lt;/div&gt;
+&lt;div class="bg-teal p-20"&gt;Padding 20px&lt;/div&gt;
+&lt;div class="bg-teal p-lg"&gt;Padding lg&lt;/div&gt;
+&lt;div class="bg-teal p-xl"&gt;Padding xl&lt;/div&gt;</code></pre>
+<p>to define margin we use the <code>m-</code> prefix</p>
+<pre><code class="language-html">&lt;div class="bg-purple m-10"&gt;Margin 10px&lt;/div&gt;
+&lt;div class="bg-purple m-20"&gt;Margin 20px&lt;/div&gt;
+&lt;div class="bg-purple m-lg"&gt;Margin lg&lt;/div&gt;</code></pre>
+<p>you can also define margin and padding for specific sides</p>
+<ul>
+<li><code>t</code> - top</li>
+<li><code>b</code> - bottom</li>
+<li><code>l</code> - left</li>
+<li><code>r</code> - right</li>
+</ul>
+<pre><code class="language-html">&lt;div class="bg-red pt-20px pb-5px"&gt;Padding top 20px &amp; bottom 5px&lt;/div&gt;</code></pre>
+</main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
 
-<a href="https://adhavan.zipyoda.com/docs5.html">if the page did not redirect. click this</a>
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
 
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
 </body>
 </html>

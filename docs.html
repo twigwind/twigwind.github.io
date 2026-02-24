@@ -1,22 +1,156 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/docs.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind Docs</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html" class="active">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1 id="getting-started">Getting Started</h1>
+<p>Welcome to the <strong>Twigwind CSS Framework</strong> documentation.
+       Twigwind is a <em>utility-first CSS framework</em> built with JavaScript for rapid prototyping and flexibility.</p>
+<h1>Why Twigwind?</h1>
+<p>Unlike tailwind or other CSS frameworks, Twigwind is designed to be highly customizable and extendable.<br/>
+    Twigwind achieves this through its unique CSS compiler that compiles classes into a single stylesheet.</p>
+<div class="alert info">
+      💡 Twigwind supports both runtime and build time unlike tailwindcss.
+    </div>
+<h2 id="installation">Installation</h2>
+<h3>NPM Package</h3>
+<pre><code>npm install twigwind</code></pre>
+<h3>CDN package</h3>
+<p>Add Twigwind to your HTML:</p>
+<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twigwind@latest/src/css.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/twigwind@latest/src/css.min.js" type="module"&gt;&lt;/script&gt;</code></pre>
+<p>Initialize Twigwind after DOM content loads:</p>
+<pre><code>&lt;script&gt;
+document.addEventListener("DOMContentLoaded", () =&gt; {
+  document.querySelectorAll("[class]").forEach(el =&gt; Twigwind.twApply(el));
+  Twigwind.twInject();
+});
+&lt;/script&gt;</code></pre>
+<div class="alert success">
+      ✅ Twigwind is now active — you can use its classes directly in your HTML.
+    </div>
+<h3>Build System (Optional)</h3>
+<p>For optimized CSS generation:</p>
+<pre><code>node build.js</code></pre>
+<p>This will generate optimized CSS files in the <code>dist/</code> directory.</p>
+<h2 id="usage">Usage</h2>
+<p>Here’s a quick example:</p>
+<pre><code>&lt;h1 class="color-blue size-xl mb-20"&gt;Hello Twigwind&lt;/h1&gt;
+&lt;div class="flex:row-center-center bg-green p-10"&gt;
+  &lt;div class="bg-purple p-5 mr-10"&gt;Item 1&lt;/div&gt;
+  &lt;div class="bg-red p-5"&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h2 id="utilities">Utilities</h2>
+<p>Twigwind includes utility classes for:</p>
+<ul>
+<li><strong>Colors</strong> — e.g. <code>bg-blue</code>, <code>color-red</code></li>
+<li><strong>Spacing</strong> — e.g. <code>m-20</code>, <code>p-10</code></li>
+<li><strong>Flex Layouts</strong> — e.g. <code>flex:row-center-center</code></li>
+<li><strong>Position</strong> — e.g. <code>absolute</code>, <code>top-10</code>, <code>z-20</code></li>
+<li><strong>Animations</strong> — e.g. <code>animate-spin</code>, <code>animate-bounce</code></li>
+<li><strong>Gradients</strong> — e.g. <code>gradient-to-r-red-blue</code>, <code>gradient-45deg-purple-pink</code></li>
+<li><strong>Backgrounds</strong> — e.g. <code>clip-border</code>, <code>image-url-[URL]</code></li>
+<li><strong>Hover states</strong> — e.g. <code>hover:bg-purple</code></li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>A section with hover effects:</p>
+<pre><code>&lt;div class="flex:row-left-center"&gt;
+  &lt;div class="bg-cyan hover:bg-purple size-md mr-10 p-10"&gt;Hover Me&lt;/div&gt;
+  &lt;div class="bg-lightBlue hover:bg-amber size-md p-10"&gt;Hover Me&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h2 id="comparison">Framework Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Feature / Framework</th>
+<th>W3.CSS</th>
+<th>Tailwind</th>
+<th>Bootstrap</th>
+<th>Twigwind</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Ease of Learning</td><td>✔️</td><td>❌</td><td>⭐</td><td>✔️</td></tr>
+<tr><td>Utility-First</td><td>❌</td><td>⭐</td><td>❌</td><td>⭐</td></tr>
+<tr><td>Flexibility</td><td>✔️</td><td>⭐</td><td>✔️</td><td>⭐</td></tr>
+<tr><td>Responsive</td><td>✔️</td><td>⭐</td><td>⭐</td><td>⭐</td></tr>
+<tr><td>Prebuilt Components</td><td>✔️</td><td>❌</td><td>⭐</td><td>❌</td></tr>
+<tr><td>Lightweight</td><td>⭐</td><td>✔️</td><td>❌</td><td>⭐</td></tr>
+<tr><td>Community</td><td>✔️</td><td>⭐</td><td>⭐</td><td>❌</td></tr>
+<tr><td>Integration</td><td>⭐</td><td>✔️</td><td>✔️</td><td>⭐</td></tr>
+<tr><td>JS Integration</td><td>❌</td><td>✔️</td><td>✔️</td><td>⭐</td></tr>
+<tr><td>Prototyping</td><td>✔️</td><td>⭐</td><td>⭐</td><td>⭐</td></tr>
+</tbody>
+</table>
+<div class="alert warning">
+      ⚠️ Note: Twigwind is still in development. Expect frequent updates.
+    </div>
+<div class="alert error">
+      ❌ Deprecated: The <code>flex-center</code> class has been replaced with <code>flex:row-center-center</code>.
+    </div>
+</main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
 
-<a href="https://adhavan.zipyoda.com/docs.html">if the page did not redirect. click this</a>
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
 
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
 </body>
 </html>

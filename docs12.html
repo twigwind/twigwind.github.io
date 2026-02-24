@@ -1,22 +1,187 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/docs12.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind Gradients &amp; Backgrounds</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html" class="active">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1>Gradients &amp; Backgrounds</h1>
+<p>Twigwind provides powerful utilities for creating linear gradients and managing background properties.</p>
+<div class="alert info">
+      💡 Tip: Gradients and background utilities work seamlessly with hover states and responsive prefixes.
+    </div>
+<h2 id="linear-gradients">Linear Gradients</h2>
+<p>Create beautiful linear gradients using the <code>gradient-</code> utility with direction and color combinations.</p>
+<h3>Basic Syntax</h3>
+<pre><code>gradient-{direction}-{color1}-{color2}-{color3}...</code></pre>
+<h3>Directional Gradients</h3>
+<div class="example">
+<div class="gradient-to-r-red-blue" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-r-red-blue</div>
+<div class="gradient-to-l-green-yellow" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-l-green-yellow</div>
+<div class="gradient-to-t-purple-pink" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-t-purple-pink</div>
+<div class="gradient-to-b-blue-cyan" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-b-blue-cyan</div>
+</div>
+<pre><code>&lt;div class="gradient-to-r-red-blue"&gt;Left to right&lt;/div&gt;
+&lt;div class="gradient-to-l-green-yellow"&gt;Right to left&lt;/div&gt;
+&lt;div class="gradient-to-t-purple-pink"&gt;Bottom to top&lt;/div&gt;
+&lt;div class="gradient-to-b-blue-cyan"&gt;Top to bottom&lt;/div&gt;</code></pre>
+<h3>Diagonal Gradients</h3>
+<div class="example">
+<div class="gradient-to-tr-red-blue" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-tr-red-blue</div>
+<div class="gradient-to-tl-green-yellow" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-tl-green-yellow</div>
+<div class="gradient-to-br-purple-pink" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-br-purple-pink</div>
+<div class="gradient-to-bl-blue-cyan" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-bl-blue-cyan</div>
+</div>
+<pre><code>&lt;div class="gradient-to-tr-red-blue"&gt;Top-left to bottom-right&lt;/div&gt;
+&lt;div class="gradient-to-tl-green-yellow"&gt;Top-right to bottom-left&lt;/div&gt;
+&lt;div class="gradient-to-br-purple-pink"&gt;Top-left to bottom-right&lt;/div&gt;
+&lt;div class="gradient-to-bl-blue-cyan"&gt;Top-right to bottom-left&lt;/div&gt;</code></pre>
+<h3>Angle Gradients</h3>
+<div class="example">
+<div class="gradient-45deg-red-blue" style="padding: 20px; color: white; margin: 10px 0;">gradient-45deg-red-blue</div>
+<div class="gradient-90deg-green-yellow" style="padding: 20px; color: white; margin: 10px 0;">gradient-90deg-green-yellow</div>
+<div class="gradient-135deg-purple-pink" style="padding: 20px; color: white; margin: 10px 0;">gradient-135deg-purple-pink</div>
+<div class="gradient-180deg-blue-cyan" style="padding: 20px; color: white; margin: 10px 0;">gradient-180deg-blue-cyan</div>
+</div>
+<pre><code>&lt;div class="gradient-45deg-red-blue"&gt;45 degree angle&lt;/div&gt;
+&lt;div class="gradient-90deg-green-yellow"&gt;90 degree angle&lt;/div&gt;
+&lt;div class="gradient-135deg-purple-pink"&gt;135 degree angle&lt;/div&gt;
+&lt;div class="gradient-180deg-blue-cyan"&gt;180 degree angle&lt;/div&gt;</code></pre>
+<h3>Multi-Color Gradients</h3>
+<div class="example">
+<div class="gradient-to-r-red-yellow-green" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-r-red-yellow-green</div>
+<div class="gradient-to-b-blue-purple-pink" style="padding: 20px; color: white; margin: 10px 0;">gradient-to-b-blue-purple-pink</div>
+<div class="gradient-45deg-red-orange-yellow-green" style="padding: 20px; color: white; margin: 10px 0;">gradient-45deg-red-orange-yellow-green</div>
+</div>
+<pre><code>&lt;div class="gradient-to-r-red-yellow-green"&gt;Three colors&lt;/div&gt;
+&lt;div class="gradient-to-b-blue-purple-pink"&gt;Three colors vertical&lt;/div&gt;
+&lt;div class="gradient-45deg-red-orange-yellow-green"&gt;Four colors at angle&lt;/div&gt;</code></pre>
+<h2 id="background-utilities">Background Utilities</h2>
+<p>Control background behavior with clip utilities and dynamic image backgrounds.</p>
+<h3>Background Clip</h3>
+<p>Control how background extends within an element's box model.</p>
+<div class="example">
+<div class="gradient-to-r-red-blue clip-border" style="padding: 20px; color: white; margin: 10px 0; border: 5px dashed white;">clip-border</div>
+<div class="gradient-to-r-green-yellow clip-padding" style="padding: 20px; color: white; margin: 10px 0; border: 5px dashed white;">clip-padding</div>
+<div class="gradient-to-r-purple-pink clip-content" style="padding: 20px; color: white; margin: 10px 0; border: 5px dashed white;">clip-content</div>
+</div>
+<pre><code>&lt;div class="gradient-to-r-red-blue clip-border"&gt;Border box&lt;/div&gt;
+&lt;div class="gradient-to-r-green-yellow clip-padding"&gt;Padding box&lt;/div&gt;
+&lt;div class="gradient-to-r-purple-pink clip-content"&gt;Content box&lt;/div&gt;</code></pre>
+<h3>Background Images</h3>
+<p>Set background images dynamically using the <code>image-url-</code> utility.</p>
+<div class="example">
+<div class="image-url-https://images.unsplash.com/photo-1506905925346-21bda4d32df4" style="width: 300px; height: 150px; margin: 10px 0; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4'); background-repeat: no-repeat; background-size: cover;
+">Background Image</div>
+</div>
+<pre><code class="language-html">&lt;div class="image-url-https://images.unsplash.com/photo-1506905925346-21bda4d32df4"&gt;
+  Content with background image
+&lt;/div&gt;</code></pre>
+<div class="alert warning">
+      ⚠️ Note: Use underscores (_) in place of spaces in URLs when using the image-url- utility.
+    </div>
+<h2 id="interactive-states">Interactive States</h2>
+<p>Combine gradients with hover states for dynamic effects.</p>
+<div class="example">
+<div class="bg-blue hover:gradient-to-r-purple-pink" style="padding: 20px; color: white; margin: 10px 0; cursor: pointer;">Hover for gradient</div>
+<div class="gradient-to-r-red-blue hover:gradient-to-l-blue-red" style="padding: 20px; color: white; margin: 10px 0; cursor: pointer;">Hover to reverse</div>
+</div>
+<pre><code>&lt;div class="bg-blue hover:gradient-to-r-purple-pink"&gt;
+  Hover for gradient
+&lt;/div&gt;
+&lt;div class="gradient-to-r-red-blue hover:gradient-to-l-blue-red"&gt;
+  Hover to reverse gradient
+&lt;/div&gt;</code></pre>
+<h2 id="responsive-gradients">Responsive Gradients</h2>
+<p>Use responsive prefixes to create different gradients at different screen sizes.</p>
+<pre><code>&lt;div class="gradient-to-r-red-blue md:gradient-to-b-green-yellow lg:gradient-45deg-purple-pink"&gt;
+  Responsive gradient
+&lt;/div&gt;</code></pre>
+<h2 id="available-directions">Available Directions</h2>
+<table>
+<thead>
+<tr>
+<th>Direction</th>
+<th>CSS Equivalent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>to-r</code></td><td><code>to right</code></td><td>Left to right</td></tr>
+<tr><td><code>to-l</code></td><td><code>to left</code></td><td>Right to left</td></tr>
+<tr><td><code>to-t</code></td><td><code>to top</code></td><td>Bottom to top</td></tr>
+<tr><td><code>to-b</code></td><td><code>to bottom</code></td><td>Top to bottom</td></tr>
+<tr><td><code>to-tr</code></td><td><code>to top right</code></td><td>Bottom-left to top-right</td></tr>
+<tr><td><code>to-tl</code></td><td><code>to top left</code></td><td>Bottom-right to top-left</td></tr>
+<tr><td><code>to-br</code></td><td><code>to bottom right</code></td><td>Top-left to bottom-right</td></tr>
+<tr><td><code>to-bl</code></td><td><code>to bottom left</code></td><td>Top-right to bottom-left</td></tr>
+<tr><td><code>{angle}deg</code></td><td><code>{angle}deg</code></td><td>Custom angle (0-360)</td></tr>
+</tbody>
+</table>
+<div class="alert success">
+      ✅ All Twigwind colors work with gradients, including custom hex values and RGB colors.
+    </div>
+</main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
 
-<a href="https://adhavan.zipyoda.com/docs12.html">if the page did not redirect. click this</a>
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
 
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
 </body>
 </html>

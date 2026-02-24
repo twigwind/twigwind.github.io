@@ -1,22 +1,169 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/docs10.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind Position Utilities</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html" class="active">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1>Position Utilities</h1>
+<p>Twigwind provides comprehensive position utilities for controlling element positioning, including absolute, relative, fixed, sticky positioning, and z-index management.</p>
+<div class="alert info">
+      💡 Tip: Position utilities work seamlessly with hover states and transitions for smooth animations.
+    </div>
+<h2>Position Types</h2>
+<p>Control the positioning method of an element using these utilities:</p>
+<ul>
+<li><code>absolute</code> - Position absolutely relative to the nearest positioned ancestor</li>
+<li><code>relative</code> - Position relative to its normal position</li>
+<li><code>fixed</code> - Position relative to the viewport</li>
+<li><code>sticky</code> - Position based on scroll position</li>
+<li><code>static</code> - Default positioning (removes any positioning)</li>
+</ul>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="relative bg-blue p-20"&gt;
+  &lt;div class="absolute top-10 right-10 bg-red p-5"&gt;Absolutely positioned&lt;/div&gt;
+&lt;/div&gt;
 
-<a href="https://adhavan.zipyoda.com/docs10.html">if the page did not redirect. click this</a>
+&lt;div class="fixed top-0 right-0 bg-green p-10"&gt;Fixed to viewport&lt;/div&gt;
 
+&lt;div class="sticky top-0 bg-purple p-10"&gt;Sticky header&lt;/div&gt;</code></pre>
+</div>
+<h2>Position Values</h2>
+<p>Control the exact position of absolutely, relatively, or fixed positioned elements:</p>
+<h3>Individual Sides</h3>
+<ul>
+<li><code>top-{value}</code> - Set top position (e.g., <code>top-10</code>, <code>top-0</code>)</li>
+<li><code>bottom-{value}</code> - Set bottom position (e.g., <code>bottom-5</code>, <code>bottom-auto</code>)</li>
+<li><code>left-{value}</code> - Set left position (e.g., <code>left-20</code>, <code>left-0</code>)</li>
+<li><code>right-{value}</code> - Set right position (e.g., <code>right-10</code>, <code>right-auto</code>)</li>
+</ul>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="absolute top-10 left-20"&gt;10px from top, 20px from left&lt;/div&gt;
+&lt;div class="absolute bottom-0 right-0"&gt;Bottom right corner&lt;/div&gt;
+&lt;div class="absolute top-auto bottom-10"&gt;Auto top, 10px from bottom&lt;/div&gt;</code></pre>
+</div>
+<h3>Inset Utilities</h3>
+<p>Set all four sides at once using inset utilities:</p>
+<ul>
+<li><code>inset-0</code> - Set all sides to 0 (fills container)</li>
+<li><code>inset-{value}</code> - Set all sides to the same value (e.g., <code>inset-4</code>, <code>inset-20</code>)</li>
+</ul>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="relative bg-gray p-20"&gt;
+  &lt;div class="absolute inset-0 bg-blue"&gt;Fills entire container&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="relative bg-gray p-20"&gt;
+  &lt;div class="absolute inset-10 bg-red"&gt;10px from all sides&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<h2>Z-Index</h2>
+<p>Control the stack order of positioned elements:</p>
+<ul>
+<li><code>z-0</code> - Set z-index to 0</li>
+<li><code>z-10</code> - Set z-index to 10</li>
+<li><code>z-20</code> - Set z-index to 20</li>
+<li><code>z-50</code> - Set z-index to 50</li>
+<li><code>z-auto</code> - Set z-index to auto</li>
+</ul>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="absolute top-20 left-20 bg-red p-10 z-10"&gt;Behind (z-10)&lt;/div&gt;
+&lt;div class="absolute top-30 left-30 bg-blue p-10 z-20"&gt;On top (z-20)&lt;/div&gt;
+&lt;div class="absolute top-40 left-40 bg-green p-10 z-0"&gt;Behind both (z-0)&lt;/div&gt;</code></pre>
+</div>
+<h2>Hover Effects with Position</h2>
+<p>Combine position utilities with hover states for interactive effects:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="absolute top-50 left-50 bg-purple p-10 
+           hover:top-20 hover:left-20 
+           transition:all-ease-300"&gt;
+  Hover to move position (with smooth transition)
+&lt;/div&gt;</code></pre>
+</div>
+<div class="alert success">
+      ✅ Position utilities work perfectly with Twigwind's existing transition system for smooth animations!
+    </div>
+<h2>Responsive Position</h2>
+<p>Use responsive prefixes to change positioning at different screen sizes:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="relative sm:absolute md:fixed lg:sticky"&gt;
+  Responsive positioning
+&lt;/div&gt;
+
+&lt;div class="top-10 sm:top-20 md:top-30 lg:top-40"&gt;
+  Responsive position values
+&lt;/div&gt;</code></pre>
+</div>
+<div class="alert warning">
+      ⚠️ Note: Remember that positioned elements are removed from the normal document flow (except relative and sticky).
+    </div>
+</main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
 </body>
 </html>

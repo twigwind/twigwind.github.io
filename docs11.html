@@ -1,22 +1,223 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/docs11.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind Animation Utilities</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html" class="active">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1>Animation Utilities</h1>
+<p>Twigwind provides a comprehensive set of animation utilities using a dynamic syntax pattern. All keyframes are defined in <code>css.css</code> and work seamlessly with the framework's JavaScript-powered utility generation.</p>
+<div class="alert info">
+      💡 Tip: All animations work seamlessly with hover states and responsive prefixes for maximum flexibility.
+    </div>
+<h2>Animation Syntax</h2>
+<p>Twigwind uses a dynamic animation syntax pattern:</p>
+<div class="example">
+<h3>Syntax Pattern</h3>
+<pre><code class="language-html">animate-(keyframe)-(duration)-(direction)</code></pre>
+<ul>
+<li><strong>keyframe</strong>: The animation name (e.g., spin, bounce, fadeIn)</li>
+<li><strong>duration</strong>: Time with unit (e.g., 500ms, 2s, 1.5s)</li>
+<li><strong>direction</strong>: Animation direction (infinite, normal, reverse, alternate, alternate-reverse)</li>
+</ul>
+</div>
+<h2>Available Keyframes</h2>
+<p>All keyframes are defined in <code>css.css</code> and include:</p>
+<ul>
+<li><strong>spin</strong> - 360° rotation</li>
+<li><strong>pulse</strong> - Opacity and scale pulsing</li>
+<li><strong>bounce</strong> - Vertical bouncing with easing</li>
+<li><strong>ping</strong> - Scale and fade effect</li>
+<li><strong>fadeIn</strong> - Fade in from transparent</li>
+<li><strong>fadeOut</strong> - Fade out to transparent</li>
+<li><strong>slideUp</strong> - Slide in from bottom</li>
+<li><strong>slideDown</strong> - Slide in from top</li>
+<li><strong>slideLeft</strong> - Slide in from right</li>
+<li><strong>slideRight</strong> - Slide in from left</li>
+<li><strong>zoomIn</strong> - Scale in from zero</li>
+<li><strong>zoomOut</strong> - Scale out to zero</li>
+<li><strong>shake</strong> - Horizontal oscillation</li>
+<li><strong>wiggle</strong> - Rotational oscillation</li>
+<li><strong>heartbeat</strong> - Scale pulsing</li>
+<li><strong>flash</strong> - Opacity flashing</li>
+<li><strong>rubberBand</strong> - Elastic deformation</li>
+</ul>
+<h2>Basic Animations</h2>
+<p>Essential animations for common UI interactions:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="animate-spin-1s-infinite bg-blue p-10"&gt;Loading spinner&lt;/div&gt;
+&lt;div class="animate-pulse-2s-infinite bg-green p-10"&gt;Pulsing element&lt;/div&gt;
+&lt;div class="animate-bounce-800ms-infinite bg-red p-10"&gt;Bouncing box&lt;/div&gt;
+&lt;div class="animate-ping-1s-infinite bg-yellow p-10"&gt;Notification ping&lt;/div&gt;</code></pre>
+</div>
+<h2>Entrance Animations</h2>
+<p>Smooth entrance effects for revealing content:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="animate-fadeIn-600ms-normal bg-purple p-10"&gt;Fading in&lt;/div&gt;
+&lt;div class="animate-slideUp-500ms-normal bg-teal p-10"&gt;Sliding up&lt;/div&gt;
+&lt;div class="animate-slideDown-700ms-normal bg-orange p-10"&gt;Sliding down&lt;/div&gt;
+&lt;div class="animate-slideLeft-400ms-normal bg-pink p-10"&gt;Sliding left&lt;/div&gt;
+&lt;div class="animate-slideRight-400ms-normal bg-cyan p-10"&gt;Sliding right&lt;/div&gt;
+&lt;div class="animate-zoomIn-800ms-normal bg-indigo p-10"&gt;Zooming in&lt;/div&gt;</code></pre>
+</div>
+<h2>Exit Animations</h2>
+<p>Smooth exit effects for hiding content:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="animate-fadeOut-500ms-normal bg-red p-10"&gt;Fading out&lt;/div&gt;
+&lt;div class="animate-zoomOut-600ms-normal bg-blue p-10"&gt;Zooming out&lt;/div&gt;</code></pre>
+</div>
+<h2>Special Effects</h2>
+<p>Eye-catching animations for emphasis and interaction:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="animate-shake-300ms-normal bg-red p-10"&gt;Shake on error&lt;/div&gt;
+&lt;div class="animate-wiggle-500ms-normal bg-yellow p-10"&gt;Wiggle effect&lt;/div&gt;
+&lt;div class="animate-heartbeat-1s-infinite bg-pink p-10"&gt;Like button&lt;/div&gt;
+&lt;div class="animate-flash-800ms-infinite bg-orange p-10"&gt;Flash notification&lt;/div&gt;
+&lt;div class="animate-rubberBand-1s-normal bg-green p-10"&gt;Elastic effect&lt;/div&gt;</code></pre>
+</div>
+<h2>Animation Directions</h2>
+<p>Control how animations play with different direction values:</p>
+<ul>
+<li><strong>normal</strong> - Play animation once in normal direction</li>
+<li><strong>reverse</strong> - Play animation once in reverse direction</li>
+<li><strong>infinite</strong> - Loop animation infinitely</li>
+<li><strong>alternate</strong> - Alternate between normal and reverse</li>
+<li><strong>alternate-reverse</strong> - Alternate starting with reverse</li>
+</ul>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="animate-spin-2s-normal"&gt;Spin once&lt;/div&gt;
+&lt;div class="animate-spin-2s-reverse"&gt;Spin reverse&lt;/div&gt;
+&lt;div class="animate-spin-1s-infinite"&gt;Spin forever&lt;/div&gt;
+&lt;div class="animate-bounce-1s-alternate"&gt;Bounce back and forth&lt;/div&gt;</code></pre>
+</div>
+<h2>Duration Examples</h2>
+<p>Use different time units and values for precise control:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;!-- Milliseconds --&gt;
+&lt;div class="animate-fadeIn-300ms-normal"&gt;Fast fade&lt;/div&gt;
+&lt;div class="animate-fadeIn-800ms-normal"&gt;Medium fade&lt;/div&gt;
+&lt;div class="animate-fadeIn-1500ms-normal"&gt;Slow fade&lt;/div&gt;
 
-<a href="https://adhavan.zipyoda.com/docs11.html">if the page did not redirect. click this</a>
+&lt;!-- Seconds --&gt;
+&lt;div class="animate-bounce-0.5s-infinite"&gt;Fast bounce&lt;/div&gt;
+&lt;div class="animate-bounce-1s-infinite"&gt;Normal bounce&lt;/div&gt;
+&lt;div class="animate-bounce-2s-infinite"&gt;Slow bounce&lt;/div&gt;</code></pre>
+</div>
+<h2>Hover Animations</h2>
+<p>Trigger animations on hover for interactive effects:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="hover:animate-spin-500ms-normal bg-blue p-10"&gt;Hover to spin&lt;/div&gt;
+&lt;div class="hover:animate-bounce-600ms-normal bg-green p-10"&gt;Hover to bounce&lt;/div&gt;
+&lt;div class="hover:animate-shake-300ms-normal bg-red p-10"&gt;Hover to shake&lt;/div&gt;
+&lt;div class="hover:animate-pulse-1s-infinite bg-purple p-10"&gt;Hover to pulse&lt;/div&gt;</code></pre>
+</div>
+<h2>Responsive Animations</h2>
+<p>Control animations at different screen sizes:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div class="animate-pulse-2s-infinite 
+           sm:animate-spin-1s-infinite 
+           md:animate-bounce-800ms-infinite 
+           lg:animate-shake-500ms-normal"&gt;
+  Different animations at different screen sizes
+&lt;/div&gt;</code></pre>
+</div>
+<h2>Combining with Other Utilities</h2>
+<p>Mix animations with other Twigwind utilities for complex effects:</p>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">&lt;!-- Animation with color changes --&gt;
+&lt;div class="animate-pulse-2s-infinite bg-blue hover:bg-red"&gt;
+  Pulsing element with color change on hover
+&lt;/div&gt;
 
+&lt;!-- Animation with position --&gt;
+&lt;div class="absolute top-50 left-50 animate-bounce-1s-infinite"&gt;
+  Bouncing positioned element
+&lt;/div&gt;
+
+&lt;!-- Animation with gradients --&gt;
+&lt;div class="gradient-to-r-blue-purple animate-spin-3s-infinite p-20"&gt;
+  Spinning gradient
+&lt;/div&gt;</code></pre>
+</div>
+<div class="alert success">
+      ✅ All animations are optimized for performance and work smoothly across modern browsers!
+    </div>
+<div class="alert warning">
+      ⚠️ Note: Use animations sparingly to avoid overwhelming users. Consider accessibility preferences for motion.
+    </div>
+<div class="alert info">
+      💡 Pro Tip: The JavaScript engine dynamically generates CSS for each unique animation combination, ensuring optimal performance.
+    </div>
+</main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
+
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
 </body>
 </html>

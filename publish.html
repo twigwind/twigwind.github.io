@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Publish Twigwind Extension</title>
+<link href="static/docs.css" rel="stylesheet"/>
+</head>
+<body class="">
+<div class="card">
+<h1 class="mb-20">Publish Extension</h1>
+<form class="" id="publishForm">
+<input name="name" placeholder="Extension Name" required=""/>
+<input name="username" placeholder="Author Username" required=""/>
+<input name="git" placeholder="Git Repository URL" required=""/>
+<button class="btn-primary" type="submit">
+        Publish
+      </button>
+</form>
+<p class="mt-10" id="status"></p>
+</div>
+<script>
+    const form = document.getElementById("publishForm");
+    const status = document.getElementById("status");
+
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+
+      const body = Object.fromEntries(new FormData(form));
+
+      const res = await fetch("/api/extensions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+
+      if (res.ok) {
+        status.textContent = "✅ Extension published!";
+        form.reset();
+      } else {
+        status.textContent = "❌ Failed to publish";
+      }
+    };
+  </script>
+</body>
+</html>

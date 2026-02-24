@@ -1,22 +1,217 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/foodjournal.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Food Journal</title>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<style>
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+li {
+    background: #f1f1f1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+.remove {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.cal {
+    margin-top: 15px;
+    padding: 12px;
+    background: #e8f5e9;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+}
+</style>
 </head>
 <body>
+<div class="container">
+<h1>📈 Calories Over Time</h1>
+<div id="my-chart"></div>
+</div>
+<div class="container">
+<h1>🍽️ Food Journal</h1>
+<div class="input-group">
+<input id="foodName" placeholder="Enter food name"/>
+<button onclick="submitFood()">Add</button>
+</div>
+<ul id="foodList"></ul>
+<p class="cal" id="calories">🔥 Total Calories: 0 kcal</p>
+<footer>AI-based calorie estimator</footer>
+</div>
+<script>
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(init);
 
-<a href="https://adhavan.zipyoda.com/foodjournal.html">if the page did not redirect. click this</a>
+const foodInput = document.getElementById("foodName");
+const foodList = document.getElementById("foodList");
+const caloriesDisplay = document.getElementById("calories");
 
+let foods = [];
+let chartData = []; // [['YYYY-MM-DD', calories]]
+
+/* ---------- Helpers ---------- */
+
+function today() {
+    return new Date().toISOString().split("T")[0];
+}
+
+function saveFoods() {
+    localStorage.setItem("foods", JSON.stringify(foods));
+}
+
+function saveChart() {
+    localStorage.setItem("chartData", JSON.stringify(chartData));
+}
+
+/* ---------- Init ---------- */
+
+function init() {
+    foods = JSON.parse(localStorage.getItem("foods")) || [];
+    chartData = JSON.parse(localStorage.getItem("chartData")) || [];
+
+    foods.forEach(addFoodToUI);
+    drawChart(chartData);
+
+    if (chartData.length) {
+        caloriesDisplay.textContent =
+            `🔥 Total Calories: ${chartData.at(-1)[1]} kcal`;
+    }
+}
+
+/* ---------- UI ---------- */
+
+function addFoodToUI(name) {
+    const li = document.createElement("li");
+    li.innerHTML = `${name} <span class="remove">✖</span>`;
+    li.querySelector(".remove").onclick = () => removeFood(name, li);
+    foodList.appendChild(li);
+}
+
+function removeFood(name, li) {
+    foods = foods.filter(f => f !== name);
+    li.remove();
+    saveFoods();
+    submitCalories();
+}
+
+/* ---------- Submission ---------- */
+
+function submitFood() {
+    const name = foodInput.value.trim();
+    if (!name) return;
+
+    foods.push(name);
+    saveFoods();
+    addFoodToUI(name);
+    foodInput.value = "";
+
+    submitCalories();
+}
+
+function submitCalories() {
+    fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `foodName=${encodeURIComponent(foods.join(","))}&date=${today()}`
+    })
+    .then(r => r.json())
+    .then(data => updateCalories(data.cals || 0))
+    .catch(() => updateCalories(0));
+}
+
+/* ---------- Calories & Chart ---------- */
+
+function updateCalories(total) {
+    caloriesDisplay.textContent = `🔥 Total Calories: ${total} kcal`;
+
+    const d = today();
+    const idx = chartData.findIndex(e => e[0] === d);
+
+    if (idx >= 0) chartData[idx][1] = total;
+    else chartData.push([d, total]);
+
+    saveChart();
+    drawChart(chartData);
+}
+
+function drawChart(dataArr) {
+    if (!dataArr.length) return;
+
+    const formatted = dataArr.map(
+        ([d, c]) => [new Date(d + "T00:00:00"), c]
+    );
+
+    const data = google.visualization.arrayToDataTable([
+        ["Date", "Calories"],
+        ...formatted
+    ]);
+
+    const chart = new google.visualization.LineChart(
+        document.getElementById("my-chart")
+    );
+
+    chart.draw(data, {
+        legend: "none",
+        hAxis: { title: "Date" },
+        vAxis: { title: "Calories" }
+    });
+}
+</script>
 </body>
 </html>

@@ -1,22 +1,111 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/docs9.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind Transition &amp; Transform</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html" class="active">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1>Transition &amp; Transform</h1>
+<p>twigwind provides utilities for transitions and transforms.</p>
+<h2>Transition</h2>
+<p>Twigwind utilities to control the timing and easing of CSS transitions using the <code>transition: </code> prefix followed by <code>-</code> signs for spaces.</p>
+<div class="alert info">
+      💡 Tip: You can add multiple transistion properties
+    </div>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">
+&lt;div class="bg-purple p-10 transition:all-500-ease hover:bg-pink"&gt;hover me&lt;/div&gt;
+        </code></pre>
+<p>will be complied into</p>
+<pre><code class="language-css">
+background-color: #7b2ff7;
+padding: 10px;
+transition: all 500ms ease;
+</code></pre>
+</div>
+<h2>Transform</h2>
+<p>Twigwind provides utilities for CSS transforms including translation, rotation, scaling, and skewing. Use the following functions with the prefix <code>transform:</code></p><br/>
+<ul>
+<li><strong>translate-</strong> for moving elements along the X and Y axes</li>
+<li><strong>rotate-</strong> for rotating elements</li>
+<li><strong>scale-</strong> for scaling elements up or down</li>
+<li><strong>skew-</strong> for skewing elements along the X and Y axes</li>
+</ul>
+<div class="alert warning">
+      💡 Note: use multiple transform functions for complex effects.
+    </div>
+<div class="example">
+<h3>Example</h3>
+<pre><code class="language-html">
+&lt;div class="bg-blue p-10 transform:translate-20px-10px transform:rotate-15 transform:scale-1.5 transform:skew-10px-5px"&gt;Transformed&lt;/div&gt;
+        </code></pre>
+<p>will be complied into</p>
+<pre><code class="language-css">
+bg-blue { background-color: #1e90ff; }
+p-10 { padding: 10px; }
+transform: translate(20px, 10px) rotate(15deg) scale(1.5) skew(10px, 5px);
+  </code></pre></div></main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
 
-<a href="https://adhavan.zipyoda.com/docs9.html">if the page did not redirect. click this</a>
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent body click from immediately closing
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
 
+// Close sidebar if clicking outside
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
 </body>
 </html>

@@ -1,22 +1,384 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta http-equiv="refresh" content="0; url=https://adhavan.zipyoda.com/docs3.html">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Twigwind Colors</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+<link href="/logo.png" rel="icon" type="image/x-icon"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Docs Styles -->
+<link href="static/docs.css" rel="stylesheet"/>
+<script>hljs.highlightAll();</script>
+<style>
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .color-box {
+      height: 100px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .color-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .color-name {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .color-value {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      font-family: 'Fira Code', monospace;
+    }
+    .variant-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .variant-box {
+      height: 60px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+    .live-example {
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 0.5rem 0;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Twigwind Docs</h2>
+<nav><a href="/docs.html">Docs / Overview</a>
+<a href="/docs2.html">Twigwind Installation</a>
+<a href="/docs13.html">Runtime Management</a>
+<a href="/docs3.html" class="active">Colors</a>
+<a href="/docs5.html">Spacing</a>
+<a href="/docs4.html">Sizes</a>
+<a href="/docs7.html">Flex & Grid</a>
+<a href="/docs10.html">Position Utilities</a>
+<a href="/docs15.html">Typography</a>
+<a href="/docs6.html">Shadow & Borders</a>
+<a href="/docs12.html">Gradients & Backgrounds</a>
+<a href="/docs8.html">Hover & Media</a>
+<a href="/docs9.html">Transition & Transform</a>
+<a href="/docs11.html">Animation Utilities</a>
+<a href="/docs16.html">Filters</a>
+<a href="/docs14.html">Dark Mode</a>
+<a href="/builds.html">Build System</a>
+<a href="/tag.html">Tags</a>
+<a href="/twigom.html">Twigwind Object Model</a>
+<a href="/docs17.html">Twigwind Configuration</a>
+<a href="/examples.html">Twigwind Examples</a>
+<a href="/site.html">Site Example</a>
+<a href="/version.html">Version History</a>
+</nav>
+</aside>
+<!-- Sidebar Toggle Button (visible on small screens) -->
+<button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+<!-- Main Content -->
+<main class="main">
+<h1>Colors</h1>
+<p>Twigwind supports lots of predefined colors like.</p>
+<div class="color-grid">
+<div class="color-box dark-text" style="background:#f44336;">Red</div>
+<div class="color-box dark-text" style="background:#e91e63;">Pink</div>
+<div class="color-box light-text" style="background:#9c27b0;">Purple</div>
+<div class="color-box light-text" style="background:#673ab7;">Deep Purple</div>
+<div class="color-box light-text" style="background:#3f51b5;">Indigo</div>
+<div class="color-box light-text" style="background:#2196f3;">Blue</div>
+<div class="color-box light-text" style="background:#03a9f4;">Light Blue</div>
+<div class="color-box dark-text" style="background:#00bcd4;">Cyan</div>
+<div class="color-box dark-text" style="background:#00ffff;">Aqua</div>
+<div class="color-box light-text" style="background:#009688;">Teal</div>
+<div class="color-box dark-text" style="background:#4caf50;">Green</div>
+<div class="color-box dark-text" style="background:#8bc34a;">Light Green</div>
+<div class="color-box dark-text" style="background:#cddc39;">Lime</div>
+<div class="color-box dark-text" style="background:#f4e1b0;">Sand</div>
+<div class="color-box dark-text" style="background:#f0e68c;">Khaki</div>
+<div class="color-box dark-text" style="background:#ffeb3b;">Yellow</div>
+<div class="color-box dark-text" style="background:#ffc107;">Amber</div>
+<div class="color-box dark-text" style="background:#ff9800;">Orange</div>
+<div class="color-box dark-text" style="background:#ff5722;">Deep Orange</div>
+<div class="color-box dark-text" style="background:#607d8b;">Blue Gray</div>
+<div class="color-box dark-text" style="background:#795548;">Brown</div>
+<div class="color-box light-text" style="background:#ffffff; color: #000;">White</div>
+<div class="color-box dark-text" style="background:#d3d3d3;">Light Gray</div>
+<div class="color-box dark-text" style="background:#808080;">Gray</div>
+<div class="color-box light-text" style="background:#424242;">Dark Gray</div>
+<div class="color-box light-text" style="background:#000000;">Black</div>
+<div class="color-box dark-text" style="background:#ffcccc;">Pale Red</div>
+<div class="color-box dark-text" style="background:#ffffcc;">Pale Yellow</div>
+<div class="color-box dark-text" style="background:#ccffcc;">Pale Green</div>
+<div class="color-box dark-text" style="background:#cce6ff;">Pale Blue</div>
+<div class="color-box dark-text" style="background:aliceblue;">AliceBlue</div>
+<div class="color-box dark-text" style="background:antiquewhite;">AntiqueWhite</div>
+<div class="color-box dark-text" style="background:aqua;">Aqua</div>
+<div class="color-box dark-text" style="background:aquamarine;">Aquamarine</div>
+<div class="color-box dark-text" style="background:azure;">Azure</div>
+<div class="color-box dark-text" style="background:beige;">Beige</div>
+<div class="color-box dark-text" style="background:bisque;">Bisque</div>
+<div class="color-box light-text" style="background:blue;">Blue</div>
+<div class="color-box dark-text" style="background:blueviolet;">BlueViolet</div>
+<div class="color-box dark-text" style="background:brown;">Brown</div>
+<div class="color-box dark-text" style="background:burlywood;">BurlyWood</div>
+<div class="color-box dark-text" style="background:cadetblue;">CadetBlue</div>
+<div class="color-box dark-text" style="background:chartreuse;">Chartreuse</div>
+<div class="color-box dark-text" style="background:chocolate;">Chocolate</div>
+<div class="color-box dark-text" style="background:coral;">Coral</div>
+<div class="color-box dark-text" style="background:cornflowerblue;">CornflowerBlue</div>
+<div class="color-box dark-text" style="background:cornsilk;">Cornsilk</div>
+<div class="color-box dark-text" style="background:crimson;">Crimson</div>
+<div class="color-box dark-text" style="background:cyan;">Cyan</div>
+<div class="color-box dark-text" style="background:darkblue; color: white;">DarkBlue</div>
+<div class="color-box dark-text" style="background:darkcyan;">DarkCyan</div>
+<div class="color-box dark-text" style="background:darkgoldenrod;">DarkGoldenRod</div>
+<div class="color-box dark-text" style="background:darkgray;">DarkGray</div>
+<div class="color-box dark-text" style="background:darkgreen;">DarkGreen</div>
+<div class="color-box dark-text" style="background:darkkhaki;">DarkKhaki</div>
+<div class="color-box dark-text" style="background:darkmagenta;">DarkMagenta</div>
+<div class="color-box dark-text" style="background:darkolivegreen;">DarkOliveGreen</div>
+<div class="color-box dark-text" style="background:darkorange;">DarkOrange</div>
+<div class="color-box dark-text" style="background:darkorchid;">DarkOrchid</div>
+<div class="color-box dark-text" style="background:darkred;">DarkRed</div>
+<div class="color-box dark-text" style="background:darksalmon;">DarkSalmon</div>
+<div class="color-box dark-text" style="background:darkseagreen;">DarkSeaGreen</div>
+<div class="color-box dark-text" style="background:darkslateblue;">DarkSlateBlue</div>
+<div class="color-box dark-text" style="background:darkslategray;">DarkSlateGray</div>
+<div class="color-box dark-text" style="background:darkturquoise;">DarkTurquoise</div>
+<div class="color-box dark-text" style="background:darkviolet;">DarkViolet</div>
+<div class="color-box dark-text" style="background:deeppink;">DeepPink</div>
+<div class="color-box dark-text" style="background:deepskyblue;">DeepSkyBlue</div>
+<div class="color-box dark-text" style="background:dimgray;">DimGray</div>
+<div class="color-box dark-text" style="background:dodgerblue;">DodgerBlue</div>
+<div class="color-box light-text" style="background:firebrick;">FireBrick</div>
+<div class="color-box dark-text" style="background:wheat;">Wheat</div>
+</div>
+<p>For twigwind 3.47 and above, twigwind features a powerful RGB array-based color system with numbered variants for precise color control. Each color family includes 10 variants (0-9) from darkest to lightest.</p>
+<div class="section-header">
+<h2>🎨 Core Color Families</h2>
+<p>Each color family provides 10 variants for maximum flexibility</p>
+</div>
+<!-- Red Color Family -->
+<h3>Red Family</h3>
+<div class="variant-grid">
+<div class="variant-box" style="background: rgb(26, 0, 0);">red-0</div>
+<div class="variant-box" style="background: rgb(71, 0, 0);">red-1</div>
+<div class="variant-box" style="background: rgb(117, 0, 0);">red-2</div>
+<div class="variant-box" style="background: rgb(163, 0, 0);">red-3</div>
+<div class="variant-box" style="background: rgb(209, 0, 0);">red-4</div>
+<div class="variant-box" style="background: rgb(255, 0, 0);">red-5</div>
+<div class="variant-box" style="background: rgb(255, 63, 63);">red-6</div>
+<div class="variant-box" style="background: rgb(255, 127, 127);">red-7</div>
+<div class="variant-box" style="background: rgb(255, 191, 191); color: #333;">red-8</div>
+<div class="variant-box" style="background: rgb(255, 255, 255); color: #333;">red-9</div>
+</div>
+<!-- Blue Color Family -->
+<h3>Blue Family</h3>
+<div class="variant-grid">
+<div class="variant-box" style="background: rgb(0, 0, 26);">blue-0</div>
+<div class="variant-box" style="background: rgb(0, 0, 71);">blue-1</div>
+<div class="variant-box" style="background: rgb(0, 0, 117);">blue-2</div>
+<div class="variant-box" style="background: rgb(0, 0, 163);">blue-3</div>
+<div class="variant-box" style="background: rgb(0, 0, 209);">blue-4</div>
+<div class="variant-box" style="background: rgb(0, 0, 255);">blue-5</div>
+<div class="variant-box" style="background: rgb(63, 63, 255);">blue-6</div>
+<div class="variant-box" style="background: rgb(127, 127, 255);">blue-7</div>
+<div class="variant-box" style="background: rgb(191, 191, 255); color: #333;">blue-8</div>
+<div class="variant-box" style="background: rgb(255, 255, 255); color: #333;">blue-9</div>
+</div>
+<!-- Green Color Family -->
+<h3>Green Family</h3>
+<div class="variant-grid">
+<div class="variant-box" style="background: rgb(0, 26, 0);">green-0</div>
+<div class="variant-box" style="background: rgb(0, 71, 0);">green-1</div>
+<div class="variant-box" style="background: rgb(0, 117, 0);">green-2</div>
+<div class="variant-box" style="background: rgb(0, 163, 0);">green-3</div>
+<div class="variant-box" style="background: rgb(0, 209, 0);">green-4</div>
+<div class="variant-box" style="background: rgb(0, 255, 0);">green-5</div>
+<div class="variant-box" style="background: rgb(63, 255, 63);">green-6</div>
+<div class="variant-box" style="background: rgb(127, 255, 127); color: #333;">green-7</div>
+<div class="variant-box" style="background: rgb(191, 255, 191); color: #333;">green-8</div>
+<div class="variant-box" style="background: rgb(255, 255, 255); color: #333;">green-9</div>
+</div>
+<p>and so on...</p>
+<div class="color-grid">
+<div class="color-box" style="background: rgb(255, 0, 0);">
+<div class="color-name">Red</div>
+<div class="color-value">rgb(255, 0, 0)</div>
+</div>
+<div class="color-box" style="background: rgb(255, 127, 0);">
+<div class="color-name">Orange</div>
+<div class="color-value">rgb(255, 127, 0)</div>
+</div>
+<div class="color-box" style="background: rgb(255, 255, 0); color: #333;">
+<div class="color-name">Yellow</div>
+<div class="color-value">rgb(255, 255, 0)</div>
+</div>
+<div class="color-box" style="background: rgb(127, 255, 0);">
+<div class="color-name">Lime</div>
+<div class="color-value">rgb(127, 255, 0)</div>
+</div>
+<div class="color-box" style="background: rgb(0, 255, 0);">
+<div class="color-name">Green</div>
+<div class="color-value">rgb(0, 255, 0)</div>
+</div>
+<div class="color-box" style="background: rgb(0, 255, 127);">
+<div class="color-name">Spring</div>
+<div class="color-value">rgb(0, 255, 127)</div>
+</div>
+<div class="color-box" style="background: rgb(0, 255, 255);">
+<div class="color-name">Cyan</div>
+<div class="color-value">rgb(0, 255, 255)</div>
+</div>
+<div class="color-box" style="background: rgb(0, 0, 255);">
+<div class="color-name">Blue</div>
+<div class="color-value">rgb(0, 0, 255)</div>
+</div>
+<div class="color-box" style="background: rgb(75, 0, 130);">
+<div class="color-name">Indigo</div>
+<div class="color-value">rgb(75, 0, 130)</div>
+</div>
+<div class="color-box" style="background: rgb(148, 0, 211);">
+<div class="color-name">Violet</div>
+<div class="color-value">rgb(148, 0, 211)</div>
+</div>
+<div class="color-box" style="background: rgb(10, 10, 10);">
+<div class="color-name">Grey</div>
+<div class="color-value">rgb(10, 10, 10)</div>
+</div>
+</div>
+<div class="section-header">
+<h2>🎯 Basic Usage</h2>
+<p>Use color names with the <code>color-</code> or <code>bg-</code> prefix</p>
+</div>
+<div class="example">
+<h3>Text Colors</h3>
+<pre><code class="language-html">&lt;p class="color-red"&gt;Default red text (red-5)&lt;/p&gt;
+&lt;p class="color-red-3"&gt;Dark red text (red-3)&lt;/p&gt;
+&lt;p class="color-blue-7"&gt;Light blue text (blue-7)&lt;/p&gt;
+&lt;p class="color-green-2"&gt;Dark green text (green-2)&lt;/p&gt;</code></pre>
+<div class="live-example" style="color: rgb(255, 0, 0);">Default red text (red-5)</div>
+<div class="live-example" style="color: rgb(163, 0, 0);">Dark red text (red-3)</div>
+<div class="live-example" style="color: rgb(127, 127, 255);">Light blue text (blue-7)</div>
+<div class="live-example" style="color: rgb(0, 117, 0);">Dark green text (green-2)</div>
+</div>
+<div class="example">
+<h3>Background Colors</h3>
+<pre><code class="language-html">&lt;div class="bg-blue color-white"&gt;Default blue background&lt;/div&gt;
+&lt;div class="bg-blue-2 color-white"&gt;Dark blue background&lt;/div&gt;
+&lt;div class="bg-green-8 color-green-2"&gt;Light green with dark text&lt;/div&gt;
+&lt;div class="bg-cyan-6 color-cyan-1"&gt;Cyan theme&lt;/div&gt;</code></pre>
+<div class="live-example" style="background: rgb(0, 0, 255); color: white;">Default blue background</div>
+<div class="live-example" style="background: rgb(0, 0, 117); color: white;">Dark blue background</div>
+<div class="live-example" style="background: rgb(191, 255, 191); color: rgb(0, 117, 0);">Light green with dark text</div>
+<div class="live-example" style="background: rgb(63, 255, 255); color: rgb(0, 71, 71);">Cyan theme</div>
+</div>
+<div class="section-header">
+<h2>🌈 Advanced Gradients</h2>
+<p>Create beautiful gradients using numbered color variants</p>
+</div>
+<div class="section-header">
+<h2>🎨 Arbitrary Colors</h2>
+<p>Twigwind also supports custom colors using standard CSS color formats</p>
+</div>
+<div class="example">
+<h3>Custom Color Formats</h3>
+<pre><code class="language-html">&lt;p class="color-rgb(252, 24, 8)"&gt;RGB color&lt;/p&gt;
+&lt;p class="color-#ff6b35"&gt;Hex color&lt;/p&gt;
+&lt;p class="color-rgba(252, 0, 130, 0.7)"&gt;Transparent color&lt;/p&gt;
+&lt;p class="color-hsl(210, 100%, 50%)"&gt;HSL color&lt;/p&gt;</code></pre>
+<div class="live-example" style="color: rgb(252, 24, 8);">RGB color</div>
+<div class="live-example" style="color: #ff6b35;">Hex color</div>
+<div class="live-example" style="color: rgba(252, 0, 130, 0.7);">Transparent color</div>
+<div class="live-example" style="color: hsl(210, 100%, 50%);">HSL color</div>
+</div>
+<div class="example">
+<h3>Custom Background Colors</h3>
+<pre><code class="language-html">&lt;div class="bg-rgb(45, 55, 72) color-white"&gt;Custom RGB background&lt;/div&gt;
+&lt;div class="bg-#2d3748 color-#e2e8f0"&gt;Hex background&lt;/div&gt;
+&lt;div class="bg-rgba(66, 153, 225, 0.1) color-blue-2"&gt;Transparent background&lt;/div&gt;</code></pre>
+<div class="live-example" style="background: rgb(45, 55, 72); color: white;">Custom RGB background</div>
+<div class="live-example" style="background: #2d3748; color: #e2e8f0;">Hex background</div>
+<div class="live-example" style="background: rgba(66, 153, 225, 0.1); color: rgb(0, 0, 117);">Transparent background</div>
+</div>
+<div class="section-header">
+<h2>💡 Pro Tips</h2>
+</div>
+<div class="example">
+<ul>
+<li><strong>Default Variants:</strong> Using just the color name (e.g., <code>red</code>) defaults to variant 5 (middle value)</li>
+<li><strong>Dark Variants:</strong> Use variants 0-3 for dark themes and deep colors</li>
+<li><strong>Light Variants:</strong> Use variants 7-9 for light themes and subtle backgrounds</li>
+<li><strong>Contrast:</strong> Pair dark variants with light variants for optimal readability</li>
+<li><strong>Gradients:</strong> Mix different variants of the same color for smooth gradients</li>
+<li><strong>Accessibility:</strong> Always test color combinations for sufficient contrast</li>
+</ul>
+</div>
+<div class="section-header">
+<h2>🔧 Color System Reference</h2>
+</div>
+<div class="example">
+<h3>Available Color Families</h3>
+<ul>
+<li><code>red</code> - Red color family (10 variants)</li>
+<li><code>orange</code> - Orange color family (10 variants)</li>
+<li><code>yellow</code> - Yellow color family (10 variants)</li>
+<li><code>lime</code> - Lime color family (10 variants)</li>
+<li><code>green</code> - Green color family (10 variants)</li>
+<li><code>spring</code> - Spring green color family (10 variants)</li>
+<li><code>cyan</code> - Cyan color family (10 variants)</li>
+<li><code>blue</code> - Blue color family (10 variants)</li>
+<li><code>indigo</code> - Indigo color family (10 variants)</li>
+<li><code>violet</code> - Violet color family (10 variants)</li>
+<li><code>grey</code> - Grey color family (10 variants)</li>
+</ul>
+</div>
+</main>
+<script>
+const toggleBtn = document.getElementById('sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
 
-<a href="https://adhavan.zipyoda.com/docs3.html">if the page did not redirect. click this</a>
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  sidebar.classList.toggle('show');
+  body.classList.toggle('sidebar-open');
+});
 
+body.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('show')) {
+    sidebar.classList.remove('show');
+    body.classList.remove('sidebar-open');
+  }
+});
+</script>
 </body>
 </html>
