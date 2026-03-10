@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>Twigwind sizes</title>
+<title>Twigwind Building vs runtime mode</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&amp;family=JetBrains+Mono:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
@@ -11,7 +11,7 @@
 <link href="/logo.png" rel="icon" type="image/x-icon"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <!-- Docs Styles -->
-<link href="static/docs.css" rel="stylesheet"/>
+<link href="../static/docs.css" rel="stylesheet"/>
 <script>hljs.highlightAll();</script>
 </head>
 <body>
@@ -24,33 +24,25 @@
 <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
 <!-- Main Content -->
 <main class="main">
-<h1>Size</h1>
-<p>Twigwind supports muiltiple predefined sizes which are</p>
-<ul>
-<li><strong>sm</strong></li>
-<li><strong>md</strong></li>
-<li><strong>lg</strong></li>
-<li><strong>xl</strong></li>
-<li><strong>2xl</strong></li>
-</ul>
-<h2>example</h2>
-<pre><code class="language-html">&lt;div class="bg-teal size-sm mr-10 p-5"&gt;SM&lt;/div&gt;
-&lt;div class="bg-teal size-md mr-10 p-5"&gt;MD&lt;/div&gt;
-&lt;div class="bg-teal size-lg mr-10 p-5"&gt;LG&lt;/div&gt;
-&lt;div class="bg-teal size-xl p-5"&gt;XL&lt;/div&gt;</code></pre>
-<p>You can also use custom sizes by applying arbitrary values, for example:</p>
-<pre><code class="language-html">&lt;div class="bg-teal size-10px mr-10 p-5"&gt;Custom Size&lt;/div&gt;</code></pre>
-<h1>Available Units</h1>
-<ul>
-<li><strong>px</strong></li>
-<li><strong>rem</strong></li>
-<li><strong>em</strong></li>
-<li><strong>%</strong></li>
-</ul>
-<h2>min and max</h2>
-<p>For versions 3.4.7 and above, you can use the <code>min-</code> and <code>max-</code> prefixes to create responsive utilities.</p>
-<pre><code class="language-html">&lt;div class="bg-orange min-w-50px max-w-100%  p-5"&gt;Min Size&lt;/div&gt;
-  </code></pre></main>
+<h1>Building vs Runtime Mode</h1>
+<p>Twigwind operates in two modes: Building mode and Runtime mode. Each mode serves a specific purpose and has its own advantages and use cases.</p>
+<h2>Building Mode</h2>
+<p>In Building mode, Twigwind processes your HTML and CSS files at build time. It generates the necessary CSS based on the classes used in your HTML and saves it into a css file.</p>
+<h3>Setup</h3>
+<p>to setup Building mode, install the Twigwind CLI and run the build command.</p>
+<pre><code class="language-bash">npm install -g twigwind
+twigwind build --input &lt;input-directory&gt; --output &lt;output-directory&gt;</code></pre>
+<div class="alert warning">
+  <strong>Note:</strong> Building mode is only support by versions 3.1.4 and above.
+</div>
+<h2>Runtime Mode</h2>
+<p>In Runtime mode, Twigwind processes your HTML and CSS files in the browser at runtime. It generates the necessary CSS on the fly based on the classes used in your HTML.</p>
+<h3>Setup</h3>
+<p>to setup Runtime mode, simply include the Twigwind JavaScript file in your HTML.</p>
+<pre><code class="language-html">&lt;script src="/twigwind.js"&gt;&lt;/script&gt;</code></pre>
+<div class="alert success">
+  <strong>Note:</strong> Runtime mode is supported by all versions of Twigwind.
+</div>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');
 const sidebar = document.querySelector('.sidebar');
