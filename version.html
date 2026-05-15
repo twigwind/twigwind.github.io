@@ -49,7 +49,9 @@
 <main class="main">
 <h1>Twigwind Version History</h1>
 <select id="versions" name="versions">
-<option selected="" value="v4.0.5">4.0.5 (latest)</option>
+<option selected="" value="v4.2.6">4.2.6 (latest)</option>
+<option value="v4.2.5">4.2.5</option>
+<option value="v4.0.5">4.0.5</option>
 <option value="v4.0.4">4.0.4</option>
 <option value="v4.0.3">4.0.3</option>
 <option value="v4.0.2">4.0.2</option>
@@ -71,6 +73,51 @@
 <option value="v3.1.4">3.1.4</option>
 </select>
 <div class="content">
+<div class="version-content" id="v4.2.6">
+<h2>Version 4.2.6 <span class="version-date">May 14 2026</span></h2>
+<div class="changelog-section">
+<h3>🐛 Bug Fixes</h3>
+<ul>
+<li>Fixed <code>twColor()</code> regex failing to match color names containing underscores (e.g., <code>yellow_green</code>, <code>deep_sky</code>, <code>spring_green</code>, <code>forest_green</code>, <code>blue_violet</code>, <code>deep_pink</code>)</li>
+<li>Fixed <code>resolveColor()</code> regex inside <code>twLinearGradient()</code> with the same underscore matching issue</li>
+<li>Both regexes used <code>[a-zA-Z]+</code> which excluded underscores — updated to <code>[a-zA-Z][a-zA-Z_]*</code></li>
+</ul>
+</div>
+<div class="changelog-section">
+<h3>✨ Improvements</h3>
+<ul>
+<li>Color names with underscores now work correctly in <code>bg-*</code>, <code>color-*</code>, and <code>gradient:</code> utilities</li>
+<li>Expanded color palette is now fully supported: <code>yellow_green</code>, <code>spring_green</code>, <code>forest_green</code>, <code>deep_sky</code>, <code>blue_violet</code>, <code>deep_pink</code></li>
+</ul>
+</div>
+<div class="code-example">
+<h4>Underscore Color Names Example</h4>
+<pre><code class="language-html">&lt;!-- Background colors with underscore names --&gt;
+&lt;div class="bg-yellow_green-5 color-white"&gt;Yellow green background&lt;/div&gt;
+&lt;div class="bg-deep_sky-3 color-deep_sky-8"&gt;Deep sky blue shades&lt;/div&gt;
+&lt;div class="bg-forest_green-4"&gt;Forest green&lt;/div&gt;
+
+&lt;!-- Gradients with underscore color names --&gt;
+&lt;div class="gradient:linear|to-r|deep_sky-2|spring_green-7"&gt;Sky to spring gradient&lt;/div&gt;
+&lt;div class="gradient:linear|to-b|blue_violet-3|deep_pink-6"&gt;Violet to pink gradient&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="version-content" id="v4.2.5">
+<h2>Version 4.2.5 <span class="version-date">May 13 2026</span></h2>
+<div class="changelog-section">
+<h3>🐛 Bug Fixes</h3>
+<ul>
+<li>Fixed <code>ReferenceError</code> in <code>twigwind.config.js</code> caused by typo: <code>varibles</code> → <code>variables</code> in <code>module.exports</code></li>
+<li>This typo caused the build process (<code>build.cjs</code>) to crash silently via <code>process.exit(1)</code> when loading configuration</li>
+</ul>
+</div>
+<div class="changelog-section">
+<h3>✨ Improvements</h3>
+<ul>
+<li>Build process now completes successfully with corrected config exports</li>
+</ul>
+</div>
+</div>
 <div class="version-content" id="v4.0.5">
 <h2>Version 4.0.5 <span class="version-date">May 12 2026</span></h2>
 <div class="changelog-section">
@@ -732,22 +779,22 @@ versionsSelect.addEventListener('change', (e) => {
 // Initialize with default version - use multiple event listeners to ensure it works
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded - showing default version');
-  showVersion('v4.0.5');
+  showVersion('v4.2.6');
 });
 
 window.addEventListener('load', () => {
   console.log('Window loaded - ensuring default version is shown');
-  showVersion('v4.0.5');
+  showVersion('v4.2.6');
 });
 
 // Also initialize immediately if DOM is already ready
 if (document.readyState === 'loading') {
   // Document is still loading
-  document.addEventListener('DOMContentLoaded', () => showVersion('v4.0.5'));
+  document.addEventListener('DOMContentLoaded', () => showVersion('v4.2.6'));
 } else {
   // Document has already loaded
   console.log('Document already loaded - showing default version');
-  showVersion('v4.0.5');
+  showVersion('v4.2.6');
 }
 
 toggleBtn.addEventListener('click', (e) => {

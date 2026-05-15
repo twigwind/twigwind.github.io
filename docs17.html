@@ -51,22 +51,28 @@
 <p>For version 4.0.0, the configuration file has been added so that you can customize everything from colors to custom components the default config is .</p>
 <pre><code class="language-javascript">// twigwind.config.js
 const colors = {
-    red: [[26, 0, 0], [71, 0, 0], [117, 0, 0], [163, 0, 0], [209, 0, 0], [255, 0, 0], [255, 63, 63], [255, 127, 127], [255, 191, 191], [255, 255, 255]], 
-    orange: [[26, 13, 0], [71, 35, 0], [117, 58, 0], [163, 81, 0], [209, 104, 0], [255, 127, 0], [255, 159, 63], [255, 191, 127], [255, 223, 191], [255, 255, 255]], 
-    amber: [[25, 17, 0], [70, 48, 0], [115, 79, 0], [161, 110, 0], [206, 141, 0], [252, 173, 0], [252, 193, 63], [253, 214, 127], [254, 234, 191], [255, 255, 255]], 
-    yellow: [[26, 26, 0], [71, 71, 0], [117, 117, 0], [163, 163, 0], [209, 209, 0], [255, 255, 0], [255, 255, 63], [255, 255, 127], [255, 255, 191], [255, 255, 255]], 
-    lime: [[13, 26, 0], [35, 71, 0], [58, 117, 0], [81, 163, 0], [104, 209, 0], [127, 255, 0], [159, 255, 63], [191, 255, 127], [223, 255, 191], [255, 255, 255]], 
-    green: [[0, 26, 0], [0, 71, 0], [0, 117, 0], [0, 163, 0], [0, 209, 0], [0, 255, 0], [63, 255, 63], [127, 255, 127], [191, 255, 191], [255, 255, 255]], 
-    spring: [[0, 26, 13], [0, 71, 35], [0, 117, 58], [0, 163, 81], [0, 209, 104], [0, 255, 127], [63, 255, 159], [127, 255, 191], [191, 255, 223], [255, 255, 255]], 
-    cyan: [[0, 26, 26], [0, 71, 71], [0, 117, 117], [0, 163, 163], [0, 209, 209], [0, 255, 255], [63, 255, 255], [127, 255, 255], [191, 255, 255], [255, 255, 255]], 
-    sky: [[0, 17, 25], [0, 48, 70], [0, 79, 115], [0, 110, 161], [0, 141, 206], [0, 172, 252], [63, 192, 252], [127, 213, 253], [191, 234, 254], [255, 255, 255]], 
-    blue: [[0, 0, 26], [0, 0, 71], [0, 0, 117], [0, 0, 163], [0, 0, 209], [0, 0, 255], [63, 63, 255], [127, 127, 255], [191, 191, 255], [255, 255, 255]], 
-    indigo: [[8, 0, 13], [21, 0, 36], [34, 0, 59], [48, 0, 83], [61, 0, 106], [75, 0, 130], [120, 63, 161], [165, 127, 192], [210, 191, 223], [255, 255, 255]], 
-    violet: [[15, 0, 21], [41, 0, 59], [68, 0, 97], [94, 0, 135], [121, 0, 173], [148, 0, 211], [174, 63, 222], [201, 127, 233], [228, 191, 244], [255, 255, 255]], 
-    grey: [[1, 1, 1], [2, 2, 2], [4, 4, 4], [6, 6, 6], [8, 8, 8], [10, 10, 10], [71, 71, 71], [132, 132, 132], [193, 193, 193], [255, 255, 255]]
-};
+  "red": [[26, 0, 0], [71, 0, 0], [117, 0, 0], [163, 0, 0], [209, 0, 0], [255, 0, 0], [255, 63, 63], [255, 127, 127], [255, 191, 191], [255, 255, 255]], 
+  "crimson": [[22, 2, 6], [61, 5, 16], [101, 9, 27], [140, 12, 38], [180, 16, 49], [220, 20, 60], [228, 78, 108], [237, 137, 157], [246, 196, 206], [255, 255, 255]], 
+  "orange": [[26, 16, 0], [71, 45, 0], [117, 75, 0], [163, 105, 0], [209, 135, 0], [255, 165, 0], [255, 187, 63], [255, 210, 127], [255, 232, 191], [255, 255, 255]], 
+  "gold": [[26, 22, 0], [71, 60, 0], [117, 99, 0], [163, 137, 0], [209, 176, 0], [255, 215, 0], [255, 225, 63], [255, 235, 127], [255, 245, 191], [255, 255, 255]], 
+  "yellow": [[26, 26, 0], [71, 71, 0], [117, 117, 0], [163, 163, 0], [209, 209, 0], [255, 255, 0], [255, 255, 63], [255, 255, 127], [255, 255, 191], [255, 255, 255]], 
+  "yellow_green": [[15, 20, 5], [42, 57, 14], [70, 94, 23], [98, 131, 32], [126, 168, 41], [154, 205, 50], [179, 217, 101], [204, 230, 152], [229, 242, 203], [255, 255, 255]], 
+  "lime": [[0, 26, 0], [0, 71, 0], [0, 117, 0], [0, 163, 0], [0, 209, 0], [0, 255, 0], [63, 255, 63], [127, 255, 127], [191, 255, 191], [255, 255, 255]], 
+  "spring_green": [[0, 26, 13], [0, 71, 35], [0, 117, 58], [0, 163, 81], [0, 209, 104], [0, 255, 127], [63, 255, 159], [127, 255, 191], [191, 255, 223], [255, 255, 255]], 
+  "forest_green": [[3, 14, 3], [9, 39, 9], [15, 64, 15], [21, 89, 21], [27, 114, 27], [34, 139, 34], [89, 168, 89], [144, 197, 144], [199, 226, 199], [255, 255, 255]], 
+  "cyan": [[0, 26, 26], [0, 71, 71], [0, 117, 117], [0, 163, 163], [0, 209, 209], [0, 255, 255], [63, 255, 255], [127, 255, 255], [191, 255, 255], [255, 255, 255]], 
+  "deep_sky": [[0, 19, 26], [0, 53, 71], [0, 87, 117], [0, 122, 163], [0, 156, 209], [0, 191, 255], [63, 207, 255], [127, 223, 255], [191, 239, 255], [255, 255, 255]], 
+  "dodger": [[3, 14, 26], [8, 40, 71], [13, 66, 117], [19, 92, 163], [24, 118, 209], [30, 144, 255], [86, 171, 255], [142, 199, 255], [198, 227, 255], [255, 255, 255]], 
+  "blue": [[0, 0, 26], [0, 0, 71], [0, 0, 117], [0, 0, 163], [0, 0, 209], [0, 0, 255], [63, 63, 255], [127, 127, 255], [191, 191, 255], [255, 255, 255]], 
+  "navy": [[0, 0, 13], [0, 0, 36], [0, 0, 59], [0, 0, 82], [0, 0, 105], [0, 0, 128], [63, 63, 159], [127, 127, 191], [191, 191, 223], [255, 255, 255]], 
+  "blue_violet": [[14, 4, 23], [38, 11, 63], [63, 19, 104], [88, 27, 144], [113, 35, 185], [138, 43, 226], [167, 96, 233], [196, 149, 240], [225, 202, 247], [255, 255, 255]], 
+  "purple": [[13, 0, 13], [36, 0, 36], [59, 0, 59], [82, 0, 82], [105, 0, 105], [128, 0, 128], [159, 63, 159], [191, 127, 191], [223, 191, 223], [255, 255, 255]], 
+  "magenta": [[26, 0, 26], [71, 0, 71], [117, 0, 117], [163, 0, 163], [209, 0, 209], [255, 0, 255], [255, 63, 255], [255, 127, 255], [255, 191, 255], [255, 255, 255]], 
+  "pink": [[26, 10, 18], [71, 29, 50], [117, 48, 82], [163, 67, 115], [209, 86, 147], [255, 105, 180], [255, 142, 198], [255, 180, 217], [255, 217, 236], [255, 255, 255]], 
+  "deep_pink": [[26, 2, 15], [71, 5, 41], [117, 9, 67], [163, 12, 94], [209, 16, 120], [255, 20, 147], [255, 78, 174], [255, 137, 201], [255, 196, 228], [255, 255, 255]],
+  "grey": [[13, 13, 13], [36, 36, 36], [59, 59, 59], [82, 82, 82], [105, 105, 105], [128, 128, 128], [159, 159, 159], [191, 191, 191], [223, 223, 223], [255, 255, 255]],
+}
   
-
 const space = {
   p: "padding", pl: "padding-left", pr: "padding-right",
   pt: "padding-top", pb: "padding-bottom",
@@ -74,35 +80,332 @@ const space = {
   mt: "margin-top", mb: "margin-bottom"
 };
 
+const display = {
+      'block': "block",
+      'inline': "inline",
+      'hidden': "none",
+      "inline-block": "inline-block",
+      "inline-flex": "inline-flex",
+      "inline-grid": "inline-grid"
+};
+
 const sizes = { sm: "40px", md: "80px", lg: "160px", xl: "320px", xxl: "640px"};
 const breakpoints = { sm: 640, md: 768, lg: 1024, xl: 1280, "2xl": 1536 };
-
+const font_sizes = { sm: "0.875rem", md: "1rem", lg: "1.125rem", xl: "1.25rem", xxl: "1.5rem" }; 
+const variables = { "black": "#000000", "white": "#ffffff", "transparent": "transparent" }; // Add more variables as needed
 const components = {};
+
 
 module.exports = {
     colors: colors,
     space: space,
     sizes: sizes,
     breakpoints: breakpoints,
+    font_sizes: font_sizes,
     components: components,
+    display: display,
+    variables: variables,
 };</code></pre>
 <h2>Editing the Configuration File</h2>
 <p>The configuration file is located at <code>twigwind.config.js</code> in the root of your project. You can edit this file to customize various aspects of Twigwind.</p>
 <h2>Colors</h2>
 <p>The <code>colors</code> object defines the color palette used by Twigwind.<br/>
     Each element in each color array is a list of RGB values for the different variants of the color from 1 to 10 so the first element is the 1 (darkest variant) and the last element is 10 (lightest variant).</p>
-<h3>Spacing</h3>
+<h2>Spacing</h2>
 <p>The <code>space</code> object defines the spacing utilities available in Twigwind. You can add or modify properties to create custom spacing utilities.</p>
-<h3>Sizes</h3>
+<h2>Sizes</h2>
 <p>The <code>sizes</code> object defines size utilities for width and height. You can customize these sizes as needed.</p>
-<h3>Breakpoints</h3>
+<h2>Breakpoints</h2>
 <p>The <code>breakpoints</code> object defines the responsive breakpoints for media queries. You can adjust these values to fit your design requirements.</p>
-<h3>Components</h3>
-<p>The <code>components</code> object allows you to define custom components that can be reused throughout your project. Each component can include multiple classes and styles.</p>
+<h2>Font Sizes</h2>
+<p>The <code>font_sizes</code> object defines the font size utilities. You can customize these sizes to create a typography scale that fits your project.</p>
+<h2>Variables</h2>
+<p>The <code>variables</code> object allows you to define custom CSS variables that can be used throughout your project. You can add any variables you need for colors, spacing, or other design tokens. for example:</p>
+<pre><code class="language-javascript">const variables = {
+  "primary": "#007bff",
+  "secondary": "#6c757d"
+};</code></pre>
+<p>You can then call these variables using the <code>@</code>:</p>
+<pre><code class="language-html">&lt;div class="bg-@primary color-@secondary"&gtContent&lt;/div&gt;</code></pre>
+<h2>Components</h2>
+<p>The <code>components</code> object allows you to define custom components that can be reused throughout your project. Each component can include multiple classes and styles. for example:</p>
+<pre><code class="language-javascript">const components = {
+  "button": [
+    "p-10",
+    "bg-blue-5",
+    "color-white",
+    "border-radius-5px",
+    "hover:bg-blue-7",        // hover state
+    "focus:border-2",         // focus state
+    "dark:bg-grey-2",         // dark mode
+    "dark:color-grey-9",      // dark mode text
+    "lg:p-20"                 // responsive breakpoint
+  ],
+};</code></pre>
+<p><bold>usage:</bold></p>
+<pre><code class="language-html">&lt;div class="button"&gtButton&lt;/div&gt;</code></pre>
 <h3>For runtime usage</h3>
 <p>In twigwind there is no reliable way to aplly configs in runtime usage. but there are workarounds.</p>
 <p>For example you could call the config js file at runtime to overwrite the predefined ones for example.</p>
-<pre><code class="language-javascript">&lt;script src="/twigwind.config.js"&gt&lt/script&gt; &lt;!-- put this line after the twigwind.js script load tag--&gt;</code></pre>
+<pre><code class="language-html">&lt;script src="/twigwind.config.js"&gt&lt/script&gt; &lt;!-- put this line after the twigwind.js script load tag--&gt;</code></pre>
+
+<h2>Configuration Cheat Sheet</h2>
+<p>A complete reference table for every <code>twigwind.config.js</code> option.</p>
+
+<!-- ===== COLORS ===== -->
+<h3>Colors</h3>
+<table>
+<thead>
+<tr><th>Config Key</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>colors</code></td>
+  <td><code>Object</code></td>
+  <td>Maps color names to arrays of 10 RGB triplets (index 0 = darkest, 9 = lightest)</td>
+  <td><code>"red": [[26,0,0], …, [255,255,255]]</code></td>
+</tr>
+<tr>
+  <td colspan="4">
+    <strong>Usage:</strong>
+    <code>bg-red-5</code> → <code>background-color: rgb(255,0,0);</code><br/>
+    <code>color-cyan-3</code> → <code>color: rgb(0,163,163);</code><br/>
+    <code>bg-red</code> (no index) → uses middle value (index 5)
+  </td>
+</tr>
+<tr>
+  <td colspan="4">
+    <strong>Adding a custom color:</strong>
+    <pre><code class="language-javascript">const colors = {
+  // ... existing colors ...
+  "brand": [[10,20,40], [20,40,80], [30,60,120], [40,80,160], [50,100,200],
+            [60,120,240], [100,150,245], [140,180,250], [190,210,252], [255,255,255]]
+};</code></pre>
+    Then use: <code>bg-brand-4</code>, <code>color-brand-7</code>, <code>hover:bg-brand-6</code>
+  </td>
+</tr>
+</tbody>
+</table>
+
+<!-- ===== SPACE ===== -->
+<h3>Spacing</h3>
+<table>
+<thead>
+<tr><th>Config Key</th><th>Shorthand</th><th>CSS Property</th><th>Example Class → CSS</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="5"><code>space</code></td><td><code>p</code></td><td><code>padding</code></td><td><code>p-16</code> → <code>padding: 16px;</code></td></tr>
+<tr><td><code>pl</code> / <code>pr</code></td><td><code>padding-left</code> / <code>padding-right</code></td><td><code>pl-8</code> → <code>padding-left: 8px;</code></td></tr>
+<tr><td><code>pt</code> / <code>pb</code></td><td><code>padding-top</code> / <code>padding-bottom</code></td><td><code>pt-4rem</code> → <code>padding-top: 4rem;</code></td></tr>
+<tr><td><code>m</code></td><td><code>margin</code></td><td><code>m-20</code> → <code>margin: 20px;</code></td></tr>
+<tr><td><code>ml</code> / <code>mr</code> / <code>mt</code> / <code>mb</code></td><td><code>margin-*</code></td><td><code>mb-12</code> → <code>margin-bottom: 12px;</code></td></tr>
+<tr>
+  <td colspan="4">
+    <strong>Adding custom spacing:</strong>
+    <pre><code class="language-javascript">const space = {
+  // ... existing keys ...
+  px: "padding-left",  // add custom shorthand "px" → padding-left + padding-right
+};</code></pre>
+  </td>
+</tr>
+</tbody>
+</table>
+
+<!-- ===== SIZES ===== -->
+<h3>Sizes</h3>
+<table>
+<thead>
+<tr><th>Config Key</th><th>Size Name</th><th>Default Value</th><th>Example Class → CSS</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="5"><code>sizes</code></td><td><code>sm</code></td><td><code>40px</code></td><td><code>size-sm</code> → <code>font-size: 40px;</code></td></tr>
+<tr><td><code>md</code></td><td><code>80px</code></td><td><code>size-md</code> → <code>font-size: 80px;</code></td></tr>
+<tr><td><code>lg</code></td><td><code>160px</code></td><td><code>size-lg</code> → <code>font-size: 160px;</code></td></tr>
+<tr><td><code>xl</code></td><td><code>320px</code></td><td><code>size-xl</code> → <code>font-size: 320px;</code></td></tr>
+<tr><td><code>xxl</code></td><td><code>640px</code></td><td><code>size-xxl</code> → <code>font-size: 640px;</code></td></tr>
+</tbody>
+</table>
+
+<!-- ===== BREAKPOINTS ===== -->
+<h3>Breakpoints</h3>
+<table>
+<thead>
+<tr><th>Config Key</th><th>Breakpoint</th><th>Min-Width</th><th>Example Class → CSS</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="5"><code>breakpoints</code></td><td><code>sm</code></td><td><code>640px</code></td><td><code>sm:p-10</code> → <code>@media (min-width: 640px) { .sm\:p-10 { padding: 10px; } }</code></td></tr>
+<tr><td><code>md</code></td><td><code>768px</code></td><td><code>md:bg-blue-5</code></td></tr>
+<tr><td><code>lg</code></td><td><code>1024px</code></td><td><code>lg:flex:row</code></td></tr>
+<tr><td><code>xl</code></td><td><code>1280px</code></td><td><code>xl:w-50%</code></td></tr>
+<tr><td><code>2xl</code></td><td><code>1536px</code></td><td><code>2xl:grid:3,1</code></td></tr>
+</tbody>
+</table>
+
+<!-- ===== FONT SIZES ===== -->
+<h3>Font Sizes</h3>
+<table>
+<thead>
+<tr><th>Config Key</th><th>Size Name</th><th>Default Value</th><th>Example Class → CSS</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="5"><code>font_sizes</code></td><td><code>sm</code></td><td><code>0.875rem</code></td><td><code>font-size-sm</code> → <code>font-size: 0.875rem;</code></td></tr>
+<tr><td><code>md</code></td><td><code>1rem</code></td><td><code>font-size-md</code> → <code>font-size: 1rem;</code></td></tr>
+<tr><td><code>lg</code></td><td><code>1.125rem</code></td><td><code>font-size-lg</code> → <code>font-size: 1.125rem;</code></td></tr>
+<tr><td><code>xl</code></td><td><code>1.25rem</code></td><td><code>font-size-xl</code> → <code>font-size: 1.25rem;</code></td></tr>
+<tr><td><code>xxl</code></td><td><code>1.5rem</code></td><td><code>font-size-xxl</code> → <code>font-size: 1.5rem;</code></td></tr>
+</tbody>
+</table>
+
+<!-- ===== DISPLAY ===== -->
+<h3>Display</h3>
+<table>
+<thead>
+<tr><th>Config Key</th><th>Class Name</th><th>CSS Value</th><th>Example Class → CSS</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="6"><code>display</code></td><td><code>block</code></td><td><code>block</code></td><td><code>block</code> → <code>display: block;</code></td></tr>
+<tr><td><code>inline</code></td><td><code>inline</code></td><td><code>inline</code> → <code>display: inline;</code></td></tr>
+<tr><td><code>hidden</code></td><td><code>none</code></td><td><code>hidden</code> → <code>display: none;</code></td></tr>
+<tr><td><code>inline-block</code></td><td><code>inline-block</code></td><td><code>inline-block</code> → <code>display: inline-block;</code></td></tr>
+<tr><td><code>inline-flex</code></td><td><code>inline-flex</code></td><td><code>inline-flex</code> → <code>display: inline-flex;</code></td></tr>
+<tr><td><code>inline-grid</code></td><td><code>inline-grid</code></td><td><code>inline-grid</code> → <code>display: inline-grid;</code></td></tr>
+</tbody>
+</table>
+
+<!-- ===== VARIABLES ===== -->
+<h3>Variables</h3>
+<table>
+<thead>
+<tr><th>Config Key</th><th>Syntax</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>variables</code></td>
+  <td><code>@name</code> inside any class</td>
+  <td>String replacement — the <code>@name</code> token is swapped for the variable's value before the class is parsed</td>
+  <td><code>bg-@primary</code> → <code>bg-#007bff</code></td>
+</tr>
+<tr>
+  <td colspan="4">
+    <strong>Config:</strong>
+    <pre><code class="language-javascript">const variables = {
+  "black": "#000000",
+  "white": "#ffffff",
+  "transparent": "transparent",
+  "primary": "#007bff",
+  "danger": "#dc3545"
+};</code></pre>
+    <strong>HTML:</strong> <code>&lt;div class="bg-@primary color-@white"&gt;</code><br/>
+    <strong>Generated:</strong> <code>background-color: #007bff; color: #ffffff;</code>
+  </td>
+</tr>
+</tbody>
+</table>
+
+<!-- ===== COMPONENTS ===== -->
+<h3>Components</h3>
+<table>
+<thead>
+<tr><th>Config Key</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>components</code></td>
+  <td><code>Object&lt;string, string[]&gt;</code></td>
+  <td>Maps a single class name to an array of Twigwind utility classes. All generated CSS uses the component name as the selector.</td>
+</tr>
+<tr>
+  <td colspan="3">
+    <strong>Config:</strong>
+    <pre><code class="language-javascript">const components = {
+  "btn": [
+    "p-10",                     // padding: 10px
+    "bg-blue-5",                // background-color: rgb(0,0,255)
+    "color-@white",             // color: #ffffff  (variable)
+    "border-radius-5px",        // border-radius: 5px
+    "hover:bg-blue-7",          // .btn:hover { background-color: ... }
+    "focus:border-2",           // .btn:focus { border: 2px solid; }
+    "dark:bg-grey-2",           // .dark .btn { background-color: ... }
+    "dark:color-grey-9",        // .dark .btn { color: ... }
+    "lg:p-20"                   // @media (min-width:1024px) { .btn { padding:20px } }
+  ],
+  "card": [
+    "p-20",
+    "bg-grey-9",
+    "border-radius-10px",
+    "shadow-md",
+    "hover:shadow-lg"
+  ]
+};</code></pre>
+    <strong>HTML:</strong> <code>&lt;button class="btn"&gt;Click&lt;/button&gt;</code><br/>
+    <strong>Generated CSS:</strong>
+    <pre><code class="language-css">.btn { padding: 10px; }
+.btn { background-color: rgb(0, 0, 255); }
+.btn { color: #ffffff; }
+.btn { border-radius: 5px; }
+.btn:hover { background-color: rgb(127, 127, 255); }
+.btn:focus { border: 2px solid; }
+.dark .btn { background-color: rgb(59, 59, 59); }
+.dark .btn { color: rgb(223, 223, 223); }
+@media (min-width: 1024px) {
+  .btn { padding: 20px; }
+}</code></pre>
+  </td>
+</tr>
+</tbody>
+</table>
+
+<!-- ===== PREFIXES ===== -->
+<h3>Supported Prefixes (usable in classes <em>and</em> components)</h3>
+<table>
+<thead>
+<tr><th>Prefix</th><th>Selector Effect</th><th>Example Class</th><th>Generated Selector</th></tr>
+</thead>
+<tbody>
+<tr><td><code>hover:</code></td><td>Appends <code>:hover</code></td><td><code>hover:bg-red-5</code></td><td><code>.hover\:bg-red-5:hover</code></td></tr>
+<tr><td><code>focus:</code></td><td>Appends <code>:focus</code></td><td><code>focus:border-2</code></td><td><code>.focus\:border-2:focus</code></td></tr>
+<tr><td><code>dark:</code></td><td>Wraps with <code>.dark</code> ancestor</td><td><code>dark:bg-grey-1</code></td><td><code>.dark .dark\:bg-grey-1</code></td></tr>
+<tr><td><code>sm:</code></td><td><code>@media (min-width: 640px)</code></td><td><code>sm:p-10</code></td><td><code>@media (min-width:640px) { .sm\:p-10 }</code></td></tr>
+<tr><td><code>md:</code></td><td><code>@media (min-width: 768px)</code></td><td><code>md:flex:row</code></td><td><code>@media (min-width:768px) { .md\:flex\:row }</code></td></tr>
+<tr><td><code>lg:</code></td><td><code>@media (min-width: 1024px)</code></td><td><code>lg:w-50%</code></td><td><code>@media (min-width:1024px) { .lg\:w-50\% }</code></td></tr>
+<tr><td><code>xl:</code></td><td><code>@media (min-width: 1280px)</code></td><td><code>xl:grid:4,2</code></td><td><code>@media (min-width:1280px) { .xl\:grid\:4\,2 }</code></td></tr>
+<tr><td><code>2xl:</code></td><td><code>@media (min-width: 1536px)</code></td><td><code>2xl:hidden</code></td><td><code>@media (min-width:1536px) { .2xl\:hidden }</code></td></tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Only <strong>one prefix</strong> is supported per class. Chaining (e.g. <code>dark:hover:bg-red</code>) is not supported.</p>
+
+<!-- ===== FULL QUICK REFERENCE ===== -->
+<h3>Quick Reference — All Config Keys</h3>
+<table>
+<thead>
+<tr><th>Key</th><th>Type</th><th>Default Keys</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>colors</code></td><td><code>Object&lt;string, number[][]&gt;</code></td><td>red, crimson, orange, gold, yellow, yellow_green, lime, spring_green, forest_green, cyan, deep_sky, dodger, blue, navy, blue_violet, purple, magenta, pink, deep_pink, grey</td><td>Color palette (10-stop RGB arrays)</td></tr>
+<tr><td><code>space</code></td><td><code>Object&lt;string, string&gt;</code></td><td>p, pl, pr, pt, pb, m, ml, mr, mt, mb</td><td>Spacing shorthand → CSS property map</td></tr>
+<tr><td><code>sizes</code></td><td><code>Object&lt;string, string&gt;</code></td><td>sm, md, lg, xl, xxl</td><td>Named size tokens (used with <code>size-*</code>)</td></tr>
+<tr><td><code>breakpoints</code></td><td><code>Object&lt;string, number&gt;</code></td><td>sm (640), md (768), lg (1024), xl (1280), 2xl (1536)</td><td>Responsive breakpoints in px</td></tr>
+<tr><td><code>font_sizes</code></td><td><code>Object&lt;string, string&gt;</code></td><td>sm, md, lg, xl, xxl</td><td>Named font-size tokens</td></tr>
+<tr><td><code>display</code></td><td><code>Object&lt;string, string&gt;</code></td><td>block, inline, hidden, inline-block, inline-flex, inline-grid</td><td>Display utility class → CSS value map</td></tr>
+<tr><td><code>variables</code></td><td><code>Object&lt;string, string&gt;</code></td><td>black, white, transparent</td><td>Named values substituted via <code>@name</code></td></tr>
+<tr><td><code>components</code></td><td><code>Object&lt;string, string[]&gt;</code></td><td><em>(empty)</em></td><td>Component class → utility class array</td></tr>
+</tbody>
+</table>
+
+<!-- ===== EXPORTS ===== -->
+<h3>Module Exports</h3>
+<p>The config file must export all keys via <code>module.exports</code>:</p>
+<pre><code class="language-javascript">module.exports = {
+  colors: colors,
+  space: space,
+  sizes: sizes,
+  breakpoints: breakpoints,
+  font_sizes: font_sizes,
+  components: components,
+  display: display,
+  variables: variables,
+};</code></pre>
+
 </main>
 <script>
 const toggleBtn = document.getElementById('sidebar-toggle');
